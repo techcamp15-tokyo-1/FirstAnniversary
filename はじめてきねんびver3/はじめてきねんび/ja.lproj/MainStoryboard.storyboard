@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="22"/>
+            <point key="canvasLocation" x="-1471" y="-686"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="NTv-nW-swk">
@@ -169,12 +169,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="userName" destination="fTP-rs-Hic" id="RtM-gf-jMg"/>
                         <outlet property="userNumber" destination="wqv-sV-SJj" id="YuA-09-7Kp"/>
+                        <outlet property="userTab" destination="wqv-sV-SJj" id="42i-7j-JT2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiG-Cb-6Fw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106" y="-2"/>
+            <point key="canvasLocation" x="-422" y="-705"/>
         </scene>
         <!--Setting View Controller - ユーザー情報-->
         <scene sceneID="EMF-yg-xHx">
@@ -197,6 +199,7 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JXc-jX-Bmd">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="QxN-RF-Mxf"/>
+                                    <constraint firstAttribute="width" constant="255" id="g8j-Bw-tcF"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="398582922.96622002">
                                     <!--2013-08-19 05:28:42 +0000-->
@@ -238,40 +241,47 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQ8-d8-vSw">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveInformation:" destination="Bo5-nL-Flj" eventType="touchUpInside" id="EwO-Uz-XiO"/>
+                                    <segue destination="5Rg-xz-9EM" kind="push" id="tCb-Fx-TK3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="ByO-VY-VwN" secondAttribute="centerX" type="default" id="EwD-h4-MIG"/>
-                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="trailing" secondItem="o6U-CQ-TFK" secondAttribute="trailing" type="default" id="GSP-ja-DwO"/>
+                            <constraint firstItem="QpP-If-e9l" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="9" id="14r-wf-a4X"/>
+                            <constraint firstItem="NQ8-d8-vSw" firstAttribute="centerX" secondItem="JXc-jX-Bmd" secondAttribute="centerX" type="default" id="34d-Jr-4ZA"/>
+                            <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="GsP-84-fQU" secondAttribute="centerX" type="default" id="52s-Qr-Prg"/>
+                            <constraint firstItem="GsP-84-fQU" firstAttribute="top" secondItem="ByO-VY-VwN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8NV-YB-kBr"/>
+                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="134" id="BBp-hR-ouj"/>
+                            <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="JXc-jX-Bmd" secondAttribute="centerX" type="default" id="Dod-vK-sWk"/>
+                            <constraint firstAttribute="bottom" secondItem="NQ8-d8-vSw" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="E3D-Ch-YI0"/>
+                            <constraint firstItem="ExX-P2-yUk" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="100" id="IeW-GR-te4"/>
                             <constraint firstItem="ByO-VY-VwN" firstAttribute="centerX" secondItem="QpP-If-e9l" secondAttribute="centerX" type="default" id="Jqi-cO-4pI"/>
-                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="bottom" secondItem="o6U-CQ-TFK" secondAttribute="bottom" type="default" id="PTJ-k7-Nq1"/>
-                            <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="GsP-84-fQU" secondAttribute="centerX" type="default" id="W4q-3K-Lle"/>
-                            <constraint firstItem="GsP-84-fQU" firstAttribute="centerX" secondItem="JXc-jX-Bmd" secondAttribute="centerX" type="default" id="g7D-s8-hsF"/>
-                            <constraint firstItem="QpP-If-e9l" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="11" id="hJF-HH-m63"/>
-                            <constraint firstItem="ExX-P2-yUk" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="132" id="izM-W6-dYz"/>
-                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="leading" secondItem="o6U-CQ-TFK" secondAttribute="leading" type="default" id="pvH-RX-aj4"/>
-                            <constraint firstItem="GsP-84-fQU" firstAttribute="top" secondItem="ExX-P2-yUk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uvX-R5-01O"/>
+                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="centerX" secondItem="o6U-CQ-TFK" secondAttribute="centerX" type="default" id="eij-cF-eJx"/>
                             <constraint firstItem="ByO-VY-VwN" firstAttribute="top" secondItem="QpP-If-e9l" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yU8-Xo-we9"/>
+                            <constraint firstItem="ByO-VY-VwN" firstAttribute="centerX" secondItem="GsP-84-fQU" secondAttribute="centerX" type="default" id="zl5-Dg-jrk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ユーザー情報" id="H0H-Xa-05O">
-                        <barButtonItem key="rightBarButtonItem" title="変更" id="8aL-3B-BI1">
-                            <connections>
-                                <action selector="saveInformation:" destination="Bo5-nL-Flj" id="Ycf-Uq-qpY"/>
-                                <segue destination="5Rg-xz-9EM" kind="push" id="z6n-i0-EEm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ユーザー情報" id="H0H-Xa-05O"/>
                     <connections>
                         <outlet property="labelBirthday" destination="ExX-P2-yUk" id="bcT-0D-czr"/>
-                        <outlet property="textfield" destination="ByO-VY-VwN" id="89j-NM-a7k"/>
+                        <outlet property="textfield" destination="ByO-VY-VwN" id="dxl-Zk-WfE"/>
                         <outlet property="userBirthday" destination="JXc-jX-Bmd" id="7LG-c5-q7d"/>
-                        <outlet property="userName" destination="ByO-VY-VwN" id="91P-2o-lQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KPA-pA-U2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-318" y="-552"/>
+            <point key="canvasLocation" x="-1027" y="758"/>
         </scene>
         <!--View Controller - はじめての写真-->
         <scene sceneID="P82-K7-ob3">
@@ -345,7 +355,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zga-15-DRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="-696"/>
+            <point key="canvasLocation" x="-455" y="781"/>
         </scene>
         <!--Time Line View Controller - TimeLine-->
         <scene sceneID="nS3-cv-ol8">
@@ -664,7 +674,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsb-Ls-DYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="-422"/>
+            <point key="canvasLocation" x="239" y="-694"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="Eyz-Hf-qgb">
@@ -694,7 +704,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XTa-aZ-Atz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="-705"/>
+            <point key="canvasLocation" x="1133" y="-705"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Ugr-Zq-hhu">
@@ -740,7 +750,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aja-6i-mdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="728"/>
+            <point key="canvasLocation" x="319" y="344"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
@@ -795,7 +805,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="121"/>
+            <point key="canvasLocation" x="754" y="-79"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="24">
@@ -826,75 +836,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="-230"/>
+            <point key="canvasLocation" x="1310" y="-106"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CameraViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cameraButtonTapped:"/>
-                <relationship kind="action" name="libraryButtonTapped:"/>
-                <relationship kind="outlet" name="pictureImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="CustomCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="labelDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelDays" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="openCam:"/>
-                <relationship kind="outlet" name="userNumber" candidateClass="UITabBar"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SettingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="DateChanged:"/>
-                <relationship kind="action" name="saveInformation:"/>
-                <relationship kind="outlet" name="labelBirthday" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userBirthday" candidateClass="UIDatePicker"/>
-            </relationships>
-        </class>
-        <class className="TimeLineViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="imageButton:"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

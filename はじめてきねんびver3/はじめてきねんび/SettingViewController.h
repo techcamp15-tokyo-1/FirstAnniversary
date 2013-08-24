@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface SettingViewController : UIViewController<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *textfield;
+@interface SettingViewController : UIViewController<UITextFieldDelegate>{
+}
 
-@property (weak, nonatomic) IBOutlet UILabel *labelBirthday;
-@property (weak, nonatomic) IBOutlet UIDatePicker *userBirthday;
+@property (strong, nonatomic) IBOutlet UITextField *textfield;
+
+@property (strong, nonatomic) IBOutlet UILabel *labelBirthday;
+@property (strong, nonatomic) IBOutlet UIDatePicker *userBirthday;
 - (IBAction)DateChanged:(id)sender;
 - (IBAction)saveInformation:(id)sender;
 
 
-@property NSUserDefaults *defaults;
+//@property NSUserDefaults *defaults;
 
 @end
+

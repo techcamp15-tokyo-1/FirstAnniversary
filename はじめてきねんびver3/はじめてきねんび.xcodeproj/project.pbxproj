@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		497FC30017C89A9C005A84EF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 497FC2FF17C89A9C005A84EF /* User.m */; };
 		498CC93B17C5CF1F00B3F110 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 498CC93A17C5CF1F00B3F110 /* CustomCell.m */; };
 		498CC94117C6EB6900B3F110 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498CC94017C6EB6900B3F110 /* TimeLineViewController.m */; };
 		498CC94A17C6EC9C00B3F110 /* p1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 498CC94217C6EC9700B3F110 /* p1.jpg */; };
@@ -46,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		497FC2FE17C89A9C005A84EF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		497FC2FF17C89A9C005A84EF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		498CC93917C5CF1F00B3F110 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		498CC93A17C5CF1F00B3F110 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 		498CC93F17C6EB6900B3F110 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeLineViewController.h; path = ../TimeLineViewController.h; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				A3AB9E6917BE29C6005BA310 /* DetailViewController.m */,
 				A3A1A9A817C1E647006FB40B /* SettingViewController.h */,
 				A3A1A9A917C1E648006FB40B /* SettingViewController.m */,
+				497FC2FE17C89A9C005A84EF /* User.h */,
+				497FC2FF17C89A9C005A84EF /* User.m */,
 				A3AB9E5117BE29C6005BA310 /* Supporting Files */,
 			);
 			path = "はじめてきねんび";
@@ -291,6 +296,7 @@
 				A3A1AB6617C4F3F0006FB40B /* CameraViewController.mm in Sources */,
 				498CC93B17C5CF1F00B3F110 /* CustomCell.m in Sources */,
 				498CC94117C6EB6900B3F110 /* TimeLineViewController.m in Sources */,
+				497FC30017C89A9C005A84EF /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
