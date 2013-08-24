@@ -16,6 +16,7 @@
 
 #pragma mark - Managing the detail item
 
+
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -32,8 +33,10 @@
 
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
+        self.detailImageView.image = (UIImage*)_detailItem;
     }
 }
+
 
 - (void)viewDidLoad
 {

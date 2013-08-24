@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "FirstViewController.h"
 
 #import "Item.h"
 
@@ -46,7 +47,7 @@
     UIGraphicsBeginImageContext(CGSizeMake(width, height));
     [_item1.itemImage drawInRect:CGRectMake(0, 0, width, height)];
     _item1.itemImage = UIGraphicsGetImageFromCurrentImageContext();
-  //  UIGraphicsEndImageContext();
+    //  UIGraphicsEndImageContext();
     [_itemArray addObject:_item1];
     
     _item2 = [Item new];
@@ -54,7 +55,7 @@
     _item2.itemImage =[UIImage imageNamed:@"離乳食.png"];
     [_item2.itemImage drawInRect:CGRectMake(0, 0, width, height)];
     _item2.itemImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
+    //    UIGraphicsEndImageContext();
     [_itemArray addObject:_item2];
     
     _item3 = [Item new];
@@ -167,4 +168,6 @@
 
 - (IBAction)movieCreate:(id)sender {
 }
+
+
 @end

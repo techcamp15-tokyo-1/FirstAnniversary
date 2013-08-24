@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UITabBar *userNumber;
 
 - (IBAction)openCam:(id)sender;
 

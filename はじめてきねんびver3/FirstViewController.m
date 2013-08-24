@@ -23,11 +23,13 @@
     }
     return self;
 }
-
+    
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	//ナビゲーションバーの色を変える
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,8 +54,7 @@
     //撮影UIを画面から取り除く
     [picker dismissViewControllerAnimated:YES completion:^{}];
     
-    
-    
 }
+
 
 @end
