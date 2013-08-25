@@ -51,6 +51,13 @@ static User *currentUser;
 -(NSString *)name {
     return [_dict valueForKey: @"name"];
 }
+-(void)setBirthday:(NSString *)birthday{
+    [_dict setObject:birthday forKey:@"birthday"];
+    [self saveData];
+}
+-(NSString *)birthday {
+    return [_dict valueForKey: @"birthday"];
+}
 -(void)setDictionary:(NSMutableDictionary *)dict{
     _dict = [NSMutableDictionary dictionaryWithDictionary:dict];
 }

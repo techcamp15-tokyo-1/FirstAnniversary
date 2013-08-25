@@ -14,6 +14,8 @@
 
 @property (strong) NSString* name;
 @property (readonly) int userId;
+@property (strong) NSDate *birthday;
+
 
 +(User *)getCurrentUser;
 +(User *)loadUser:(int)targetUserId;

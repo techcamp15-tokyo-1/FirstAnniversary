@@ -47,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4957DB6117C98E000028439A /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 		497FC2FE17C89A9C005A84EF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		497FC2FF17C89A9C005A84EF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		498CC93917C5CF1F00B3F110 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -172,6 +173,7 @@
 				498CC94717C6EC9900B3F110 /* p6.jpg */,
 				498CC94817C6EC9A00B3F110 /* p7.jpg */,
 				498CC94917C6EC9A00B3F110 /* p8.jpg */,
+				4957DB6117C98E000028439A /* defines.h */,
 				498CC93917C5CF1F00B3F110 /* CustomCell.h */,
 				498CC93A17C5CF1F00B3F110 /* CustomCell.m */,
 				498CC93F17C6EB6900B3F110 /* TimeLineViewController.h */,

@@ -16,8 +16,8 @@ NSUserDefaults *defaults;
 User *user;
 int userId;
 
--
-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -26,24 +26,54 @@ int userId;
     return self;
 }
 
-//- (IBAction)DateChanged:(id)sender{
-//    [NSUserDefaults ]
-//    //ラベルに表示する日付・時刻のフォーマットを指定
-//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
-//    df.dateFormat = @"yyyy年MM月dd日 HH時mm分";
-//    
-//    [self.defaults setObject:df forKey:@"birthday"];
-//    
-//    //ラベルに指定したフォーマットで表示
-//   // NSLog([df stringFromDate:userBirthday.date]);
-//    
-//}
+- (IBAction)DateChanged:(id)sender{
+    //ラベルに表示する日付・時刻のフォーマットを指定
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    df.dateFormat = @"yyyy年MM月dd日";
+    
+    
+    [defaults setObject:self.userBirthday forKey:@"birthday"];
+    
+    //ラベルに指定したフォーマットで表示
+   // NSLog([df stringFromDate:userBirthday.date]);
+    
+    self.labelBirthday.text = [df stringFromDate:self.userBirthday.date];
+    
+    
+    
+}
 
 //ユーザ情報を保存
 - (IBAction)saveInformation:(id)sender {
-    user.name = self.textfield.text;
+    NSString *validation = [self isUserInformationValidate];
+    if (validation == nil) {
+        user.name = self.textfield.text;
+        user.birthday = self.userBirthday.date;
+    } else {
+        NSLog(validation);
+        
+    }
+    
+
 }
 
+//ユーザ情報が有効かを判定するバリデーション
+- (NSString *)isUserInformationValidate{
+    
+    if ([self.textfield.text isEqualToString:@""]) return @"なまえいれろごるぁ";
+    if ([self.userBirthday.date timeIntervalSince1970] > [[NSDate date] timeIntervalSince1970]) return @"誕生日側のエラー";
+    
+    return nil;
+}
+
+//セグエの設定
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if  ([self isUserInformationValidate] == nil){
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 //閉じたときキーボードをしまう
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
@@ -77,6 +107,10 @@ int userId;
         self.textfield.text = user.name;
         NSLog(@"elseの方通ってますわ");
     }
+    
+    //誕生日を表示
+    self.userBirthday.date = user.birthday ? user.birthday : [NSDate date];
+    
 }
 
 - (void)didReceiveMemoryWarning
