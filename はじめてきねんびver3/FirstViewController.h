@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#define CAMERA_TAB 3
+
 
 @interface FirstViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,
     UITabBarDelegate

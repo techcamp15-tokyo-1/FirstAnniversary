@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SettingViewController.h"
+#import "CameraViewController.h"
 
 @implementation FirstViewController
 
@@ -22,8 +23,13 @@
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    if ( item.tag == CAMERA_TAB ){
+        CameraViewController *mycontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
+        [self presentViewController:mycontroller animated:YES completion:nil];
+    
+    }
     User *user = [User loadUser:item.tag];
-    self.userName.text = user.name;
+    self.userName.text = user.name;    
 }
 
 - (void)viewDidLoad
@@ -58,6 +64,7 @@
     NSLog(@" %@",user.name);
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
