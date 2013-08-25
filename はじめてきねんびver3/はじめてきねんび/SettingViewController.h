@@ -21,3 +21,8 @@
 
 @end
 
+enum ERRORTYPE {
+    SUCCESS,
+    ERR_NONAME,
+    ERR_BIRTHDAY_IS_INVALID
+};

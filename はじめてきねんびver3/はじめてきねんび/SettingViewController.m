@@ -45,30 +45,43 @@ int userId;
 
 //ユーザ情報を保存
 - (IBAction)saveInformation:(id)sender {
-    NSString *validation = [self isUserInformationValidate];
-    if (validation == nil) {
+    int validation = [self isUserInformationValidate];
+    if (validation == SUCCESS) {
         user.name = self.textfield.text;
         user.birthday = self.userBirthday.date;
     } else {
-        NSLog(validation);
+        [self errorMessage:validation];
         
     }
-    
-
 }
 
 //ユーザ情報が有効かを判定するバリデーション
-- (NSString *)isUserInformationValidate{
+- (int)isUserInformationValidate{
     
-    if ([self.textfield.text isEqualToString:@""]) return @"なまえいれろごるぁ";
-    if ([self.userBirthday.date timeIntervalSince1970] > [[NSDate date] timeIntervalSince1970]) return @"誕生日側のエラー";
+    if ([self.textfield.text isEqualToString:@""]) return ERR_NONAME;
+    if ([self.userBirthday.date timeIntervalSince1970] > [[NSDate date] timeIntervalSince1970]) return ERR_BIRTHDAY_IS_INVALID;
     
-    return nil;
+    return SUCCESS;
+}
+- (void)errorMessage:(int )errorType{
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    alert.title = @"入力情報を確認してください";
+    [alert addButtonWithTitle:@"OK"];
+    switch (errorType) {
+        case ERR_NONAME:
+            alert.message = @"名前が未入力です";
+            break;
+        case ERR_BIRTHDAY_IS_INVALID:
+            alert.message = @"誕生日が正しくありません";
+            break;
+    }
+    [alert show];
+    
 }
 
 //セグエの設定
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if  ([self isUserInformationValidate] == nil){
+    if  ([self isUserInformationValidate] == SUCCESS){
         return YES;
     } else {
         return NO;
@@ -117,5 +130,7 @@ int userId;
 {
     [super didReceiveMemoryWarning];
 }
+
+
 
 @end

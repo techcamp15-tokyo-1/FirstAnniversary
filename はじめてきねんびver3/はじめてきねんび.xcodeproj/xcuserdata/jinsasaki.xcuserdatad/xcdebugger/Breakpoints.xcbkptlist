@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         timestampString = "399091608.033422"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
+         startingLineNumber = "55"
+         endingLineNumber = "55"
          landmarkName = "-saveInformation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         timestampString = "399091608.033422"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
          landmarkName = "-isUserInformationValidate"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         timestampString = "399091608.033422"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
+         startingLineNumber = "61"
+         endingLineNumber = "61"
          landmarkName = "-isUserInformationValidate"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         timestampString = "399091608.033422"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         timestampString = "399091608.033422"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "86"
+         endingLineNumber = "86"
          landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         timestampString = "399091608.033422"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -209,6 +209,19 @@
          startingLineNumber = "49"
          endingLineNumber = "49"
          landmarkName = "-saveInformation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
+         timestampString = "399088913.135407"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "-initWithNibName:bundle:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
