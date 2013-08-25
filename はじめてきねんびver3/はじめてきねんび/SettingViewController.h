@@ -9,14 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface SettingViewController : UIViewController<UITextFieldDelegate>
-
-@property (strong, nonatomic) IBOutlet UITextField *textfield;
-
-@property (strong, nonatomic) IBOutlet UILabel *labelBirthday;
-@property (nonatomic ,retain) IBOutlet UIDatePicker *userBirthday;
-- (IBAction)DateChanged:(id)sender;
-- (IBAction)saveInformation:(id)sender;
+@interface SettingViewController : UICollectionViewController<UITextFieldDelegate>
 
 
 @end

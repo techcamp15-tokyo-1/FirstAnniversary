@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "FirstViewController.h"
+#import "SettingCell.h"
 
 
 @implementation SettingViewController
@@ -51,7 +52,6 @@ int userId;
         user.birthday = self.userBirthday.date;
     } else {
         NSLog(validation);
-        
     }
     
 
@@ -84,7 +84,6 @@ int userId;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.textfield.delegate = self;
 
     // 言語は日本語(iOSの設定の書式に該当)
@@ -111,11 +110,32 @@ int userId;
     //誕生日を表示
     self.userBirthday.date = user.birthday ? user.birthday : [NSDate date];
     
+    //self.scrollView.contentSize = CGSizeMake(100, 100);
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _objects.count+1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self identifierWithIndexPath:indexPath] forIndexPath:indexPath];
+    [self setImageWithIndexPath:indexPath :cell];
+    [cell button].tag = indexPath.row;
+    // [cell setDate:?:[_objects objectAtIndex:indexPath.item]];
+    // [cell setImage:[_objects objectAtIndex:indexPath.item]];
+    return cell;
+}
+
 
 @end
