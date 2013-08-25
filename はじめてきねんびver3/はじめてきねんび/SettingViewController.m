@@ -29,7 +29,7 @@ int userId;
 - (IBAction)DateChanged:(id)sender{
     //ラベルに表示する日付・時刻のフォーマットを指定
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
-    df.dateFormat = @"yyyy年MM月dd日";
+    df.dateFormat = @"yyyy/MM/dd";
     
     
     [defaults setObject:self.userBirthday forKey:@"birthday"];

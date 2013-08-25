@@ -24,8 +24,11 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     if ( item.tag == CAMERA_TAB ){
-        CameraViewController *mycontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
-        [self presentViewController:mycontroller animated:YES completion:nil];
+        
+        [self performSegueWithIdentifier:@"camera" sender:item];
+        
+//        CameraViewController *mycontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
+//        [self presentViewController:mycontroller animated:YES completion:nil];
     
     }
     User *user = [User loadUser:item.tag];

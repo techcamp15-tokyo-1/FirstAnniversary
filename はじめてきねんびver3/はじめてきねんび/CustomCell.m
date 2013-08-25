@@ -25,13 +25,13 @@
 {
     [imageButton setBackgroundImage:image forState:UIControlStateNormal];
 }
-- (void)setDate:(UILabel *)label
+- (void)setDate:(NSString *)label
 {
-    [labelDate setText:label.text ];
+    [labelDate setText:label ];
 }
-- (void)setDays:(UILabel *)label
+- (void)setDays:(NSString *)label
 {
-    [labelDays setText:label.text ];
+    [labelDays setText:label ];
 }
 /*
 - (void)setImage:(UIImage *)image
