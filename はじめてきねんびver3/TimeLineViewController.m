@@ -45,8 +45,6 @@
         NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
         [array addObject:[UIImage imageNamed:filename]];
     }
-
-    
     // サンプルデータの読み込み
     [self loadImageData:array];
     [self loadlabelDate];
