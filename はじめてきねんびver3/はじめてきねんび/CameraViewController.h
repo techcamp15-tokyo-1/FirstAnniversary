@@ -7,20 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <opencv2/highgui/highgui_c.h>
-#import <opencv2/highgui/highgui.hpp>
-//#import <opencv2/core/core_c.h>
-
-//using namespace cv;
 
 
-@interface CameraViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>//, CvVideoCameraDelegate>
+@interface CameraViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
-// CVideoCamera* videocamera;
+
 }
-- (IBAction)cameraButtonTapped:(id)sender;
-- (IBAction)libraryButtonTapped:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
-//@property (nonatomic,retain)CvVideoCamera
+@property NSString *personName;
+@property NSString *createdPersonDirPath;
+@property NSString *dateString;
+
+-(void) saveImageFile:(UIImage *)image personName:name;
+- (NSString*) getDataStorePath ;
+
 
 @end
