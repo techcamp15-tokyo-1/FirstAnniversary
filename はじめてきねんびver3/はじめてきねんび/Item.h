@@ -20,6 +20,6 @@
 
 +(Item *)getCurrentItem;
 +(Item *)loadItem:(int)targetItemId;
--(void )saveItem;
+-(void )saveItem:(NSString *)title:(NSString *)message:(NSString *)imageName;
 
 @end

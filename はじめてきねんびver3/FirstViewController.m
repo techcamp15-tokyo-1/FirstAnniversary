@@ -28,7 +28,7 @@
         [self performSegueWithIdentifier:@"camera" sender:item];
     }
     User *user = [User loadUser:item.tag];
-    [self paintBackgroundColor: user.userId];
+//    [self paintBackgroundColor: user.userId];
     self.userName.text = user.name;    
 }
 
@@ -122,6 +122,7 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
     
 }
+
 
 
 @end

@@ -25,8 +25,9 @@
 
 - (void)viewDidLoad
 {
-    [self setPictureImage:nil];
     [super viewDidLoad];
+    [self setPictureImage:nil];
+    
 	// Do any additional setup after loading the view.
 }
 

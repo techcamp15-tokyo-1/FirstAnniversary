@@ -133,6 +133,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="userName" destination="fTP-rs-Hic" id="RtM-gf-jMg"/>
                         <outlet property="userNumber" destination="wqv-sV-SJj" id="YuA-09-7Kp"/>
@@ -165,7 +166,7 @@
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JXc-jX-Bmd">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="QxN-RF-Mxf"/>
-                                    <constraint firstAttribute="width" constant="255" id="g8j-Bw-tcF"/>
+                                    <constraint firstAttribute="width" constant="270" id="k9X-rE-X0g"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="398582922.96622002">
                                     <!--2013-08-19 05:28:42 +0000-->
@@ -224,21 +225,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="140" id="0CX-2y-atm"/>
                             <constraint firstItem="QpP-If-e9l" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="9" id="14r-wf-a4X"/>
-                            <constraint firstItem="NQ8-d8-vSw" firstAttribute="centerX" secondItem="JXc-jX-Bmd" secondAttribute="centerX" type="default" id="34d-Jr-4ZA"/>
                             <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="GsP-84-fQU" secondAttribute="centerX" type="default" id="52s-Qr-Prg"/>
                             <constraint firstItem="GsP-84-fQU" firstAttribute="top" secondItem="ByO-VY-VwN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8NV-YB-kBr"/>
-                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="134" id="BBp-hR-ouj"/>
-                            <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="JXc-jX-Bmd" secondAttribute="centerX" type="default" id="Dod-vK-sWk"/>
+                            <constraint firstItem="NQ8-d8-vSw" firstAttribute="leading" secondItem="o6U-CQ-TFK" secondAttribute="leading" constant="132" id="9aL-MO-QAy"/>
                             <constraint firstAttribute="bottom" secondItem="NQ8-d8-vSw" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="E3D-Ch-YI0"/>
-                            <constraint firstItem="ExX-P2-yUk" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="100" id="IeW-GR-te4"/>
                             <constraint firstItem="ByO-VY-VwN" firstAttribute="centerX" secondItem="QpP-If-e9l" secondAttribute="centerX" type="default" id="Jqi-cO-4pI"/>
-                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="centerX" secondItem="o6U-CQ-TFK" secondAttribute="centerX" type="default" id="eij-cF-eJx"/>
+                            <constraint firstItem="JXc-jX-Bmd" firstAttribute="centerX" secondItem="ExX-P2-yUk" secondAttribute="centerX" type="default" id="LLB-XU-1is"/>
+                            <constraint firstItem="ExX-P2-yUk" firstAttribute="top" secondItem="o6U-CQ-TFK" secondAttribute="top" constant="100" id="W23-oT-Ehb"/>
+                            <constraint firstItem="ExX-P2-yUk" firstAttribute="centerX" secondItem="o6U-CQ-TFK" secondAttribute="centerX" type="default" id="qzP-US-4RC"/>
                             <constraint firstItem="ByO-VY-VwN" firstAttribute="top" secondItem="QpP-If-e9l" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yU8-Xo-we9"/>
                             <constraint firstItem="ByO-VY-VwN" firstAttribute="centerX" secondItem="GsP-84-fQU" secondAttribute="centerX" type="default" id="zl5-Dg-jrk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ユーザー情報" id="H0H-Xa-05O"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="labelBirthday" destination="ExX-P2-yUk" id="bcT-0D-czr"/>
                         <outlet property="textfield" destination="ByO-VY-VwN" id="dxl-Zk-WfE"/>
@@ -318,6 +320,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="はじめての写真" id="7Px-6J-P32"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zga-15-DRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -736,7 +739,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController title="Detail" id="huI-v5-YnR" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LaW-iQ-PZ6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="480" height="256"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YQ-gEK">
@@ -750,6 +753,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="Ngh-YQ-gEK" firstAttribute="trailing" secondItem="LaW-iQ-PZ6" secondAttribute="trailing" type="default" id="60M-Ak-KHE"/>
                             <constraint firstItem="Ngh-YQ-gEK" firstAttribute="leading" secondItem="LaW-iQ-PZ6" secondAttribute="leading" type="default" id="cZN-2i-xXp"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail of TimeLine" id="PMx-xz-1c0">
                         <barButtonItem key="rightBarButtonItem" title="編集" id="xn4-Bl-p9X">
@@ -889,27 +893,40 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstAttribute="height" constant="153" id="jgU-6F-Mva"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1I3-zl-Lzm">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="登録">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="register:" destination="21" eventType="touchUpInside" id="BcZ-bg-tbU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="nXu-XX-hPD" secondAttribute="bottom" constant="130" id="22Q-Fy-4DN"/>
+                            <constraint firstAttribute="bottom" secondItem="1I3-zl-Lzm" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="2MX-G3-GGF"/>
                             <constraint firstItem="2pB-HU-lif" firstAttribute="centerX" secondItem="cAQ-Bu-7Fs" secondAttribute="centerX" type="default" id="JfQ-wK-Z2d"/>
                             <constraint firstItem="2pB-HU-lif" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PhU-M6-lHw"/>
                             <constraint firstItem="cAQ-Bu-7Fs" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Q9B-CR-cNH"/>
+                            <constraint firstItem="1I3-zl-Lzm" firstAttribute="centerX" secondItem="nXu-XX-hPD" secondAttribute="centerX" type="default" id="Ube-RD-ZP0"/>
                             <constraint firstAttribute="trailing" secondItem="nXu-XX-hPD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kbN-Ha-tT1"/>
                             <constraint firstItem="nXu-XX-hPD" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rym-tj-bM3"/>
                             <constraint firstAttribute="trailing" secondItem="2pB-HU-lif" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="u3b-FA-wn9"/>
                             <constraint firstItem="2pB-HU-lif" firstAttribute="top" secondItem="22" secondAttribute="top" constant="207" id="z6a-IS-Mbs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="編集" id="26">
-                        <barButtonItem key="rightBarButtonItem" title="登録" id="btP-N0-Sgn"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="編集" id="26"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="imageEdit" destination="cAQ-Bu-7Fs" id="OXi-8s-LYN"/>
                         <outlet property="textFieldMessage" destination="nXu-XX-hPD" id="MAq-jX-va8"/>
                         <outlet property="textFieldTitle" destination="2pB-HU-lif" id="fBs-O1-7C8"/>
-                        <outlet property="titleEdit" destination="2pB-HU-lif" id="Us9-pb-b9B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -929,6 +946,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Msx-be-rtX"/>
+        <segue reference="W5b-Sr-m8J"/>
     </inferredMetricsTieBreakers>
 </document>

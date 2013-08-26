@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITabBar *userTab;
 
 - (IBAction)openCam:(id)sender;
-- (IBAction)sendInformationToSetting:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uIBarButtonItem;
 

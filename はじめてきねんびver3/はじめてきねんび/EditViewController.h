@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditViewController : UIViewController
+@interface EditViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageEdit;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldTitle;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldMessage;
+
+- (IBAction)register:(id)sender;
 
 @end

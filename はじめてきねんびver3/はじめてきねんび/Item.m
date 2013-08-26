@@ -11,7 +11,7 @@
 @implementation Item
 static Item *currentItem;
 
--(void)saveItem : (NSString *)title :(NSString *)message :(NSString *)imageName{
+-(void)saveItem:(NSString *)title :(NSString *)message :(NSString *)imageName{
     self.title = title;
     self.message = message;
     self.imageName = imageName;
