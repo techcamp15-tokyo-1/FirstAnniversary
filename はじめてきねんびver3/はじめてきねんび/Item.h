@@ -7,9 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#define NO_TITLE @"未設定"
+@interface Item : NSObject{
+    NSMutableDictionary *_dict;
+}
 
-@interface Item : NSObject
-@property NSString *itemName;
-@property UIImage *itemImage;
+@property NSString *title;
+@property NSString *message;
+@property NSString *imageName;
+@property (readonly) int itemId;
+
+
++(Item *)getCurrentItem;
++(Item *)loadItem:(int)targetItemId;
+-(void )saveItem;
 
 @end

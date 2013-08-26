@@ -26,13 +26,35 @@
     if ( item.tag == CAMERA_TAB ){
         
         [self performSegueWithIdentifier:@"camera" sender:item];
-        
-//        CameraViewController *mycontroller = [self.storyboard instantiateViewControllerWithIdentifier:@"camera"];
-//        [self presentViewController:mycontroller animated:YES completion:nil];
-    
     }
     User *user = [User loadUser:item.tag];
+    [self paintBackgroundColor: user.userId];
     self.userName.text = user.name;    
+}
+
+- (void)paintBackgroundColor:(int)currentId{
+    float r = 0;
+    float g = 0;
+    float b = 0;
+    float a = 1.0;
+    switch (currentId) {
+        case 0:
+            r = 1.0;
+            g = 0.5;
+            b = 0.0;
+            break;
+        case 1:
+            r = 0.5;
+            g = 0.0;
+            b = 1.0;
+            break;
+        case 2:
+            r = 0.0;
+            g = 1.0;
+            b = 0.5;
+            break;
+    }
+    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:a];
 }
 
 - (void)viewDidLoad
@@ -50,21 +72,27 @@
     
     //ユーザー切り替えをハンドリングする
     int i = 0;
-    for (UITabBar *tab in self.userTab.items) tab.tag=i++;
+    for (UITabBar *tab in self.userTab.items) {
+        tab.tag=i++;
+    }
     self.userTab.selectedItem = self.userTab.items[user.userId];
     self.userTab.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0];
     
     //ナビゲーション切り替えをハンドリングする
     self.uIBarButtonItem.target = self;
     self.uIBarButtonItem.action = @selector(barButtonTap);
+//    [self paintBackgroundColor: user.userId];
+    
     
     //ユーザの名前を出す
     if ([user.name length] == 0 )
         self.userName.text = @"未設定";
     else
         self.userName.text = user.name;
-    
-    NSLog(@" %@",user.name);
+//    UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
+//    tbi.title = @"hoge";
+//    
     
 }
 

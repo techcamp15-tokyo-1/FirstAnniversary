@@ -9,6 +9,9 @@
 #import "CustomCell.h"
 
 @implementation CustomCell
+{
+    NSDateFormatter *df;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,14 +28,19 @@
 {
     [imageButton setBackgroundImage:image forState:UIControlStateNormal];
 }
-- (void)setDate:(NSString *)label
+- (void)setDate:(NSDate *)date
 {
-    [labelDate setText:label ];
+    df =  [[NSDateFormatter alloc]init];
+    df.dateFormat = @"yyyy/MM/dd";
+    [labelDate setText: [df stringFromDate:date]];
 }
-- (void)setDays:(NSString *)label
+- (void)setDays:(NSString *)days
 {
-    [labelDays setText:label ];
+    df =  [[NSDateFormatter alloc]init];
+    df.dateFormat = @"yyyy/MM/dd";
+    [labelDays setText: [NSString stringWithFormat:@"%@",days]];
 }
+
 /*
 - (void)setImage:(UIImage *)image
 {

@@ -65,33 +65,30 @@
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
     df.dateFormat = @"yyyy/MM/dd";
     _arrayOfDates = [NSMutableArray array];
-    [_arrayOfDates addObject:[df stringFromDate:user.birthday]];
+    [_arrayOfDates addObject:user.birthday];
     
     for (int i = 1 ; i <= 7 ; i++){
-        NSString *str = [NSString stringWithFormat:@"%d",i];
-        [_arrayOfDates addObject: str];
+        [_arrayOfDates addObject:[NSDate dateWithTimeIntervalSinceNow:-1* (8 - i) *24*60*60]];
     }
-    [_arrayOfDates addObject:[df stringFromDate:[NSDate date]]];
+    [_arrayOfDates addObject:[NSDate date]] ;
 }
 
+         
 - (void)loadlabelDays
 {
     //経過日数を設定読み込む
     _arrayOfDays = [NSMutableArray array];
     NSString *firstGreeting =[NSString stringWithFormat:@"はじめまして%@さん",user.name];
     [_arrayOfDays addObject:firstGreeting];
-    int index = 1;
-    for ( id content in _arrayOfDates ){
-        _arrayOfDays = [self calcDaysAsString:_arrayOfDates[index]];
-        
+    for ( int i = 1 ; i<= [_arrayOfDates count]-1 ;i++){
+        [_arrayOfDays addObject:[self calcDaysAsString: _arrayOfDates[i]:user.birthday]];
     }
 //    _arrayOfDays=[[NSMutableArray alloc]initWithObjects:firstGreeting,@"4days",@"5days",@"6days",@"7days",@"8days",@"9days",@"9days",@"9days", nil];
 }
 
 //経過日数を計算し、文字列で返す
-- (NSString *)calcDaysAsString :(NSDate *)date{
-    NSDate *now = [NSDate date];
-    NSTimeInterval days = [now timeIntervalSinceDate:date];
+- (NSString *)calcDaysAsString :(NSDate *)date :(NSDate *)birthday{
+    NSTimeInterval days = [date timeIntervalSinceDate:birthday] / 24 / 60 / 60;
     NSLog(@"%.0f日",days);
     return [NSString stringWithFormat:@"%.0f日",days];
 }

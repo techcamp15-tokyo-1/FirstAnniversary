@@ -7,221 +7,78 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037262.939413"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399184991.786079"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-setName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037262.939413"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "-setName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037260.378493"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
-         landmarkName = "+loadUser:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037377.901107"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "40"
-         endingLineNumber = "40"
-         landmarkName = "-setUserId:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037378.48811"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
-         landmarkName = "-setUserId:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037379.313112"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-userId"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037379.825507"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-userId"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/User.m"
-         timestampString = "399037546.946159"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-setName:"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
+         landmarkName = "-loadlabelDays"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399184993.626942"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-saveInformation:"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-loadlabelDays"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399091608.033422"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
-         landmarkName = "-saveInformation:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399091608.033422"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-isUserInformationValidate"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399091608.033422"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
-         landmarkName = "-isUserInformationValidate"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399091608.033422"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399091608.033422"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399185750.913153"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "86"
          endingLineNumber = "86"
-         landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399091608.033422"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
-         landmarkName = "-shouldPerformSegueWithIdentifier:sender:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399085208.117566"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "-saveInformation:"
+         landmarkName = "-loadlabelDays"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/SettingViewController.m"
-         timestampString = "399088913.135407"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399187347.106262"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "23"
-         endingLineNumber = "23"
-         landmarkName = "-initWithNibName:bundle:"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "-calcDaysAsString::"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399187347.106262"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "92"
+         endingLineNumber = "92"
+         landmarkName = "-calcDaysAsString::"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399187347.106262"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
+         landmarkName = "-calcDaysAsString::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -229,12 +86,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
+         timestampString = "399187347.106262"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "-loadlabelDate"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-setInformationWithIndexPath::"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -242,37 +99,37 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
+         timestampString = "399185997.130645"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "-loadlabelDate"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
+         landmarkName = "-loadlabelDays"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
-         timestampString = "399110568.437917"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399186082.865802"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
-         landmarkName = "-setImage:"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
-         timestampString = "399110569.961343"
+         timestampString = "399186429.945269"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "30"
-         endingLineNumber = "30"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
          landmarkName = "-setDate:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +138,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
-         timestampString = "399110571.329091"
+         timestampString = "399186429.945269"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
+         landmarkName = "-setDate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
+         timestampString = "399186523.846365"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
          landmarkName = "-setDays:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -293,13 +163,52 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
+         timestampString = "399186439.477633"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
-         landmarkName = "-loadlabelDate"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
+         landmarkName = "-setDate:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
+         timestampString = "399186462.745499"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "-setDays:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
+         timestampString = "399186520.451057"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-setDays:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/CustomCell.m"
+         timestampString = "399186520.996404"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-setDays:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -307,64 +216,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
+         timestampString = "399186575.70213"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
-         landmarkName = "-loadlabelDate"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-loadlabelDate"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
-         landmarkName = "-loadlabelDate"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-loadImageData:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TimeLineViewController.m"
-         timestampString = "399121249.072274"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-loadImageData:"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
+         landmarkName = "-loadlabelDays"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
