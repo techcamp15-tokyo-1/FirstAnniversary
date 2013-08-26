@@ -9,9 +9,9 @@
 #import "CameraViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface CameraViewController ()
-
-@end
+//@interface CameraViewController ()
+//
+//@end
 
 @implementation CameraViewController
 @synthesize pictureImage;
@@ -88,7 +88,9 @@
     //日付の取得
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyy/MM/dd HH:mm:ss";
-    dateString = [df stringFromDate:[NSDate date]];
+    NSDate *now = [NSDate date];
+    dateString = [df stringFromDate:now];
+    //NSUserDefaultにnowを
     
     //    static dispatch_once_t token;
     //    dispatch_once(&token, ^{
@@ -97,7 +99,7 @@
     NSString *cacheDirPath = [array objectAtIndex:0];
     //Cacheディレクトリの下に新規でディレクトリを作る
     //新規で作るディレクトリの絶対パスを作成
-    createdPersonDirPath = [NSString stringWithFormat:@"%@",[cacheDirPath stringByAppendingPathComponent:@"Taro"]];
+    createdPersonDirPath = [NSString stringWithFormat:@"%@",[cacheDirPath stringByAppendingPathComponent:personName]];
     NSLog(@"%@",createdPersonDirPath);
     //    [cacheDirPath stringByAppendingPathComponent:(@"%@,Directory",name);
     //FileManagerでディレクトリを作成
@@ -119,13 +121,20 @@
 	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
 	{
 		[self saveImageFile:saveImage personName:personName];
-		[self dismissViewControllerAnimated:YES completion:nil];
 	}
 	else
 	{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        
 	}
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    //画面遷移
+    [self performSegueWithIdentifier:@"toEditView" sender:nil];
+    
+    
 }
+
+
 
 -(void) saveImageFile:(UIImage *)image personName:name {
     // convert UIImage to NSData

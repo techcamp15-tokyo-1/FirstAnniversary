@@ -173,5 +173,25 @@
 - (IBAction)imageButton:(id)sender {
 }
 
+// フォトライブラリー起動
+- (IBAction)libraryButtonTapped:(id)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+		[imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+		[imagePickerController setAllowsEditing:YES];
+		[imagePickerController setDelegate:self];
+		
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+        
+	}
+	else
+	{
+		NSLog(@"Photo library invalid.");
+	}
+    
+}
+
+
 
 @end

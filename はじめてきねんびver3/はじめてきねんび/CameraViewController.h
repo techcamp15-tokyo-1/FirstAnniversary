@@ -15,12 +15,12 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
-@property NSString *personName;
-@property NSString *createdPersonDirPath;
-@property NSString *dateString;
+@property NSString *personName;//Taro
+@property NSString *createdPersonDirPath;//TaroのPath
+@property NSString *dateString;//日付のString選択した瞬間
 
--(void) saveImageFile:(UIImage *)image personName:name;
-- (NSString*) getDataStorePath ;
+-(void) saveImageFile:(UIImage *)image personName:name;//コピペ
+//- (NSString*) getDataStorePath ;
 
 
 @end

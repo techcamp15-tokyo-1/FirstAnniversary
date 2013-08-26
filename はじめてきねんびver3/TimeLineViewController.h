@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeLineViewController : UICollectionViewController
+@interface TimeLineViewController : UICollectionViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 - (IBAction)imageButton:(id)sender;
-
+- (IBAction)libraryButtonTapped:(id)sender;
 @end
