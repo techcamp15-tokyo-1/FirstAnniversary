@@ -55,6 +55,27 @@ int userId;
     }
 }
 
+- (IBAction)openCamera:(id)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+        // カメラかライブラリからの読込指定。カメラを指定。
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+        // トリミングなどを行うか否か
+        [imagePickerController setAllowsEditing:YES];
+        // Delegate
+        [imagePickerController setDelegate:self];
+        
+        // アニメーションをしてカメラUIを起動
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }
+    else
+    {
+        NSLog(@"Camera invalid.");
+    }
+    
+}
+
 //ユーザ情報が有効かを判定するバリデーション
 - (int)isUserInformationValidate{
     
@@ -129,6 +150,29 @@ int userId;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+	// 編集画像
+	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+	UIImage *image;
+	
+	if(editedImage) image = editedImage;
+	else            image = originalImage;
+    
+    //UIimageからNSdataへ
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
+    User *user = [User getCurrentUser];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults arrayForKey:@"tmpImage"] ;
+    
+//    NSArray *imageDataArray = [[NSArray alloc]init];
+    
+    [defaults setObject:image forKey:@"tmpImage"];
+    
+    
+    
 }
 
 

@@ -15,6 +15,7 @@
 @property (strong) NSString* name;
 @property (readonly) int userId;
 @property (strong) NSDate *birthday;
+@property (strong) UIImage *image;
 
 
 +(User *)getCurrentUser;

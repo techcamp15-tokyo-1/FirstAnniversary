@@ -14,12 +14,14 @@
 
 @property NSString *title;
 @property NSString *message;
+@property NSDate *date;
 @property NSString *imageName;
 @property (readonly) int itemId;
 
 
 +(Item *)getCurrentItem;
 +(Item *)loadItem:(int)targetItemId;
--(void )saveItem:(NSString *)title:(NSString *)message:(NSString *)imageName;
+-(void )saveItems:(NSString *)title:(NSString *)message:(NSString *)imageName;
+-(void )saveImageData:(NSDate *)date:(NSString *)imageName;
 
 @end

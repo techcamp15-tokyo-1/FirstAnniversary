@@ -31,6 +31,10 @@
     if ( item.tag == CAMERA_TAB ){
         self.userTab.selectedItem = self.userTab.items[[User getCurrentUser].userId];
  //       [self openCam:item];
+
+        
+        
+        // カメラ起動
         if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
         {
             UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
@@ -122,7 +126,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
     personName = @"Taro";
     //[self readImageFile];
-    // カメラ起動
     
     
     
@@ -206,17 +209,21 @@
     }
     
     //    });
+
+    [self saveImageFile:saveImage personName:personName];
+	
     
+//    //動画を入れないのでいらない/////////////////////////////////////////////////
+//	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+//	{
+//		[self saveImageFile:saveImage personName:personName];
+//	}
+//	else
+//	{
+//        
+//	}
+
     
-    
-	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-	{
-		[self saveImageFile:saveImage personName:personName];
-	}
-	else
-	{
-        
-	}
     [self dismissViewControllerAnimated:YES completion:nil];
     
     //画面遷移

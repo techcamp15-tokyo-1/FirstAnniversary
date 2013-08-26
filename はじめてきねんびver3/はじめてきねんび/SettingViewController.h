@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface SettingViewController : UIViewController<UITextFieldDelegate>
+@interface SettingViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textfield;
 
@@ -17,6 +17,7 @@
 @property (nonatomic ,retain) IBOutlet UIDatePicker *userBirthday;
 - (IBAction)DateChanged:(id)sender;
 - (IBAction)saveInformation:(id)sender;
+- (IBAction)openCamera:(id)sender;
 
 
 @end

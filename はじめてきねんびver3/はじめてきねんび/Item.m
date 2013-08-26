@@ -11,9 +11,13 @@
 @implementation Item
 static Item *currentItem;
 
--(void)saveItem:(NSString *)title :(NSString *)message :(NSString *)imageName{
+-(void)saveItems:(NSString *)title :(NSString *)message :(NSString *)imageName{
     self.title = title;
     self.message = message;
+    self.imageName = imageName;
+}
+-(void )saveImageData:(NSDate *)date :(NSString *)imageName{
+    self.date = date;
     self.imageName = imageName;
 }
 

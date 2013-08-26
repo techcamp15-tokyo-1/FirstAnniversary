@@ -60,18 +60,19 @@ bool fromCamera = false;
 - (IBAction)register:(id)sender {
     
     Item *item =[Item getCurrentItem];
-    [item saveItem:self.textFieldTitle.text:self.textFieldMessage.text:nil];
+    [item saveItems:self.textFieldTitle.text:self.textFieldMessage.text:nil];
     //　保存する
     
-    
+    UIAlertView *alert = [[UIAlertView alloc]init];
+    alert.title = @"登録が完了しました";
+    alert.message = nil;
+    [alert addButtonWithTitle:@"OK"];
+    [alert show];
     if (fromCamera){
         //return to home
+        [self performSegueWithIdentifier:@"toHome" sender: sender ];
     }else{
-        UIAlertView *alert = [[UIAlertView alloc]init];
-        alert.title = @"登録が完了しました";
-        alert.message = nil;
-        [alert addButtonWithTitle:@"OK"];
-        [alert show];
+        
     }
 }
 @end
