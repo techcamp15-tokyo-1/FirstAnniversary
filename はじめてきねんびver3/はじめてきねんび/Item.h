@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#define NO_TITLE @"未設定"
-@interface Item : NSObject{
-    NSMutableDictionary *_dict;
+#import "DataModel.h"
+
+@interface Item : DataModel{
 }
 
 @property NSString *title;
@@ -17,9 +17,22 @@
 @property NSString *imageName;
 @property (readonly) int itemId;
 
-
 +(Item *)getCurrentItem;
 +(Item *)loadItem:(int)targetItemId;
--(void )saveItem:(NSString *)title:(NSString *)message:(NSString *)imageName;
+-(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
 
 @end
+
+#ifndef Item_h
+#define Item_h
+
+#define ITEM_NO_TITLE @"未設定"
+
+enum ITEM_KEY {
+	ITEM_KEY_TITLE = 0,
+	ITEM_KEY_MESSAGE,
+	ITEM_KEY_IMAGE_NAME,
+	ITEM_KEY_ITEMID
+};
+
+#endif

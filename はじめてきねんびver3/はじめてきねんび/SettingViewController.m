@@ -114,7 +114,7 @@ int userId;
     defaults = [NSUserDefaults standardUserDefaults];
     
     user = [User getCurrentUser];
-    if ([user.name isEqualToString:NO_NAME]) {
+    if ([user.name isEqualToString:USER_NO_NAME]) {
         self.textfield.placeholder = @"名前を入力してください";
     } else {
         self.textfield.text = user.name;

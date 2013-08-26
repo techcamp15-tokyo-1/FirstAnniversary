@@ -60,7 +60,7 @@ bool fromCamera = false;
 - (IBAction)register:(id)sender {
     
     Item *item =[Item getCurrentItem];
-    [item saveItem:self.textFieldTitle.text:self.textFieldMessage.text:nil];
+    [item saveItem:self.textFieldTitle.text andMessage:self.textFieldMessage.text andName:nil];
     //　保存する
     
     

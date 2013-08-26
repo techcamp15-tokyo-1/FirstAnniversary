@@ -11,69 +11,36 @@
 @implementation Item
 static Item *currentItem;
 
--(void)saveItem:(NSString *)title :(NSString *)message :(NSString *)imageName{
+-(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName {
     self.title = title;
     self.message = message;
     self.imageName = imageName;
 }
-
-+(Item *)getCurrentItem{
++(Item *)getCurrentItem {
     return currentItem;
 }
-
-
-+(Item *)loadItem:(int) targetItemId {
-    Item *item = [[Item alloc] init];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *dict = [defaults objectForKey:[NSString stringWithFormat:@"%d", targetItemId]];
-    
-    if (dict) {
-        [item setDictionary:dict];
-    } else {
-        [item initializeWithItemID:targetItemId];
-    }
-    currentItem = item;
-    return item;
++(Item *)itemWithId:(int)targetItemId {
+	Item *item = (Item *)[self dataWithId:targetItemId];
+	item.title = ITEM_NO_TITLE;
+	
+	return item;
 }
--(void)initializeWithItemID:(int)ItemId{
-    _dict = [[NSMutableDictionary alloc] init];
-    [self setItemId:ItemId];
-    self.name = NO_TITLE;
++(Item *)loadItem:(int)targetItemId {
+	Item *item = (Item *)[super loadData:targetItemId];
+	if (!item) item = [self itemWithId:targetItemId];
+	currentItem = item;
+	
+	return item;
 }
--(void)setItemId:(int)ItemId {
-    [_dict setValue:[NSString stringWithFormat:@"%d", ItemId] forKey:@"itemId"];
-    [self saveData];
+
+//アイテムID
+-(void)setItemId:(int)itemId {
+	NSString *itemId_str = [NSString stringWithFormat:@"%d", itemId];
+	[super saveData:itemId_str WithKeyId:ITEM_KEY_ITEMID];
 }
 -(int)ItemId {
-    NSString *ItemID_str = [_dict valueForKey:@"itemId"];
-    return ItemID_str.intValue;
-}
--(void)setName:(NSString *)name{
-    [_dict setObject:name forKey:@"name"];
-    [self saveData];
-}
--(NSString *)name {
-    return [_dict valueForKey: @"name"];
-}
--(void)setBirthday:(NSString *)birthday{
-    [_dict setObject:birthday forKey:@"birthday"];
-    [self saveData];
-}
--(NSString *)birthday {
-    return [_dict valueForKey: @"birthday"];
-}
--(void)setDictionary:(NSMutableDictionary *)dict{
-    _dict = [NSMutableDictionary dictionaryWithDictionary:dict];
-}
-
--(void) saveData {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    //selfをまるごとdefaultに保存
-    NSString *key = [NSString stringWithFormat:@"%d", self.itemId];
-    NSLog(@"SAVE: ItemID = %d", self.itemId);
-    [defaults setObject:_dict forKey:key];
+	NSString *itemId_str = [super dataWithKeyId:ITEM_KEY_ITEMID];
+	return itemId_str.intValue;
 }
 @end
 
