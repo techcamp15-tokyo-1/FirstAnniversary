@@ -78,7 +78,7 @@
 {
     //経過日数を設定読み込む
     _arrayOfDays = [NSMutableArray array];
-    NSString *firstGreeting =[NSString stringWithFormat:@"はじめまして%@さん",user.name];
+    NSString *firstGreeting =[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name];
     [_arrayOfDays addObject:firstGreeting];
     for ( int i = 1 ; i<= [_arrayOfDates count]-1 ;i++){
         [_arrayOfDays addObject:[self calcDaysAsString: _arrayOfDates[i]:user.birthday]];
