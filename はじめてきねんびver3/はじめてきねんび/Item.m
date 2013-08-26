@@ -22,6 +22,7 @@ static Item *currentItem;
 +(Item *)itemWithId:(int)targetItemId {
 	Item *item = (Item *)[self dataWithId:targetItemId];
 	item.title = ITEM_NO_TITLE;
+	item.itemId = targetItemId;
 	
 	return item;
 }

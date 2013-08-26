@@ -19,6 +19,7 @@ static User *currentUser;
 +(User *)userWithId:(int)targetUserId {
 	User *user = (User *)[self dataWithId:targetUserId];
 	user.name = USER_NO_NAME;
+	user.userId = targetUserId;
 	
 	return user;
 }
