@@ -37,7 +37,6 @@ int userId;
     //ラベルに指定したフォーマットで表示
    // NSLog([df stringFromDate:userBirthday.date]);
     
-    self.labelBirthday.text = [df stringFromDate:self.userBirthday.date];
     
     
     
@@ -125,10 +124,10 @@ int userId;
     user.image = imageData;
     
 	[self dismissViewControllerAnimated:YES completion:nil];
-    self.image.contentMode = UIViewContentModeScaleAspectFit;
-    self.image.image  = [[UIImage alloc] initWithData:user.image] ;
-    self.image.clipsToBounds = YES;
-    [self.image sizeToFit];
+//    self.userImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.userImage.image  = [[UIImage alloc] initWithData:user.image] ;
+//    self.userImage.clipsToBounds = YES;
+//    [self.userImage sizeToFit];
     
 }
 
@@ -167,12 +166,12 @@ int userId;
     }
     
     if (user.image) {
-        self.image.image =  [[UIImage alloc] initWithData:user.image];
-        self.image.contentMode = UIViewContentModeScaleAspectFit;
-        [self.image sizeToFit];
+        self.userImage.image = [[UIImage alloc] initWithData:user.image];
+//        self.image.contentMode = UIViewContentModeScaleAspectFit;
+//        [self.image sizeToFit];
         
     }else{
-        self.image.image = [UIImage imageNamed:@"noimage.png"];
+        self.userImage.image = [UIImage imageNamed:@"noimage.png"];
     }
 
     //誕生日を表示

@@ -74,9 +74,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="21" kind="push" identifier="toEditView" id="JdW-mc-3pD"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTP-rs-Hic">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -290,25 +287,30 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="3" kind="modal" id="v79-aE-iDB"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="noimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="AJl-wV-JdA"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="85z-KH-xnq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="5Ng-TN-NrE"/>
+                                    <constraint firstAttribute="height" constant="200" id="fHv-ul-xI3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AJl-wV-JdA" firstAttribute="top" secondItem="EMc-bB-wuE" secondAttribute="top" constant="39" id="Kp1-6l-Qrp"/>
+                            <constraint firstItem="85z-KH-xnq" firstAttribute="top" secondItem="EMc-bB-wuE" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Fwd-Gf-3yi"/>
                             <constraint firstAttribute="trailing" secondItem="ZvL-kr-5Up" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KzC-eL-zyj"/>
                             <constraint firstItem="hd0-aM-VFA" firstAttribute="top" secondItem="IeW-PQ-20o" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Tmw-LY-Svd"/>
+                            <constraint firstItem="85z-KH-xnq" firstAttribute="centerX" secondItem="hd0-aM-VFA" secondAttribute="centerX" type="default" id="TvT-CH-vn2"/>
                             <constraint firstItem="ZvL-kr-5Up" firstAttribute="baseline" secondItem="IeW-PQ-20o" secondAttribute="baseline" type="default" id="Usv-OF-KGz"/>
                             <constraint firstItem="hd0-aM-VFA" firstAttribute="leading" secondItem="EMc-bB-wuE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bxq-8C-YZY"/>
                             <constraint firstAttribute="bottom" secondItem="hd0-aM-VFA" secondAttribute="bottom" constant="53" id="cWH-ou-bQt"/>
                             <constraint firstItem="IeW-PQ-20o" firstAttribute="leading" secondItem="EMc-bB-wuE" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="d5h-OI-JRE"/>
-                            <constraint firstItem="hd0-aM-VFA" firstAttribute="centerX" secondItem="AJl-wV-JdA" secondAttribute="centerX" type="default" id="fAm-bB-gGD"/>
                             <constraint firstAttribute="trailing" secondItem="hd0-aM-VFA" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lrs-Dg-y0l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="はじめての写真" id="7Px-6J-P32"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
-                        <outlet property="image" destination="AJl-wV-JdA" id="kpS-rO-xqw"/>
+                        <outlet property="userImage" destination="85z-KH-xnq" id="T0u-BG-X9i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zga-15-DRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -973,10 +975,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="DateChanged:"/>
                 <relationship kind="action" name="openCamera:"/>
                 <relationship kind="action" name="saveInformation:"/>
-                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="labelBirthday" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textfield" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="userBirthday" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="TimeLineViewController" superclassName="UICollectionViewController">
@@ -1009,7 +1010,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="v79-aE-iDB"/>
-        <segue reference="JdW-mc-3pD"/>
         <segue reference="AMd-OZ-ALf"/>
     </inferredMetricsTieBreakers>
 </document>

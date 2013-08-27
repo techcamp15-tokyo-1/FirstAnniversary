@@ -15,6 +15,7 @@
 @property NSString *title;
 @property NSString *message;
 @property NSString *imageName;
+
 @property (readonly) int itemId;
 
 +(Item *)getCurrentItem;

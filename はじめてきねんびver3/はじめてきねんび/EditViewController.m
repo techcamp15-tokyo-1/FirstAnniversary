@@ -9,6 +9,7 @@
 #import "EditViewController.h"
 #import "User.h"
 #import "Item.h"
+#import "FileManager.h"
 
 @interface EditViewController ()
 

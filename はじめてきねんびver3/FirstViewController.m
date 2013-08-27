@@ -150,7 +150,7 @@
 	{
 		saveImage = originalImage;
 	}
-	
+	//////////////////////////////////////////////
 	// UIImageViewに画像を設定
 	self.pictureImage.image = saveImage;
     //Cacheディレクトリの下に新規でディレクトリを作る
@@ -185,7 +185,7 @@
     
     //    });
     
-    
+    //////////////////////////////////////////////////////////////////
     
 	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
 	{

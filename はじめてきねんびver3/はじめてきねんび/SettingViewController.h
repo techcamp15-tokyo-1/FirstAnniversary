@@ -13,13 +13,12 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *textfield;
 
-@property (strong, nonatomic) IBOutlet UILabel *labelBirthday;
 @property (nonatomic ,retain) IBOutlet UIDatePicker *userBirthday;
 - (IBAction)DateChanged:(id)sender;
 - (IBAction)saveInformation:(id)sender;
 
 - (IBAction)openCamera:(id)sender;
-@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
 @end
 

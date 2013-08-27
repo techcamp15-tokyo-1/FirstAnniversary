@@ -41,6 +41,7 @@
     //画像データを配列に
     NSMutableArray *array = [NSMutableArray array];
     array = [NSMutableArray array];
+//    [array addObject:user.image];
     for (int i = 1; i <= 8; i++) {
         NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
         [array addObject:[UIImage imageNamed:filename]];
@@ -78,7 +79,7 @@
 {
     //経過日数を設定読み込む
     _arrayOfDays = [NSMutableArray array];
-    NSString *firstGreeting =[NSString stringWithFormat:@"はじめまして%@さん",user.name];
+    NSString *firstGreeting =[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name];
     [_arrayOfDays addObject:firstGreeting];
     for ( int i = 1 ; i<= [_arrayOfDates count]-1 ;i++){
         [_arrayOfDays addObject:[self calcDaysAsString: _arrayOfDates[i]:user.birthday]];
