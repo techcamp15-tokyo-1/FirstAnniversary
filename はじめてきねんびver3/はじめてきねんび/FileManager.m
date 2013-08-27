@@ -51,33 +51,33 @@
         NSLog(@"failed to create directory. reason is %@ - %@", error, error.userInfo);
     }
     
-//    [self saveImageFile:saveImage personName:personName];
-//	   
-//	
-//    // convert UIImage to NSData
-//    // JPEGのデータとしてNSDataを作成します
-//    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
-//    //保存する先のパス
-//    NSString *saveFolderPath = userNameDirPath;
-//    NSString *savedPath = [NSString strsingWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
-//    // 保存処理を行う。
-//    // write NSData into the file
-//    [imageData writeToFile:savedPath atomically:YES];
-//    
-//    //    });
-//    
-//    //////////////////////////////////////////////////////////////////
+    [self saveImageFile:saveImage personName:personName];
+	   
+	
+    // convert UIImage to NSData
+    // JPEGのデータとしてNSDataを作成します
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
+    //保存する先のパス
+    NSString *saveFolderPath = userNameDirPath;
+    NSString *savedPath = [NSString strsingWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
+    // 保存処理を行う。
+    // write NSData into the file
+    [imageData writeToFile:savedPath atomically:YES];
+    
+    //    });
+    
+    //////////////////////////////////////////////////////////////////
     
 }
-//-(void) saveImageFile:(UIImage *)image personName:name {
-//    // convert UIImage to NSData
-//    // JPEGのデータとしてNSDataを作成します
-//    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
-//    //保存する先のパス
-//    NSString *saveFolderPath = userNameDirPath;
-//    NSString *savedPath = [NSString strsingWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
-//    // 保存処理を行う。
-//    // write NSData into the file
-//    [imageData writeToFile:savedPath atomically:YES];
-//}
+-(void) saveImageFile:(UIImage *)image personName:name {
+    // convert UIImage to NSData
+    // JPEGのデータとしてNSDataを作成します
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
+    //保存する先のパス
+    NSString *saveFolderPath = userNameDirPath;
+    NSString *savedPath = [NSString strsingWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
+    // 保存処理を行う。
+    // write NSData into the file
+    [imageData writeToFile:savedPath atomically:YES];
+}
 @end
