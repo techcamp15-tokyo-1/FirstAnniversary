@@ -55,6 +55,28 @@ int userId;
     }
 }
 
+- (IBAction)openCamera:(id)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+        // カメラかライブラリからの読込指定。カメラを指定。
+        [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+        // トリミングなどを行うか否か
+        [imagePickerController setAllowsEditing:YES];
+        // Delegate
+        [imagePickerController setDelegate:self];
+        
+        // アニメーションをしてカメラUIを起動
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }
+    else
+    {
+        NSLog(@"Camera invalid.");
+    }
+    
+
+}
+
 //ユーザ情報が有効かを判定するバリデーション
 - (int)isUserInformationValidate{
     
@@ -87,6 +109,29 @@ int userId;
         return NO;
     }
 }
+
+//撮影後
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // オリジナル画像
+	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+	// 編集画像
+	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *saveImage;
+    NSData *imageData ;
+	if(editedImage) saveImage = editedImage ;
+	else            saveImage = originalImage;
+    imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(saveImage, 0.8f)];
+    user.image = imageData;
+    
+	[self dismissViewControllerAnimated:YES completion:nil];
+    self.image.contentMode = UIViewContentModeScaleAspectFit;
+    self.image.image  = [[UIImage alloc] initWithData:user.image] ;
+    self.image.clipsToBounds = YES;
+    [self.image sizeToFit];
+    
+}
+
 
 //閉じたときキーボードをしまう
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
@@ -121,6 +166,15 @@ int userId;
         NSLog(@"elseの方通ってますわ");
     }
     
+    if (user.image) {
+        self.image.image =  [[UIImage alloc] initWithData:user.image];
+        self.image.contentMode = UIViewContentModeScaleAspectFit;
+        [self.image sizeToFit];
+        
+    }else{
+        self.image.image = [UIImage imageNamed:@"noimage.png"];
+    }
+
     //誕生日を表示
     self.userBirthday.date = user.birthday ? user.birthday : [NSDate date];
     

@@ -18,7 +18,6 @@
 
 @implementation DataModel
 
-NSMutableDictionary *dict;
 
 //コンストラクタ
 +(id) data {
@@ -58,7 +57,7 @@ NSMutableDictionary *dict;
 //データモデルと実際にデータが入った辞書をひもづける
 -(void) setDictionary:(NSMutableDictionary *)targetdict{
 	if (!targetdict) return;
-    dict = [NSMutableDictionary dictionaryWithDictionary:targetdict];
+    _dict = [NSMutableDictionary dictionaryWithDictionary:targetdict];
 }
 
 //データモデルにdataIDを設定する
@@ -71,11 +70,11 @@ NSMutableDictionary *dict;
 
 //辞書に値を設定しUserDefaultsへ保存する
 -(void) saveData:(id)value WithKeyStr:(NSString *)key {
-    [dict setValue:value forKey:key];
+    [_dict setValue:value forKey:key];
 	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *key_dataId = [dict objectForKey:DATAMODEL_KEY_DATAID];
-    [defaults setObject:dict forKey:key_dataId];
+    NSString *key_dataId = [_dict objectForKey:DATAMODEL_KEY_DATAID];
+    [defaults setObject:_dict forKey:key_dataId];
 }
 //辞書に値を設定しUserDefaultsへ保存する（keyがintバージョン)
 -(void) saveData:(id)value WithKeyId:(int)key {
@@ -85,7 +84,7 @@ NSMutableDictionary *dict;
 
 //値を読み込んで返す
 -(id) dataWithKeyStr:(NSString *)key {
-	return [dict valueForKey:key];
+	return [_dict valueForKey:key];
 }
 
 //値を読み込んで返す（keyがintバージョン）

@@ -14,7 +14,7 @@
 @property (strong) NSString* name;
 @property (readonly) int userId;
 @property (strong) NSDate *birthday;
-
+@property (strong) NSData *image;
 +(User *)getCurrentUser;
 +(User *)loadUser:(int)targetUserId;
 
@@ -28,7 +28,8 @@
 enum USER_KEY {
 	USER_KEY_USERID = 0,
 	USER_KEY_NAME,
-	USER_KEY_BIRTHDAY
+	USER_KEY_BIRTHDAY,
+	USER_KEY_IMAGE
 };
 
 #endif

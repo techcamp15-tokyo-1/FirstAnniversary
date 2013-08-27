@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITabBar *userNumber;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UITabBar *userTab;
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uIBarButtonItem;
 

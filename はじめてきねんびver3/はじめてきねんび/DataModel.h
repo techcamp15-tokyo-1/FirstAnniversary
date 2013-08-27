@@ -7,6 +7,7 @@
 //
 
 @interface DataModel : NSObject
+@property (strong) NSMutableDictionary *dict;
 
 //コンストラクタ
 +(id) data;

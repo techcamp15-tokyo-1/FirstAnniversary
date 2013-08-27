@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface SettingViewController : UIViewController<UITextFieldDelegate>
+@interface SettingViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *textfield;
 
@@ -18,6 +18,8 @@
 - (IBAction)DateChanged:(id)sender;
 - (IBAction)saveInformation:(id)sender;
 
+- (IBAction)openCamera:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @end
 

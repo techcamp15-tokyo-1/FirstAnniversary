@@ -56,4 +56,13 @@ static User *currentUser;
 -(NSString *)birthday {
     return [super dataWithKeyId:USER_KEY_BIRTHDAY];
 }
+
+//はじめての画像
+-(void)setImage:(NSData *)image{
+    [super saveData:image WithKeyId:USER_KEY_IMAGE];
+}
+-(NSData *)image {
+    NSData *res = [super dataWithKeyId:USER_KEY_IMAGE];
+    return res;
+}
 @end

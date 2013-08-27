@@ -55,33 +55,10 @@
         User *user = [User loadUser:item.tag];
         //    [self paintBackgroundColor: user.userId];
         self.userName.text = user.name;
+        self.userImage.image = [[UIImage alloc]initWithData:user.image];
     }
 }
 
-- (void)paintBackgroundColor:(int)currentId{
-    float r = 0;
-    float g = 0;
-    float b = 0;
-    float a = 1.0;
-    switch (currentId) {
-        case 0:
-            r = 1.0;
-            g = 0.5;
-            b = 0.0;
-            break;
-        case 1:
-            r = 0.5;
-            g = 0.0;
-            b = 1.0;
-            break;
-        case 2:
-            r = 0.0;
-            g = 1.0;
-            b = 0.5;
-            break;
-    }
-    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:a];
-}
 
 - (void)viewDidLoad
 {
@@ -116,6 +93,7 @@
         self.userName.text = @"未設定";
     else
         self.userName.text = user.name;
+    self.userImage.image = [[UIImage alloc]initWithData:user.image];
 //    UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
 //    tbi.title = @"hoge";
     
