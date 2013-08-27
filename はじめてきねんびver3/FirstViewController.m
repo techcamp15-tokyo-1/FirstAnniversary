@@ -9,7 +9,6 @@
 #import "FirstViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SettingViewController.h"
-#import "CameraViewController.h"
 
 @implementation FirstViewController
 @synthesize pictureImage;
