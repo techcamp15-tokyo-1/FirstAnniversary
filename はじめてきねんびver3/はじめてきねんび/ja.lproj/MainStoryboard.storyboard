@@ -67,7 +67,7 @@
                                             <constraint firstAttribute="height" constant="89" id="KVJ-w9-Lzv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="ムービーアルバム">
+                                        <state key="normal" title="スライドショー">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -138,12 +138,57 @@
                         <outlet property="userName" destination="fTP-rs-Hic" id="RtM-gf-jMg"/>
                         <outlet property="userNumber" destination="wqv-sV-SJj" id="YuA-09-7Kp"/>
                         <outlet property="userTab" destination="wqv-sV-SJj" id="42i-7j-JT2"/>
-                        <segue destination="RPD-Gj-KHw" kind="push" identifier="camera" id="p0S-xn-Q4s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiG-Cb-6Fw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-357" y="-774"/>
+        </scene>
+        <!--All Slide View Controller-->
+        <scene sceneID="zFM-Zj-7dM">
+            <objects>
+                <viewController id="EWf-qC-wls" customClass="AllSlideViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FiB-pU-Fod">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqZ-rr-xGG">
+                                <items>
+                                    <barButtonItem title="NEXT" id="BzT-AJ-d2f"/>
+                                    <barButtonItem width="77" style="plain" systemItem="fixedSpace" id="WdA-pa-z1A"/>
+                                    <barButtonItem systemItem="play" id="ymG-Yu-Gea"/>
+                                    <barButtonItem systemItem="pause" id="QZD-GX-muq"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZC-Dv-C63">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYE-88-jnq"/>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vYE-88-jnq" firstAttribute="top" secondItem="pZC-Dv-C63" secondAttribute="top" type="default" id="8yH-Gl-ci4"/>
+                                    <constraint firstItem="vYE-88-jnq" firstAttribute="leading" secondItem="pZC-Dv-C63" secondAttribute="leading" type="default" id="DeG-2C-3Eu"/>
+                                    <constraint firstItem="vYE-88-jnq" firstAttribute="bottom" secondItem="pZC-Dv-C63" secondAttribute="bottom" type="default" id="q4q-iI-3sk"/>
+                                    <constraint firstItem="vYE-88-jnq" firstAttribute="trailing" secondItem="pZC-Dv-C63" secondAttribute="trailing" type="default" id="uMH-i5-ZLL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uqZ-rr-xGG" firstAttribute="bottom" secondItem="FiB-pU-Fod" secondAttribute="bottom" type="default" id="5Pk-yg-1h5"/>
+                            <constraint firstItem="uqZ-rr-xGG" firstAttribute="leading" secondItem="FiB-pU-Fod" secondAttribute="leading" type="default" id="IYQ-qp-h5V"/>
+                            <constraint firstItem="pZC-Dv-C63" firstAttribute="leading" secondItem="FiB-pU-Fod" secondAttribute="leading" type="default" id="Iwu-EV-Evd"/>
+                            <constraint firstItem="pZC-Dv-C63" firstAttribute="top" secondItem="FiB-pU-Fod" secondAttribute="top" type="default" id="SQ6-VK-Zcs"/>
+                            <constraint firstItem="pZC-Dv-C63" firstAttribute="bottom" secondItem="uqZ-rr-xGG" secondAttribute="top" type="default" id="dnJ-DK-L3M"/>
+                            <constraint firstItem="uqZ-rr-xGG" firstAttribute="trailing" secondItem="FiB-pU-Fod" secondAttribute="trailing" type="default" id="ncn-Od-ndb"/>
+                            <constraint firstItem="pZC-Dv-C63" firstAttribute="trailing" secondItem="FiB-pU-Fod" secondAttribute="trailing" type="default" id="wFm-DB-Vui"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ofZ-g9-qxz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xXq-1A-AwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36" y="-404"/>
         </scene>
         <!--Setting View Controller - ユーザー情報-->
         <scene sceneID="EMF-yg-xHx">
@@ -767,34 +812,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1177" y="-774"/>
         </scene>
-        <!--Camera View Controller-->
-        <scene sceneID="Ugr-Zq-hhu">
-            <objects>
-                <viewController storyboardIdentifier="camera" id="RPD-Gj-KHw" customClass="CameraViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="THm-Rt-xhF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bRP-Ya-2hU"/>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="bRP-Ya-2hU" firstAttribute="top" secondItem="THm-Rt-xhF" secondAttribute="top" type="default" id="SCU-IY-U09"/>
-                            <constraint firstItem="bRP-Ya-2hU" firstAttribute="leading" secondItem="THm-Rt-xhF" secondAttribute="leading" type="default" id="efG-5w-Trt"/>
-                            <constraint firstItem="bRP-Ya-2hU" firstAttribute="bottom" secondItem="THm-Rt-xhF" secondAttribute="bottom" type="default" id="mOL-7u-DJn"/>
-                            <constraint firstItem="bRP-Ya-2hU" firstAttribute="trailing" secondItem="THm-Rt-xhF" secondAttribute="trailing" type="default" id="ww9-4i-KPY"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="D4D-sN-EAA"/>
-                    <connections>
-                        <outlet property="pictureImage" destination="bRP-Ya-2hU" id="3IR-1X-VxA"/>
-                        <segue destination="3" kind="push" identifier="toHome" id="uCl-yl-com"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Aja-6i-mdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-546" y="-190"/>
-        </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="18">
             <objects>
@@ -920,10 +937,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="person.png" width="32" height="32"/>
     </resources>
     <classes>
-        <class className="CameraViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CameraViewController.h"/>
+        <class className="AllSlideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AllSlideViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="pictureImage" candidateClass="UIImageView"/>
+                <relationship kind="action" name="nextSlide:"/>
+                <relationship kind="action" name="pauseShow:"/>
+                <relationship kind="action" name="startShow:"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="pauseButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="CustomCell" superclassName="UICollectionViewCell">
@@ -962,9 +984,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="movieCreate:"/>
-            </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -999,9 +1018,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1009,7 +1025,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="v79-aE-iDB"/>
         <segue reference="AMd-OZ-ALf"/>
     </inferredMetricsTieBreakers>
 </document>
