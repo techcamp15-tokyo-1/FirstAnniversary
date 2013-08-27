@@ -62,7 +62,24 @@ static User *currentUser;
     [super saveData:image WithKeyId:USER_KEY_IMAGE];
 }
 -(NSData *)image {
-    NSData *res = [super dataWithKeyId:USER_KEY_IMAGE];
-    return res;
+    return [super dataWithKeyId:USER_KEY_IMAGE];
 }
+
+// dateでItemに保存
+-(void)addItemToCurrent:(NSDate *)date{
+    [currentUser addItem:date];
+}
+-(void)addItem:(NSDate *)date{
+    [Item itemWithId:[date timeIntervalSince1970]];
+}
+// dateでItemから呼び出し
+-(Item *)loadItemFromCurrent:(NSDate *)date{
+    return [currentUser loadItem:date];
+}
+
+-(Item *)loadItem:(NSDate *)date{
+    return [Item loadItem:[date timeIntervalSince1970]];
+}
+
+
 @end

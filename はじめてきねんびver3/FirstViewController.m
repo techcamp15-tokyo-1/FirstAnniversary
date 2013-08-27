@@ -7,8 +7,6 @@
 //
 
 #import "FirstViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
-#import "SettingViewController.h"
 
 @implementation FirstViewController
 @synthesize pictureImage;
@@ -47,12 +45,9 @@
         {
             NSLog(@"Camera invalid.");
         }
-        
-//        [self performSegueWithIdentifier:@"camera" sender:item];
-        
+    
     }else{
         User *user = [User loadUser:item.tag];
-        //    [self paintBackgroundColor: user.userId];
         self.userName.text = user.name;
         self.userImage.image = [[UIImage alloc]initWithData:user.image];
     }
@@ -96,11 +91,6 @@
 //    UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
 //    tbi.title = @"hoge";
     
-///////////////////////////////////////////////////////////////////////////////////////////
-    personName = @"Taro";
-    //[self readImageFile];
-    // カメラ起動
-    
     
     
 }
@@ -113,23 +103,6 @@
 }
 
 
-//- (IBAction)openCam:(id)sender {
-//    UIImagePickerController *controller = [[UIImagePickerController alloc]init];
-//    controller.delegate = self;
-//    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    controller.mediaTypes = @[(__bridge NSString *)kUTTypeImage];
-//    
-//    //UI表示
-//    [self presentViewController:controller animated:YES completion:^{}];
-//    
-//}
-//
-
-////////////////////////////////////////////
-
-//@interface CameraViewController ()
-//
-//@end
 
 
 // 写真を撮影した後
@@ -139,87 +112,20 @@
 	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
 	// 編集画像
 	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
-	UIImage *saveImage;
-	
-	if(editedImage)
-	{
-		saveImage = editedImage;
-	}
-	else
-	{
-		saveImage = originalImage;
-	}
-	//////////////////////////////////////////////
-	// UIImageViewに画像を設定
-	self.pictureImage.image = saveImage;
-    //Cacheディレクトリの下に新規でディレクトリを作る
-    //日付の取得
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @"yyyy/MM/dd HH:mm:ss";
-    NSDate *now = [NSDate date];
-    dateString = [df stringFromDate:now];
-    //NSUserDefaultにnowを
+	editedImage = editedImage ? editedImage : originalImage;
     
-    //    static dispatch_once_t token;
-    //    dispatch_once(&token, ^{
-    //Cacheディレクトリのパスを取得する
-    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cacheDirPath = [array objectAtIndex:0];
-    //Cacheディレクトリの下に新規でディレクトリを作る
-    //新規で作るディレクトリの絶対パスを作成
-    createdPersonDirPath = [NSString stringWithFormat:@"%@",[cacheDirPath stringByAppendingPathComponent:personName]];
-    NSLog(@"%@",createdPersonDirPath);
-    //    [cacheDirPath stringByAppendingPathComponent:(@"%@,Directory",name);
-    //FileManagerでディレクトリを作成
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error = nil;
-    BOOL created = [fileManager createDirectoryAtPath:createdPersonDirPath
-                          withIntermediateDirectories:YES
-                                           attributes:nil
-                                                error:&error];
-    // 作成に失敗した場合は、原因をログに出す。
-    if (!created) {
-        NSLog(@"failed to create directory. reason is %@ - %@", error, error.userInfo);
-    }
-    
-    //    });
-    
-    //////////////////////////////////////////////////////////////////
+    FileManager *fm = [FileManager getInstance];
+    NSLog([fm createDirNamedOfUserId] ? @"SUCCESS" : @"ERR");
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
+    [fm saveImageData:imageData andDate:[NSDate date]];
     
 	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-	{
-		[self saveImageFile:saveImage personName:personName];
-	}
-	else
-	{
         
-	}
     [self dismissViewControllerAnimated:YES completion:nil];
-    
     //画面遷移
     [self performSegueWithIdentifier:@"toEditView" sender:nil];
     
     
-}
-//
-//- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
-//    NSLog(@"cansel");
-//    [self performSegueWithIdentifier:@"toHome" sender:picker];
-//    NSLog(@"return");
-//    
-//}
-
-
--(void) saveImageFile:(UIImage *)image personName:name {
-    // convert UIImage to NSData
-    // JPEGのデータとしてNSDataを作成します
-    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
-    //保存する先のパス
-    NSString *saveFolderPath = createdPersonDirPath;
-    NSString *savedPath = [NSString stringWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
-    // 保存処理を行う。
-    // write NSData into the file
-    [imageData writeToFile:savedPath atomically:YES];
 }
 
 

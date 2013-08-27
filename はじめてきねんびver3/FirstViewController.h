@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "SettingViewController.h"
+#import "FileManager.h"
+
+#ifndef CAMERA_TAB
 #define CAMERA_TAB 3
+#endif
+
+#ifndef TMP_PHOTO
+#define TMP @"tmp"
+#define TMP_IMAGE @"tmpImage"
+#define TMP_DATE @"tmpDate"
+#endif
 
 
 @interface FirstViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate,

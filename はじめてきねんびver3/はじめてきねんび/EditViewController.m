@@ -7,9 +7,6 @@
 //
 
 #import "EditViewController.h"
-#import "User.h"
-#import "Item.h"
-#import "FileManager.h"
 
 @interface EditViewController ()
 
@@ -17,6 +14,8 @@
 
 @implementation EditViewController
 bool fromCamera = false;
+User *user;
+Item *item;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,8 +29,8 @@ bool fromCamera = false;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    User *user = [User getCurrentUser];
-    Item *item = [Item getCurrentItem];
+    user = [User getCurrentUser];
+    item = [Item getCurrentItem];
 
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
@@ -60,8 +59,10 @@ bool fromCamera = false;
 
 - (IBAction)register:(id)sender {
     
-    Item *item =[Item getCurrentItem];
-    [item saveItem:self.textFieldTitle.text andMessage:self.textFieldMessage.text andName:nil];
+//    [user addItemToCurrent:<#(NSDate *)#>]
+    
+//    Item *item =[Item getCurrentItem];
+//    [item saveItem:self.textFieldTitle.text andMessage:self.textFieldMessage.text andName:nil];
     //　保存する
     
     

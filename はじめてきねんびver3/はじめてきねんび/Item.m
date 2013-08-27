@@ -11,14 +11,20 @@
 @implementation Item
 static Item *currentItem;
 
--(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName {
+-(void )saveItem:(NSString *)title
+      andMessage:(NSString *)message
+         andName:(NSString *)imageName
+         andDate:(NSDate *)date {
     self.title = title;
     self.message = message;
     self.imageName = imageName;
+    self.date = date;
 }
+
 +(Item *)getCurrentItem {
     return currentItem;
 }
+
 +(Item *)itemWithId:(int)targetItemId {
 	Item *item = (Item *)[self dataWithId:targetItemId];
 	item.title = ITEM_NO_TITLE;
@@ -39,7 +45,7 @@ static Item *currentItem;
 	NSString *itemId_str = [NSString stringWithFormat:@"%d", itemId];
 	[super saveData:itemId_str WithKeyId:ITEM_KEY_ITEMID];
 }
--(int)ItemId {
+-(int)itemId {
 	NSString *itemId_str = [super dataWithKeyId:ITEM_KEY_ITEMID];
 	return itemId_str.intValue;
 }

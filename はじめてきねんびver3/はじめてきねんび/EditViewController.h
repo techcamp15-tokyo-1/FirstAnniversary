@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
+#import "Item.h"
+
 
 @interface EditViewController : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageEdit;

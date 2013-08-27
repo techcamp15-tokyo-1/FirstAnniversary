@@ -7,7 +7,6 @@
 //
 
 #import "FileManager.h"
-#import "User.h"
 
 @implementation FileManager
 
@@ -17,67 +16,42 @@
     return instance;
 }
 
--(void )saveImage:(NSDate *)image:(NSDate *)date{
-    //////////////////////////////////////////////
-    
-    User *user = [User getCurrentUser];
-	
-    //Cacheディレクトリの下に新規でディレクトリを作る
-    //日付の取得
+-(void )saveImageData:(NSData *)imageData
+          andDate:(NSDate *)date{
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yyyyMMddHHmmss";
-    NSDate *now = [NSDate date];
-    NSString *dateString = [df stringFromDate:now];
-    //NSUserDefaultにnowを
-
-    //Cacheディレクトリのパスを取得する
-    NSArray *array = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cacheDirPath = [array objectAtIndex:0];
+    NSString *dateString = [df stringFromDate:date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@{TMP_DATE: date, TMP_IMAGE: imageData} forKey:TMP];
     
-    //Cacheディレクトリの下に新規でディレクトリを作る
-    //新規で作るディレクトリの絶対パスを作成
-    NSString *userNameDirPath = [NSString stringWithFormat:@"%@",[cacheDirPath stringByAppendingPathComponent:user.name]];
-    NSLog(@"%@",userNameDirPath);
+    [self createDirNamedOfUserId];
     
-    //FileManagerでディレクトリを作成
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error = nil;
-    BOOL created = [fileManager createDirectoryAtPath:userNameDirPath
-                          withIntermediateDirectories:YES
-                                           attributes:nil
-                                                error:&error];
-    // 作成に失敗した場合は、原因をログに出す。
-    if (!created) {
-        NSLog(@"failed to create directory. reason is %@ - %@", error, error.userInfo);
-    }
-    
-//    [self saveImageFile:saveImage personName:personName];
-//	   
-//	
-//    // convert UIImage to NSData
-//    // JPEGのデータとしてNSDataを作成します
-//    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
-//    //保存する先のパス
-//    NSString *saveFolderPath = userNameDirPath;
-//    NSString *savedPath = [NSString strsingWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
-//    // 保存処理を行う。
-//    // write NSData into the file
-//    [imageData writeToFile:savedPath atomically:YES];
-//    
-//    //    });
-//    
-//    //////////////////////////////////////////////////////////////////
-//    
-//}
-//-(void) saveImageFile:(UIImage *)image personName:name {
-//    // convert UIImage to NSData
-//    // JPEGのデータとしてNSDataを作成します
-//    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(image, 0.8f)];
-//    //保存する先のパス
-//    NSString *saveFolderPath = userNameDirPath;
-//    NSString *savedPath = [NSString strsingWithFormat:@"%@",[saveFolderPath stringByAppendingPathComponent:dateString]];
-//    // 保存処理を行う。
-//    // write NSData into the file
-//    [imageData writeToFile:savedPath atomically:YES];
+    NSString *savedPath = [NSString stringWithFormat:@"%@",[[self getCurrentUserDirForPath] stringByAppendingPathComponent:dateString]];
+    [imageData writeToFile:savedPath atomically:YES];
 }
+
+-(NSString *)getCurrentUserDirForPath{
+    
+    User *user = [User getCurrentUser];
+    NSArray *cacheDirArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *userIdAsString = [NSString stringWithFormat:@"%d",user.userId];
+    NSString *currentUserPath = [NSString stringWithFormat:@"%@",
+                                 [[cacheDirArray objectAtIndex:0] stringByAppendingPathComponent:userIdAsString]];
+    NSLog(@"%@",currentUserPath);
+    return  currentUserPath;
+}
+
+-(BOOL)createDirNamedOfUserId{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    return [fileManager createDirectoryAtPath:[self getCurrentUserDirForPath]
+                  withIntermediateDirectories:YES
+                                   attributes:nil
+                                        error:nil];
+}
+
+
 @end
+
+
+
+

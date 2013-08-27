@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FirstViewController.h"
+#import "User.h"
+
 
 @interface FileManager : NSObject
 +(FileManager *)getInstance;
+-(BOOL)createDirNamedOfUserId;
+-(void )saveImageData:(NSData *)imageData
+          andDate:(NSDate *)date;
+
 
 @end

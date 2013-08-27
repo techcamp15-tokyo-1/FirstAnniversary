@@ -7,6 +7,7 @@
 //
 
 #import "DataModel.h"
+#import "Item.h"
 
 @interface User : DataModel {
 }
@@ -17,7 +18,8 @@
 @property (strong) NSData *image;
 +(User *)getCurrentUser;
 +(User *)loadUser:(int)targetUserId;
-
+-(void)addItemToCurrent:(NSDate *)date;
+-(Item *)loadItemFromCurrent:(NSDate *)date;
 @end
 
 #ifndef User_h

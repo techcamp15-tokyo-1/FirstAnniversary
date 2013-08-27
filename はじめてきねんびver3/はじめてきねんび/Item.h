@@ -15,12 +15,16 @@
 @property NSString *title;
 @property NSString *message;
 @property NSString *imageName;
+@property NSDate *date;
+
 
 @property (readonly) int itemId;
 
 +(Item *)getCurrentItem;
 +(Item *)loadItem:(int)targetItemId;
 -(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
++(Item *)itemWithId:(int)targetItemId;
+
 
 @end
 
@@ -33,7 +37,9 @@ enum ITEM_KEY {
 	ITEM_KEY_TITLE = 0,
 	ITEM_KEY_MESSAGE,
 	ITEM_KEY_IMAGE_NAME,
-	ITEM_KEY_ITEMID
+	ITEM_KEY_ITEMID,
+    ITEM_KEY_DATE
+    
 };
 
 #endif
