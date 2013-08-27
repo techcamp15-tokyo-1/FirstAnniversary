@@ -7,8 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface SettingViewController : UIViewController
+@interface SettingViewController : UIViewController<UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *birthdaySet;
+@property (strong, nonatomic) IBOutlet UITextField *textfield;
+
+@property (strong, nonatomic) IBOutlet UILabel *labelBirthday;
+@property (nonatomic ,retain) IBOutlet UIDatePicker *userBirthday;
+- (IBAction)DateChanged:(id)sender;
+- (IBAction)saveInformation:(id)sender;
+
+
 @end
+
+enum ERRORTYPE {
+    SUCCESS,
+    ERR_NONAME,
+    ERR_BIRTHDAY_IS_INVALID
+};
