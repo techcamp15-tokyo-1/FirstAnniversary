@@ -909,25 +909,33 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="register:" destination="21" eventType="touchUpInside" id="BcZ-bg-tbU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VX8-PJ-S6H">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="nXu-XX-hPD" secondAttribute="bottom" constant="130" id="22Q-Fy-4DN"/>
                             <constraint firstAttribute="bottom" secondItem="1I3-zl-Lzm" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="2MX-G3-GGF"/>
-                            <constraint firstItem="2pB-HU-lif" firstAttribute="centerX" secondItem="cAQ-Bu-7Fs" secondAttribute="centerX" type="default" id="JfQ-wK-Z2d"/>
+                            <constraint firstItem="cAQ-Bu-7Fs" firstAttribute="top" secondItem="22" secondAttribute="top" constant="149" id="53U-RN-854"/>
+                            <constraint firstItem="cAQ-Bu-7Fs" firstAttribute="centerX" secondItem="1I3-zl-Lzm" secondAttribute="centerX" type="default" id="C89-e8-oFh"/>
+                            <constraint firstItem="cAQ-Bu-7Fs" firstAttribute="centerX" secondItem="nXu-XX-hPD" secondAttribute="centerX" type="default" id="F4V-sx-8nU"/>
+                            <constraint firstItem="VX8-PJ-S6H" firstAttribute="top" secondItem="22" secondAttribute="top" constant="12" id="KTY-pw-e6i"/>
                             <constraint firstItem="2pB-HU-lif" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PhU-M6-lHw"/>
-                            <constraint firstItem="cAQ-Bu-7Fs" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Q9B-CR-cNH"/>
-                            <constraint firstItem="1I3-zl-Lzm" firstAttribute="centerX" secondItem="nXu-XX-hPD" secondAttribute="centerX" type="default" id="Ube-RD-ZP0"/>
+                            <constraint firstItem="VX8-PJ-S6H" firstAttribute="centerX" secondItem="2pB-HU-lif" secondAttribute="centerX" type="default" id="c6m-zf-1Ob"/>
                             <constraint firstAttribute="trailing" secondItem="nXu-XX-hPD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kbN-Ha-tT1"/>
+                            <constraint firstItem="nXu-XX-hPD" firstAttribute="top" secondItem="22" secondAttribute="top" constant="101" id="mE2-PE-OsA"/>
+                            <constraint firstItem="2pB-HU-lif" firstAttribute="top" secondItem="22" secondAttribute="top" constant="52" id="o2y-ZB-fq3"/>
                             <constraint firstItem="nXu-XX-hPD" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="rym-tj-bM3"/>
                             <constraint firstAttribute="trailing" secondItem="2pB-HU-lif" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="u3b-FA-wn9"/>
-                            <constraint firstItem="2pB-HU-lif" firstAttribute="top" secondItem="22" secondAttribute="top" constant="207" id="z6a-IS-Mbs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="編集" id="26"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="imageEdit" destination="cAQ-Bu-7Fs" id="OXi-8s-LYN"/>
+                        <outlet property="takenDate" destination="VX8-PJ-S6H" id="d9q-dw-c7b"/>
                         <outlet property="textFieldMessage" destination="nXu-XX-hPD" id="MAq-jX-va8"/>
                         <outlet property="textFieldTitle" destination="2pB-HU-lif" id="fBs-O1-7C8"/>
                     </connections>
@@ -943,6 +951,91 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="noimage.png" width="200" height="200"/>
         <image name="person.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="CustomCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="labelDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelDays" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="EditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="register:"/>
+                <relationship kind="outlet" name="imageEdit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="takenDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textFieldMessage" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldTitle" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="FirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pictureImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="uIBarButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="userNumber" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="userTab" candidateClass="UITabBar"/>
+            </relationships>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SettingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="DateChanged:"/>
+                <relationship kind="action" name="openCamera:"/>
+                <relationship kind="action" name="saveInformation:"/>
+                <relationship kind="outlet" name="textfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userBirthday" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SlideViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SlideViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextSlide:"/>
+                <relationship kind="action" name="pauseShow:"/>
+                <relationship kind="action" name="startShow:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="pauseButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TimeLineViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="imageButton:"/>
+                <relationship kind="action" name="libraryButtonTapped:"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

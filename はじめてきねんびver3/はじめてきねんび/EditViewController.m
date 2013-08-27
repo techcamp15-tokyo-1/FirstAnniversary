@@ -16,6 +16,8 @@
 bool fromCamera = false;
 User *user;
 Item *item;
+NSDate *date;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,13 +36,19 @@ Item *item;
 
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
+    
     if (!item) {
-        self.textFieldTitle.placeholder = @"タイトル";
-        self.textFieldMessage.placeholder = @"メッセージ";
+        self.textFieldTitle.placeholder = TEXT_FIELD_TITLE;
+        self.textFieldMessage.placeholder = TEXT_FIELD_MESSAGE;
     }
     self.textFieldTitle = [NSString stringWithFormat:@"%@",item.title];
     self.textFieldMessage = [NSString stringWithFormat:@"%@",item.message];
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.imageEdit.image = [[UIImage alloc]initWithData:[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE]];
+    date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    df.dateFormat = @"YYYY/MM/dd";
+    self.takenDate.text = [df stringFromDate:date];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +56,7 @@ Item *item;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
     [self.textFieldTitle resignFirstResponder];
     [self.textFieldMessage resignFirstResponder];
@@ -55,18 +64,11 @@ Item *item;
 }
 
 
-
-
 - (IBAction)register:(id)sender {
     
-//    [user addItemToCurrent:<#(NSDate *)#>]
+    [user addItemToCurrent: date];
     
-//    Item *item =[Item getCurrentItem];
-//    [item saveItem:self.textFieldTitle.text andMessage:self.textFieldMessage.text andName:nil];
-    //　保存する
-    
-    
-    if (fromCamera){
+    if (user.userId == CAMERA_TAB){
         //return to home
     }else{
         UIAlertView *alert = [[UIAlertView alloc]init];
@@ -74,6 +76,7 @@ Item *item;
         alert.message = nil;
         [alert addButtonWithTitle:@"OK"];
         [alert show];
+        
     }
 }
 @end
