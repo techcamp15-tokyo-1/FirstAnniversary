@@ -16,11 +16,15 @@
 @property (readonly) int userId;
 @property (strong) NSDate *birthday;
 @property (strong) NSData *image;
-@property (strong) NSMutableArray *itemArray;
+@property (strong) NSMutableArray *itemList;
+
+
 +(User *)getCurrentUser;
-+(User *)loadUser:(int)targetUserId;
--(void)addItemToCurrent:(NSDate *)date;
--(Item *)loadItemFromCurrent:(NSDate *)date;
+-(void)save;
++(User *)load:(int)userId;
++(User *)loadUser:(int)userId;
+-(void)insertItem:(Item *)item;
+
 @end
 
 #ifndef User_h
@@ -28,11 +32,14 @@
 
 #define USER_NO_NAME @"未設定"
 
+#endif
+
 enum USER_KEY {
-	USER_KEY_USERID = 0,
-	USER_KEY_NAME,
-	USER_KEY_BIRTHDAY,
-	USER_KEY_IMAGE
+    USER_KEY_NAME = 0,
+    USER_KEY_USERID,
+    USER_KEY_BIRTHDAY,
+    USER_KEY_ITEMLIST,
+    USER_KEY_IMAGE
 };
 
-#endif
+

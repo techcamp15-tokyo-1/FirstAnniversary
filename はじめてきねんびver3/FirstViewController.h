@@ -6,6 +6,9 @@
 //  Copyright (c) 2013年 Ueda Junya. All rights reserved.
 //
 
+#ifndef _FirstVierController_h_
+#define _FirstVierController_h_
+
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SettingViewController.h"
@@ -19,6 +22,8 @@
 #define TMP @"tmp"
 #define TMP_IMAGE @"tmpImage"
 #define TMP_DATE @"tmpDate"
+#endif
+
 #endif
 
 

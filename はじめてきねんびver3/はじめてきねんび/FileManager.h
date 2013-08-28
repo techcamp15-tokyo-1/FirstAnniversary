@@ -16,6 +16,6 @@
 -(BOOL)createDirNamedOfUserId;
 -(void )saveImageData:(NSData *)imageData
           andDate:(NSDate *)date;
-
+-(NSString *)getCurrentUserDirForPath;
 
 @end

@@ -52,4 +52,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+//次の画面に遷移
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    EditViewController *nextVC = [segue destinationViewController];
+ //   nextVC.takenDate = ;
+}
+
+
 @end

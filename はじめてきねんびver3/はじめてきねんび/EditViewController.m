@@ -31,18 +31,24 @@ NSDate *date;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    user = [User getCurrentUser];
-    item = [Item getCurrentItem];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
 
+    user = [User getCurrentUser];
+    
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
     
-    if (!item) {
+    if (user.userId == CAMERA_TAB) {
         self.textFieldTitle.placeholder = TEXT_FIELD_TITLE;
         self.textFieldMessage.placeholder = TEXT_FIELD_MESSAGE;
     }
+    
+    //アイテム読み込んでないのに出るわけないやん
+    
+    
     self.textFieldTitle = [NSString stringWithFormat:@"%@",item.title];
     self.textFieldMessage = [NSString stringWithFormat:@"%@",item.message];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     UIImage *tmp = [[UIImage alloc]initWithData:[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE]];
     self.imageEdit.image = tmp;
@@ -62,20 +68,18 @@ NSDate *date;
     [self.textFieldTitle resignFirstResponder];
     [self.textFieldMessage resignFirstResponder];
     
-//    switch (textField.tag) {
-//        case 1:
-//            [self.textFieldTitle resignFirstResponder];
-//            break;
-//        case 2:
-//            break;
-//}
     return YES;
 }
 
 
-- (IBAction)register:(id)sender {
+- (IBAction)regist:(id)sender {
+    Item *item = [[Item alloc] init];
+//    item.title = @"!";//self.textFieldTitle.text;
+//    item.message = @"!";//self.textFieldMessage.text;
+//    item.imageName =
+//    item.date =
     
-    [user addItemToCurrent: date];
+    
     UIAlertView *alert = [[UIAlertView alloc]init];
     alert.title = @"登録が完了しました";
     alert.message = nil;
@@ -89,5 +93,7 @@ NSDate *date;
         [self.navigationController popViewControllerAnimated:YES];
         
     }
+    
 }
+
 @end
