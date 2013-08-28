@@ -77,7 +77,7 @@
     
 	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     //画面遷移
     [self performSegueWithIdentifier:@"toEditView" sender:nil];
     

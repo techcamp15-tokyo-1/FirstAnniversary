@@ -44,7 +44,8 @@ NSDate *date;
     self.textFieldTitle = [NSString stringWithFormat:@"%@",item.title];
     self.textFieldMessage = [NSString stringWithFormat:@"%@",item.message];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.imageEdit.image = [[UIImage alloc]initWithData:[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE]];
+    UIImage *tmp = [[UIImage alloc]initWithData:[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE]];
+    self.imageEdit.image = tmp;
     date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
     df.dateFormat = @"YYYY/MM/dd";
@@ -67,15 +68,17 @@ NSDate *date;
 - (IBAction)register:(id)sender {
     
     [user addItemToCurrent: date];
+    UIAlertView *alert = [[UIAlertView alloc]init];
+    alert.title = @"登録が完了しました";
+    alert.message = nil;
+    [alert addButtonWithTitle:@"OK"];
+    [alert show];
     
     if (user.userId == CAMERA_TAB){
         //return to home
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }else{
-        UIAlertView *alert = [[UIAlertView alloc]init];
-        alert.title = @"登録が完了しました";
-        alert.message = nil;
-        [alert addButtonWithTitle:@"OK"];
-        [alert show];
+        [self.navigationController popViewControllerAnimated:YES];
         
     }
 }

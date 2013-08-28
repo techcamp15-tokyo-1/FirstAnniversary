@@ -322,10 +322,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController id="jW1-Oc-e8L" customClass="TimeLineViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="d57-oI-lsg">
-                        <rect key="frame" x="0.0" y="64" width="480" height="256"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="N0E-HX-YhC">
                             <size key="itemSize" width="88" height="256"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -334,7 +333,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LeftCell" id="4Qa-JH-3JO" customClass="CustomCell">
-                                <rect key="frame" x="0.0" y="0.0" width="89" height="256"/>
+                                <rect key="frame" x="0.0" y="80" width="89" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="89" height="256"/>
@@ -413,7 +412,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UpCell" id="7Xj-Gr-VNe" customClass="CustomCell">
-                                <rect key="frame" x="89" y="0.0" width="88" height="256"/>
+                                <rect key="frame" x="89" y="80" width="88" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="88" height="256"/>
@@ -492,7 +491,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DownCell" id="21h-0s-JSi" customClass="CustomCell">
-                                <rect key="frame" x="177" y="0.0" width="88" height="256"/>
+                                <rect key="frame" x="177" y="80" width="88" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="88" height="256"/>
@@ -571,7 +570,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="omissionCell" id="8Bi-8Q-2hZ" customClass="CustomCell">
-                                <rect key="frame" x="265" y="0.0" width="88" height="256"/>
+                                <rect key="frame" x="265" y="80" width="88" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="88" height="256"/>
@@ -629,7 +628,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </constraints>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RightCell" id="n17-nQ-tsl" customClass="CustomCell">
-                                <rect key="frame" x="353" y="0.0" width="88" height="256"/>
+                                <rect key="frame" x="353" y="80" width="88" height="256"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="88" height="256"/>
@@ -687,25 +686,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </view>
                                 <constraints>
                                     <constraint firstItem="BMz-ws-ULo" firstAttribute="top" secondItem="Jrl-lD-QLS" secondAttribute="top" type="default" id="0Mg-CM-7Zi"/>
-                                    <constraint firstItem="n0K-c9-4VH" firstAttribute="trailing" secondItem="n17-nQ-tsl" secondAttribute="trailing" type="default" id="6Fx-pm-bph"/>
-                                    <constraint firstItem="Jrl-lD-QLS" firstAttribute="leading" secondItem="n17-nQ-tsl" secondAttribute="leading" type="default" id="A5b-CE-YTm"/>
-                                    <constraint firstItem="uYG-jc-b5Q" firstAttribute="leading" secondItem="n17-nQ-tsl" secondAttribute="leading" type="default" id="DKK-Lg-GAH"/>
-                                    <constraint firstItem="aw6-wg-Kpd" firstAttribute="centerY" secondItem="n17-nQ-tsl" secondAttribute="centerY" type="default" id="JVv-8b-oPT"/>
+                                    <constraint firstItem="n0K-c9-4VH" firstAttribute="trailing" secondItem="n17-nQ-tsl" secondAttribute="trailing" type="default" id="97b-BG-DXR"/>
+                                    <constraint firstAttribute="bottom" secondItem="n0K-c9-4VH" secondAttribute="bottom" constant="79" id="9ny-z2-mkj"/>
+                                    <constraint firstItem="aw6-wg-Kpd" firstAttribute="centerY" secondItem="n17-nQ-tsl" secondAttribute="centerY" type="default" id="Fv4-J7-zpC"/>
+                                    <constraint firstItem="n0K-c9-4VH" firstAttribute="leading" secondItem="n17-nQ-tsl" secondAttribute="leading" type="default" id="Gem-aw-1Ob"/>
+                                    <constraint firstItem="Jrl-lD-QLS" firstAttribute="leading" secondItem="n17-nQ-tsl" secondAttribute="leading" type="default" id="IBK-F0-Gsl"/>
                                     <constraint firstItem="Jrl-lD-QLS" firstAttribute="trailing" secondItem="aw6-wg-Kpd" secondAttribute="trailing" type="default" id="Sfg-gP-3Kb"/>
                                     <constraint firstItem="n0K-c9-4VH" firstAttribute="centerX" secondItem="aw6-wg-Kpd" secondAttribute="centerX" type="default" id="TVb-MV-LJI"/>
                                     <constraint firstItem="Dg7-en-JwV" firstAttribute="bottom" secondItem="BMz-ws-ULo" secondAttribute="bottom" type="default" id="XAR-84-zSJ"/>
+                                    <constraint firstItem="SFP-H4-ypu" firstAttribute="trailing" secondItem="n17-nQ-tsl" secondAttribute="trailing" type="default" id="ZXN-cP-ldg"/>
                                     <constraint firstItem="BMz-ws-ULo" firstAttribute="bottom" secondItem="Jrl-lD-QLS" secondAttribute="bottom" type="default" id="apT-jJ-ggG"/>
-                                    <constraint firstItem="uYG-jc-b5Q" firstAttribute="trailing" secondItem="n17-nQ-tsl" secondAttribute="trailing" type="default" id="bgl-w7-k8n"/>
                                     <constraint firstItem="Dg7-en-JwV" firstAttribute="top" secondItem="BMz-ws-ULo" secondAttribute="top" type="default" id="bwZ-hc-8op"/>
-                                    <constraint firstItem="n0K-c9-4VH" firstAttribute="leading" secondItem="n17-nQ-tsl" secondAttribute="leading" type="default" id="cHO-Dz-AXy"/>
                                     <constraint firstItem="SFP-H4-ypu" firstAttribute="top" secondItem="Dg7-en-JwV" secondAttribute="top" type="default" id="eMR-Kc-p4y"/>
                                     <constraint firstItem="Jrl-lD-QLS" firstAttribute="top" secondItem="n17-nQ-tsl" secondAttribute="top" constant="125" id="g3q-yi-N90"/>
+                                    <constraint firstItem="uYG-jc-b5Q" firstAttribute="leading" secondItem="n17-nQ-tsl" secondAttribute="leading" type="default" id="nON-up-nrT"/>
                                     <constraint firstAttribute="trailing" secondItem="Dg7-en-JwV" secondAttribute="trailing" constant="15" id="pBQ-8P-HdT"/>
                                     <constraint firstItem="SFP-H4-ypu" firstAttribute="bottom" secondItem="Dg7-en-JwV" secondAttribute="bottom" type="default" id="qHT-Qe-Oqo"/>
                                     <constraint firstItem="aw6-wg-Kpd" firstAttribute="top" secondItem="uYG-jc-b5Q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="woe-um-pPO"/>
-                                    <constraint firstAttribute="bottom" secondItem="n0K-c9-4VH" secondAttribute="bottom" constant="79" id="xVn-TF-3d4"/>
-                                    <constraint firstItem="SFP-H4-ypu" firstAttribute="trailing" secondItem="n17-nQ-tsl" secondAttribute="trailing" type="default" id="ySj-8E-2hg"/>
                                     <constraint firstAttribute="trailing" secondItem="BMz-ws-ULo" secondAttribute="trailing" constant="28" id="ylK-Cp-qCp"/>
+                                    <constraint firstItem="uYG-jc-b5Q" firstAttribute="trailing" secondItem="n17-nQ-tsl" secondAttribute="trailing" type="default" id="zHz-80-f5i"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="labelDate" destination="uYG-jc-b5Q" id="xwl-e2-1s3"/>
@@ -725,7 +724,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsb-Ls-DYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -800,7 +798,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController title="Detail" id="huI-v5-YnR" customClass="DetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LaW-iQ-PZ6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YQ-gEK">
@@ -951,91 +949,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="noimage.png" width="200" height="200"/>
         <image name="person.png" width="32" height="32"/>
     </resources>
-    <classes>
-        <class className="CustomCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CustomCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="labelDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="labelDays" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailImageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="EditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="register:"/>
-                <relationship kind="outlet" name="imageEdit" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="takenDate" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textFieldMessage" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldTitle" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="FirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="pictureImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="uIBarButtonItem" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="userName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="userNumber" candidateClass="UITabBar"/>
-                <relationship kind="outlet" name="userTab" candidateClass="UITabBar"/>
-            </relationships>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SettingViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="DateChanged:"/>
-                <relationship kind="action" name="openCamera:"/>
-                <relationship kind="action" name="saveInformation:"/>
-                <relationship kind="outlet" name="textfield" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userBirthday" candidateClass="UIDatePicker"/>
-                <relationship kind="outlet" name="userImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="SlideViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SlideViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="nextSlide:"/>
-                <relationship kind="action" name="pauseShow:"/>
-                <relationship kind="action" name="startShow:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="pauseButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="playButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="TimeLineViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="imageButton:"/>
-                <relationship kind="action" name="libraryButtonTapped:"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -1043,6 +956,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="16n-V4-ZT2"/>
-        <segue reference="Msx-be-rtX"/>
+        <segue reference="jTc-DF-mIY"/>
     </inferredMetricsTieBreakers>
 </document>
