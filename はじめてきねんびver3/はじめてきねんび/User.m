@@ -16,85 +16,76 @@ static User *currentUser;
 +(User *)getCurrentUser {
     return currentUser;
 }
-
++(User *)userWithId:(int)targetUserId {
+	User *user = (User *)[self dataWithId:targetUserId];
+	user.name = USER_NO_NAME;
+	user.userId = targetUserId;
+	
+	return user;
+}
 +(User *)loadUser:(int)targetUserId {
-    User *user = [User loadData:targetUserId];
-    if (!user) {
-        user = [User dataWithId:targetUserId];
-        user.name = USER_NO_NAME;
-        [user setUserId:targetUserId];
-    }
-    currentUser = user;
-    return user;
+	User *user = (User *)[super loadData:targetUserId];
+	if (!user) user = [User userWithId:targetUserId];
+	currentUser = user;
+	
+	return user;
 }
 
-+(User *)getFirstClass{
-    return [self loadUser:0];
+//ユーザーID
+-(void)setUserId:(int)userId {
+	NSString *userId_str = [NSString stringWithFormat:@"%d", userId];
+    [super saveData:userId_str WithKeyId:USER_KEY_USERID];
 }
-
--(NSString *)name{
-    return [self dataWithKeyId:USER_KEY_NAME];
-}
--(void)setName:(NSString *)name{
-    [self saveData:name WithKeyId:USER_KEY_NAME];
-}
-
--(int)userId{
-    NSString *userId_str = [self dataWithKeyId:USER_KEY_USERID];
+-(int)userId {
+	NSString *userId_str = [super dataWithKeyId:USER_KEY_USERID];
     return userId_str.intValue;
 }
--(void)setUserId:(int)userId{
-    [self saveData:[NSString stringWithFormat:@"%d", userId] WithKeyId:USER_KEY_USERID];
+
+//名前
+-(void)setName:(NSString *)name{
+    [super saveData:name WithKeyId:USER_KEY_NAME];
 }
+-(NSString *)name {
+    return [super dataWithKeyId:USER_KEY_NAME];
+}
+
 //誕生日
--(void)setBirthday:(NSDate *)birthday{
+-(void)setBirthday:(NSString *)birthday{
     [super saveData:birthday WithKeyId:USER_KEY_BIRTHDAY];
 }
--(NSDate *)birthday {
+-(NSString *)birthday {
     return [super dataWithKeyId:USER_KEY_BIRTHDAY];
 }
 
 //はじめての画像
--(void)setImage:(UIImage *)image{
+-(void)setImage:(NSData *)image{
     [super saveData:image WithKeyId:USER_KEY_IMAGE];
 }
--(UIImage *)image {
+-(NSData *)image {
     return [super dataWithKeyId:USER_KEY_IMAGE];
 }
 
-
-//--------------------------------------------------------------------------------
-
-//ユーザーを読み込みカレントユーザーに設定する
-+(User *) loadAndSetCurrentUserForUserId:(int)userId {
-    User *user = [User loadData:userId];
-    currentUser = user;
-    return user;
+// dateでItemに保存
+-(void)addItemToCurrent:(NSDate *)date{
+    [currentUser addItem:date];
 }
-+(User *) load:(int)userId {
-    return [self loadUser:userId];
+-(void)addItem:(NSDate *)date{
+    [Item itemWithId:[date timeIntervalSince1970]];
 }
-
-//--------------------------------------------------------------------------------
-// アイテムリストにアイテムを挿入
--(void)insertItem:(Item *)item{
-    [self.itemList addObject:item];
-    [self.itemList insertObject:item atIndex:[self index]];
+// dateでItemから呼び出し
+-(Item *)loadItemFromCurrent:(NSDate *)date{
+    return [currentUser loadItem:date];
 }
 
-//挿入位置を返す
--(int)index{
-    return self.itemList.count;
+-(Item *)loadItem:(NSDate *)date{
+    return [Item loadItem:[date timeIntervalSince1970]];
 }
+// dateだけ別のarrayに保存
+//-(void)saveDateToItemArray:
 
-
-//--------------------------------------------------------------------------------
 
 // アイテムのソート
-
 // ソートされたアイテムの操作
-//--------------------------------------------------------------------------------
-
 
 
 @end

@@ -11,7 +11,6 @@
 #import "DetailViewController.h"
 #import "User.h"
 #import "FileManager.h"
-#import "Item.h"
 
 
 

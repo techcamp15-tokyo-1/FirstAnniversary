@@ -26,12 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
-
     User *user = [User getCurrentUser];
     if (!user) {
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        int currentId = 0;      //[defaults integerForKey:@"currentId"];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        int currentId = [defaults integerForKey:@"currentId"];
         user = [User loadUser:currentId];
     }
     
@@ -49,6 +47,8 @@
     //ナビゲーション切り替えをハンドリングする
     self.uIBarButtonItem.target = self;
     self.uIBarButtonItem.action = @selector(barButtonTap);
+    //    [self paintBackgroundColor: user.userId];
+    
     
     //ユーザの名前を出す
     if ([user.name length] == 0 )

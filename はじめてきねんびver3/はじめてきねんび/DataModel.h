@@ -6,11 +6,8 @@
 //  Copyright (c) 2013年 Ueda Junya. All rights reserved.
 //
 
-@interface DataModel : NSObject {
-}
-
-@property (strong) NSMutableArray *dict;
-
+@interface DataModel : NSObject
+@property (strong) NSMutableDictionary *dict;
 
 //コンストラクタ
 +(id) data;
@@ -24,6 +21,7 @@
 -(void) saveData:(id)value WithKeyId:(int)key;
 
 //値を読み込んで返す
+-(id) dataWithKeyStr:(NSString *)key;
 -(id) dataWithKeyId:(int)key;
 
 @end

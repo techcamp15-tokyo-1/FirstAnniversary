@@ -18,6 +18,7 @@
 
 @implementation DataModel
 
+
 //コンストラクタ
 +(id) data {
 	return [self dataWithId:(int)[[NSDate date] timeIntervalSince1970]];
@@ -50,7 +51,6 @@
 	if (!dictLoaded) return nil;
 	
 	[data setDictionary:dictLoaded];
-    
 	return data;
 }
 
@@ -73,7 +73,7 @@
     [_dict setValue:value forKey:key];
 	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *key_dataId = [_dict valueForKey:DATAMODEL_KEY_DATAID];
+    NSString *key_dataId = [_dict objectForKey:DATAMODEL_KEY_DATAID];
     [defaults setObject:_dict forKey:key_dataId];
 }
 //辞書に値を設定しUserDefaultsへ保存する（keyがintバージョン)
@@ -82,18 +82,14 @@
 	[self saveData:value WithKeyStr:key_str];
 }
 
+//値を読み込んで返す
+-(id) dataWithKeyStr:(NSString *)key {
+	return [_dict valueForKey:key];
+}
+
 //値を読み込んで返す（keyがintバージョン）
 -(id) dataWithKeyId:(int)key {
 	return [self dataWithKeyStr: [NSString stringWithFormat:DATAMODEL_FORMAT_DATAID, key]];
-}
-
-////値を読み込んで返す
--(id) dataWithKeyStr:(NSString *)key {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *key_dataId = [_dict valueForKey:DATAMODEL_KEY_DATAID];
-    _dict = [defaults objectForKey:key_dataId];
-
-    return [_dict valueForKey:key];
 }
 
 @end

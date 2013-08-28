@@ -7,36 +7,39 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataModel.h"
 
-@interface Item :NSObject{
+@interface Item : DataModel{
 }
 
 @property NSString *title;
 @property NSString *message;
 @property NSString *imageName;
 @property NSDate *date;
+
+
 @property (readonly) int itemId;
 
-//+(Item *)getCurrentItem;
-//+(Item *)loadItem:(int)targetItemId;
-//-(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
-//+(Item *)itemWithId:(int)targetItemId;
-//
++(Item *)getCurrentItem;
++(Item *)loadItem:(int)targetItemId;
+-(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
++(Item *)itemWithId:(int)targetItemId;
+
 
 @end
 
-//#ifndef Item_h
-//#define Item_h
-//
-//#define ITEM_NO_TITLE @"未設定"
-//
-//enum ITEM_KEY {
-//	ITEM_KEY_TITLE = 0,
-//	ITEM_KEY_MESSAGE,
-//	ITEM_KEY_IMAGE_NAME,
-//	ITEM_KEY_ITEMID,
-//    ITEM_KEY_DATE
-//    
-//};
-//
-//#endif
+#ifndef Item_h
+#define Item_h
+
+#define ITEM_NO_TITLE @"未設定"
+
+enum ITEM_KEY {
+	ITEM_KEY_TITLE = 0,
+	ITEM_KEY_MESSAGE,
+	ITEM_KEY_IMAGE_NAME,
+	ITEM_KEY_ITEMID,
+    ITEM_KEY_DATE
+    
+};
+
+#endif

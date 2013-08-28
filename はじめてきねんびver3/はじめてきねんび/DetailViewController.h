@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EditViewController.h"
 
 @interface DetailViewController : UIViewController
 

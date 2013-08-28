@@ -367,11 +367,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <constraint firstAttribute="height" constant="5" id="bsS-GJ-xX3"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="89" translatesAutoresizingMaskIntoConstraints="NO" id="wID-La-Vpn">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="89" translatesAutoresizingMaskIntoConstraints="NO" id="wID-La-Vpn">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="89" id="ZxT-wc-1lB"/>
+                                                <constraint firstAttribute="height" constant="43" id="bek-LL-BwT"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -379,7 +379,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="6bv-BQ-Oah"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="13"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="13"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -387,20 +387,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="d8V-b4-uRe" firstAttribute="centerY" secondItem="4Qa-JH-3JO" secondAttribute="centerY" type="default" id="6Hf-7t-Vlu"/>
                                     <constraint firstItem="P59-vL-efN" firstAttribute="top" secondItem="4Qa-JH-3JO" secondAttribute="top" constant="28" id="Apc-Fl-pTF"/>
-                                    <constraint firstAttribute="trailing" secondItem="kLU-mg-o1Z" secondAttribute="trailing" constant="20" type="default" id="I1n-Uq-jPV"/>
+                                    <constraint firstAttribute="trailing" secondItem="kLU-mg-o1Z" secondAttribute="trailing" constant="20" type="default" id="EkL-GM-V2k"/>
                                     <constraint firstItem="d8V-b4-uRe" firstAttribute="leading" secondItem="f72-xm-p1B" secondAttribute="leading" type="default" id="IAT-pI-gBb"/>
-                                    <constraint firstItem="f72-xm-p1B" firstAttribute="trailing" secondItem="4Qa-JH-3JO" secondAttribute="trailing" type="default" id="NCm-Xr-0ng"/>
-                                    <constraint firstItem="P59-vL-efN" firstAttribute="leading" secondItem="4Qa-JH-3JO" secondAttribute="leading" type="default" id="WFi-GA-BFw"/>
-                                    <constraint firstItem="wID-La-Vpn" firstAttribute="trailing" secondItem="4Qa-JH-3JO" secondAttribute="trailing" type="default" id="WeN-BQ-wHX"/>
+                                    <constraint firstItem="kLU-mg-o1Z" firstAttribute="leading" secondItem="4Qa-JH-3JO" secondAttribute="leading" constant="20" type="default" id="WH9-hQ-a3h"/>
                                     <constraint firstItem="kLU-mg-o1Z" firstAttribute="top" secondItem="P59-vL-efN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bcJ-Xz-CM5"/>
-                                    <constraint firstItem="wID-La-Vpn" firstAttribute="leading" secondItem="4Qa-JH-3JO" secondAttribute="leading" type="default" id="cYm-sj-7gS"/>
-                                    <constraint firstItem="d8V-b4-uRe" firstAttribute="centerY" secondItem="4Qa-JH-3JO" secondAttribute="centerY" type="default" id="dt8-lu-3xi"/>
-                                    <constraint firstItem="kLU-mg-o1Z" firstAttribute="leading" secondItem="4Qa-JH-3JO" secondAttribute="leading" constant="20" type="default" id="erb-xz-7XK"/>
-                                    <constraint firstItem="P59-vL-efN" firstAttribute="trailing" secondItem="4Qa-JH-3JO" secondAttribute="trailing" type="default" id="iqs-nx-5q5"/>
-                                    <constraint firstAttribute="bottom" secondItem="wID-La-Vpn" secondAttribute="bottom" constant="11" id="jfB-7W-4la"/>
+                                    <constraint firstItem="wID-La-Vpn" firstAttribute="trailing" secondItem="4Qa-JH-3JO" secondAttribute="trailing" type="default" id="e79-36-Kbz"/>
+                                    <constraint firstItem="f72-xm-p1B" firstAttribute="trailing" secondItem="4Qa-JH-3JO" secondAttribute="trailing" type="default" id="ewG-cC-bqM"/>
+                                    <constraint firstItem="wID-La-Vpn" firstAttribute="leading" secondItem="4Qa-JH-3JO" secondAttribute="leading" type="default" id="jGs-2t-xgP"/>
+                                    <constraint firstItem="P59-vL-efN" firstAttribute="trailing" secondItem="4Qa-JH-3JO" secondAttribute="trailing" type="default" id="nSm-4h-J4o"/>
                                     <constraint firstItem="f72-xm-p1B" firstAttribute="top" secondItem="4Qa-JH-3JO" secondAttribute="top" constant="125" id="oZ7-Wk-qQ8"/>
+                                    <constraint firstAttribute="bottom" secondItem="wID-La-Vpn" secondAttribute="bottom" constant="57" id="pCk-Bj-9iX"/>
                                     <constraint firstItem="kLU-mg-o1Z" firstAttribute="centerX" secondItem="d8V-b4-uRe" secondAttribute="centerX" type="default" id="x05-pL-Pfd"/>
+                                    <constraint firstItem="P59-vL-efN" firstAttribute="leading" secondItem="4Qa-JH-3JO" secondAttribute="leading" type="default" id="yB1-pQ-PhI"/>
                                 </constraints>
                                 <size key="customSize" width="89" height="256"/>
                                 <connections>
@@ -448,7 +448,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLk-Hr-QdF">
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="SGd-Pk-nOp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -520,12 +523,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cS-Ci-eKf">
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="RyT-mF-avW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbf-v9-JXM">
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="8ch-DM-BV2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -652,12 +661,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0K-c9-4VH">
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="DrF-0C-jEg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYG-jc-b5Q">
-                                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="2Ji-RU-W2p"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -783,16 +798,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ngh-YQ-gEK">
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="T7b-lt-Utk"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="trailing" secondItem="LaW-iQ-PZ6" secondAttribute="trailing" type="default" id="Kgo-DD-hXD"/>
-                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="centerY" secondItem="LaW-iQ-PZ6" secondAttribute="centerY" type="default" id="Y4U-yq-x3a"/>
-                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="leading" secondItem="LaW-iQ-PZ6" secondAttribute="leading" type="default" id="qzB-EP-Vsh"/>
+                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="top" secondItem="LaW-iQ-PZ6" secondAttribute="top" type="default" id="3xP-Jm-IYX"/>
+                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="bottom" secondItem="LaW-iQ-PZ6" secondAttribute="bottom" type="default" id="4hY-6k-v1I"/>
+                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="trailing" secondItem="LaW-iQ-PZ6" secondAttribute="trailing" type="default" id="60M-Ak-KHE"/>
+                            <constraint firstItem="Ngh-YQ-gEK" firstAttribute="leading" secondItem="LaW-iQ-PZ6" secondAttribute="leading" type="default" id="cZN-2i-xXp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail of TimeLine" id="PMx-xz-1c0">
@@ -938,7 +951,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="AMd-OZ-ALf"/>
+        <segue reference="jTc-DF-mIY"/>
         <segue reference="2Mj-xf-Pfz"/>
     </inferredMetricsTieBreakers>
 </document>
