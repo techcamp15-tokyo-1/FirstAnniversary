@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490F4ABA17CC73CC00E3970F /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F4AB917CC73CC00E3970F /* Utility.m */; };
 		491CC83E17CAE2CE00A4474D /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491CC83D17CAE2CE00A4474D /* EditViewController.m */; };
 		491CC84D17CB5B6A00A4474D /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 491CC84B17CB5B6A00A4474D /* cog.png */; };
 		491CC84E17CB5B6A00A4474D /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 491CC84C17CB5B6A00A4474D /* plus.png */; };
@@ -70,8 +69,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		490F4AB817CC73CC00E3970F /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
-		490F4AB917CC73CC00E3970F /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		491CC83C17CAE2CE00A4474D /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		491CC83D17CAE2CE00A4474D /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		491CC84B17CB5B6A00A4474D /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
@@ -176,12 +173,6 @@
 		4957DB6F17C9C56A0028439A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				496ABC0A17CCAAA400481F69 /* photo-2.png */,
-				496ABC0B17CCAAA400481F69 /* photo-3.png */,
-				496ABC0C17CCAAA400481F69 /* photo-4.png */,
-				496ABC0D17CCAAA400481F69 /* photo-5.png */,
-				496ABC0E17CCAAA400481F69 /* photo-0.png */,
-				496ABC0F17CCAAA400481F69 /* photo-1.png */,
 				4957DB8017C9DB2D0028439A /* g5811.png */,
 				4957DB8117C9DB2D0028439A /* g5811@2x.png */,
 				491CC84F17CB5B8C00A4474D /* plus@2x.png */,
@@ -194,8 +185,14 @@
 				4957DB6D17C9C0C80028439A /* example2.png */,
 				491CC85317CB629700A4474D /* person.png */,
 				491CC85417CB629700A4474D /* person@2x.png */,
-				491CC85717CB62A900A4474D /* group@2x.png */,
 				491CC85817CB62A900A4474D /* group.png */,
+				491CC85717CB62A900A4474D /* group@2x.png */,
+				496ABC0E17CCAAA400481F69 /* photo-0.png */,
+				496ABC0F17CCAAA400481F69 /* photo-1.png */,
+				496ABC0A17CCAAA400481F69 /* photo-2.png */,
+				496ABC0B17CCAAA400481F69 /* photo-3.png */,
+				496ABC0C17CCAAA400481F69 /* photo-4.png */,
+				496ABC0D17CCAAA400481F69 /* photo-5.png */,
 				498CC94217C6EC9700B3F110 /* p1.jpg */,
 				498CC94317C6EC9700B3F110 /* p2.jpg */,
 				498CC94417C6EC9700B3F110 /* p3.jpg */,
@@ -264,8 +261,6 @@
 				49F1A3C117CC67F80034C578 /* FileManager.m */,
 				A3AB9E7617BE33A3005BA310 /* Item.h */,
 				A3AB9E7717BE33A3005BA310 /* Item.m */,
-				490F4AB817CC73CC00E3970F /* Utility.h */,
-				490F4AB917CC73CC00E3970F /* Utility.m */,
 				491CC83C17CAE2CE00A4474D /* EditViewController.h */,
 				491CC83D17CAE2CE00A4474D /* EditViewController.m */,
 				A3AB9E6517BE29C6005BA310 /* MasterViewController.h */,
@@ -405,7 +400,6 @@
 				491CC83E17CAE2CE00A4474D /* EditViewController.m in Sources */,
 				EFB25A8F17CC07B000F53ED9 /* DataModel.m in Sources */,
 				49F1A3C217CC67F80034C578 /* FileManager.m in Sources */,
-				490F4ABA17CC73CC00E3970F /* Utility.m in Sources */,
 				496ABC1B17CCADFE00481F69 /* SlideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

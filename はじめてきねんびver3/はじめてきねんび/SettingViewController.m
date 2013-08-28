@@ -7,7 +7,6 @@
 //
 
 #import "SettingViewController.h"
-#import "FirstViewController.h"
 
 
 @implementation SettingViewController

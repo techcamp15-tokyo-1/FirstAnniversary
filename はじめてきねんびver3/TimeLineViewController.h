@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCell.h"
+#import "DetailViewController.h"
+#import "User.h"
+
 
 @interface TimeLineViewController : UICollectionViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 - (IBAction)imageButton:(id)sender;

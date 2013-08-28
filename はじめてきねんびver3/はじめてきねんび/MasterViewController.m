@@ -8,8 +8,6 @@
 
 #import "MasterViewController.h"
 
-#import "DetailViewController.h"
-#import "FirstViewController.h"
 
 #import "Item.h"
 

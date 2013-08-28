@@ -7,9 +7,6 @@
 //
 
 #import "TimeLineViewController.h"
-#import "CustomCell.h"
-#import "DetailViewController.h"
-#import "User.h"
 
 @interface TimeLineViewController ()
 {

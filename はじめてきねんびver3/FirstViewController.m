@@ -23,6 +23,66 @@
     }
     return self;
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    User *user = [User getCurrentUser];
+    if (!user) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        int currentId = [defaults integerForKey:@"currentId"];
+        user = [User loadUser:currentId];
+    }
+    
+	//ナビゲーションバーの色を変える
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
+    //ユーザー切り替えをハンドリングする
+    int i = 0;
+    for (UITabBar *tab in self.userTab.items) {
+        tab.tag=i++;
+    }
+    self.userTab.selectedItem = self.userTab.items[user.userId];
+    self.userTab.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0];
+    
+    //ナビゲーション切り替えをハンドリングする
+    self.uIBarButtonItem.target = self;
+    self.uIBarButtonItem.action = @selector(barButtonTap);
+    //    [self paintBackgroundColor: user.userId];
+    
+    
+    //ユーザの名前を出す
+    if ([user.name length] == 0 )
+        self.userName.text = @"未設定";
+    else
+        self.userName.text = user.name;
+    self.userImage.image = [[UIImage alloc]initWithData:user.image];
+    //    UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
+    //    tbi.title = @"hoge";
+    
+}
+// 写真を撮影した後
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+	// オリジナル画像
+	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+	// 編集画像
+	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+	editedImage = editedImage ? editedImage : originalImage;
+    
+    FileManager *fm = [FileManager getInstance];
+    NSLog([fm createDirNamedOfUserId] ? @"SUCCESS" : @"ERR");
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
+    [fm saveImageData:imageData andDate:[NSDate date]];
+    
+	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    //画面遷移
+    [self performSegueWithIdentifier:@"toEditView" sender:nil];
+    
+    
+}
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     if ( item.tag == CAMERA_TAB ){
@@ -53,86 +113,10 @@
     }
 }
 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    User *user = [User getCurrentUser];
-    if (!user) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        int currentId = [defaults integerForKey:@"currentId"];
-        user = [User loadUser:currentId];
-    }
-    
-	//ナビゲーションバーの色を変える
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    
-    //ユーザー切り替えをハンドリングする
-    int i = 0;
-    for (UITabBar *tab in self.userTab.items) {
-        tab.tag=i++;
-    }
-    self.userTab.selectedItem = self.userTab.items[user.userId];
-    self.userTab.delegate = self;
-    self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0];
-    
-    //ナビゲーション切り替えをハンドリングする
-    self.uIBarButtonItem.target = self;
-    self.uIBarButtonItem.action = @selector(barButtonTap);
-//    [self paintBackgroundColor: user.userId];
-    
-    
-    //ユーザの名前を出す
-    if ([user.name length] == 0 )
-        self.userName.text = @"未設定";
-    else
-        self.userName.text = user.name;
-    self.userImage.image = [[UIImage alloc]initWithData:user.image];
-//    UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
-//    tbi.title = @"hoge";
-    
-    
-    
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
-// 写真を撮影した後
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-	// オリジナル画像
-	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
-	// 編集画像
-	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
-	editedImage = editedImage ? editedImage : originalImage;
-    
-    FileManager *fm = [FileManager getInstance];
-    NSLog([fm createDirNamedOfUserId] ? @"SUCCESS" : @"ERR");
-    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
-    [fm saveImageData:imageData andDate:[NSDate date]];
-    
-	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-        
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //画面遷移
-    [self performSegueWithIdentifier:@"toEditView" sender:nil];
-    
-    
-}
-
-
-//- (void)dealloc {
-//	[_pictureImage release];
-//	[super dealloc];
-//}
-
 
 @end
