@@ -4,146 +4,55 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/EditViewController.m"
-         timestampString = "399346333.040814"
+         timestampString = "399358665.797301"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
+         landmarkName = "-textFieldShouldReturn:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/EditViewController.m"
-         timestampString = "399348433.558231"
+         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/FixedNavigationViewController.m"
+         timestampString = "399361261.257505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "47"
-         endingLineNumber = "47"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-shouldAutorotate"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/EditViewController.m"
-         timestampString = "399348434.399361"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399361636.81805"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "48"
-         endingLineNumber = "48"
-         landmarkName = "-viewDidLoad"
+         startingLineNumber = "199"
+         endingLineNumber = "199"
+         landmarkName = "-supportedInterfaceOrientations"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/EditViewController.m"
-         timestampString = "399348435.295975"
+         filePath = "TimeLineViewController.m"
+         timestampString = "399361772.82184"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
-         landmarkName = "-viewDidLoad"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FirstViewController.m"
-         timestampString = "399349289.278347"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
-         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FirstViewController.m"
-         timestampString = "399349367.980157"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FirstViewController.m"
-         timestampString = "399349368.86158"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "75"
-         endingLineNumber = "75"
-         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/FileManager.m"
-         timestampString = "399349381.117155"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
-         landmarkName = "-saveImageData:andDate:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/FileManager.m"
-         timestampString = "399349384.005255"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
-         landmarkName = "-getCurrentUserDirForPath"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "&#12399;&#12375;&#12441;&#12417;&#12390;&#12365;&#12397;&#12435;&#12402;&#12441;/FileManager.m"
-         timestampString = "399349384.838828"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-createDirNamedOfUserId"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "FirstViewController.m"
-         timestampString = "399349430.273816"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
-         landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "-shouldAutorotate"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

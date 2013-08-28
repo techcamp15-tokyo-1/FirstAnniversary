@@ -61,6 +61,14 @@ NSDate *date;
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
     [self.textFieldTitle resignFirstResponder];
     [self.textFieldMessage resignFirstResponder];
+    
+//    switch (textField.tag) {
+//        case 1:
+//            [self.textFieldTitle resignFirstResponder];
+//            break;
+//        case 2:
+//            break;
+//}
     return YES;
 }
 

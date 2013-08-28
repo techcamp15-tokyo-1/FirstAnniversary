@@ -10,6 +10,8 @@
 #import "CustomCell.h"
 #import "DetailViewController.h"
 #import "User.h"
+#import "FileManager.h"
+
 
 
 @interface TimeLineViewController : UICollectionViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>

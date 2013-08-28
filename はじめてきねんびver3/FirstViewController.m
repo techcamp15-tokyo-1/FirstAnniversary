@@ -43,7 +43,6 @@
     }
     self.userTab.selectedItem = self.userTab.items[user.userId];
     self.userTab.delegate = self;
-    self.view.backgroundColor = [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0];
     
     //ナビゲーション切り替えをハンドリングする
     self.uIBarButtonItem.target = self;
@@ -57,8 +56,13 @@
     else
         self.userName.text = user.name;
     self.userImage.image = [[UIImage alloc]initWithData:user.image];
-    //    UITabBarItem *tbi = [self.tabBar.items objectAtIndex:0];
-    //    tbi.title = @"hoge";
+    UITabBarItem *tbi;
+    int tmp = user.userId;
+    for (int i = 0 ; i < 3 ; i++){
+        tbi = [self.userTab.items objectAtIndex:i];
+        tbi.title = [User loadUser:i].name;
+    }
+    user = [User loadUser:tmp];
     
 }
 // 写真を撮影した後
@@ -117,6 +121,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//回転処理が存在するかどうかを返す
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+//回転する方向を指定
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

@@ -16,6 +16,7 @@
 @property (readonly) int userId;
 @property (strong) NSDate *birthday;
 @property (strong) NSData *image;
+@property (strong) NSMutableArray *itemArray;
 +(User *)getCurrentUser;
 +(User *)loadUser:(int)targetUserId;
 -(void)addItemToCurrent:(NSDate *)date;

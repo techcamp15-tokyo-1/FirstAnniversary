@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }

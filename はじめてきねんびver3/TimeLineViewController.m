@@ -32,18 +32,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    self.collectionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.collectionView .backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
     //ユーザ情報の取得
     user = [User getCurrentUser];
     //画像データを配列に
     NSMutableArray *array = [NSMutableArray array];
-    array = [NSMutableArray array];
 //    [array addObject:user.image];
+    
+
+ //   for ()
+    
+/////////////////////////////
     for (int i = 1; i <= 8; i++) {
         NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
         [array addObject:[UIImage imageNamed:filename]];
     }
+//////////////////////////////
+    
     // サンプルデータの読み込み
     [self loadImageData:array];
     [self loadlabelDate];
@@ -145,16 +151,6 @@
     }
 }
 
-//回転制御　が、しかしうまくいってなさそう
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // 横方向のみ回転を許可する
-    if ((interfaceOrientation == UIInterfaceOrientationLandscapeRight) ||
-        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft)) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
 
 //？？？？？？？
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -191,6 +187,16 @@
     
 }
 
+//回転処理が存在するかどうかを返す
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
 
+//回転する方向を指定
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
 
 @end

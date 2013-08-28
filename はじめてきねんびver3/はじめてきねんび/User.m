@@ -80,6 +80,12 @@ static User *currentUser;
 -(Item *)loadItem:(NSDate *)date{
     return [Item loadItem:[date timeIntervalSince1970]];
 }
+// dateだけ別のarrayに保存
+//-(void)saveDateToItemArray:
+
+
+// アイテムのソート
+// ソートされたアイテムの操作
 
 
 @end
