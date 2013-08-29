@@ -61,12 +61,12 @@ NSString *imageName;
         imageName = [[FileManager getInstance] convertDateToString:user.birthday];
         days = message;
         
-        NSMutableDictionary *item = [user itemFactory:title
-                                           addMessage: message
-                                              addDate:user.birthday
-                                         addImageName:imageName
-                                              addDays:days];
-        [user insertItem:item];
+        [user itemFactory:title
+               addMessage: message
+                  addDate:user.birthday
+             addImageName:imageName
+                  addDays:days];
+
         NSLog(@"itemList.count = %d",user.itemList.count);
         
     } else {

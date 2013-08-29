@@ -78,7 +78,7 @@ static User *currentUser;
 //    self.itemList = itemList;
 }
 -(NSMutableArray *)itemList {
-    return [super dataWithKeyId:USER_KEY_ITEMLIST];
+    return (NSMutableArray *)[super dataWithKeyId:USER_KEY_ITEMLIST];
 }
 
 //// dateでItemに保存
@@ -115,10 +115,24 @@ static User *currentUser;
                              addDays:(NSString *)days{
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    [dict setObject:title forKey:ITEM_TITLE];
-    [dict setObject:message forKey:ITEM_MESSAGE];
+    
+    if (title) {
+        [dict setObject:title forKey:ITEM_TITLE];
+    } else {
+        NSLog(@"Title未指定");
+    }
+    if (message) {
+        [dict setObject:message forKey:ITEM_MESSAGE];
+    } else {
+        NSLog(@"message未指定");
+    }
+
     [dict setObject:date forKey:ITEM_DATE];
     [dict setObject:imageName forKey:ITEM_IMAGE_NAME];
+    
+    if (!days) days = [NSString stringWithFormat:@"%d日",
+        (int)([[NSDate date] timeIntervalSinceDate:currentUser.birthday]) / 60 / 60 / 24];
+    
     [dict setObject:days forKey:ITEM_DAYS];
     [self insertItem:dict];
     return dict;
