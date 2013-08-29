@@ -93,6 +93,7 @@
     NSData *data = UIImageJPEGRepresentation(editedImage, 0.8f);
     [dict setObject:data forKey:TMP_IMAGE];
     [dict setObject:now forKey:TMP_DATE];
+    [defaults setObject:dict forKey:TMP];
     
     
     
@@ -145,6 +146,22 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (IBAction)historyPushd:(id)sender{
+        User *user = [User getCurrentUser];
+        if ([user.name isEqualToString:USER_NO_NAME]){
+            UIAlertView *alert = [[UIAlertView alloc]init];
+            alert.title = @"設定からユーザを登録してください";
+            alert.message = nil;
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            return;
+        }
+    [self performSegueWithIdentifier:@"toTimeLine" sender:nil];
+        
+    
+    
 }
 
 @end

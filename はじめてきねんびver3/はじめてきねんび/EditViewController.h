@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageEdit;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldTitle;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldMessage;
-@property (strong, nonatomic) id editItem;
+@property (strong, nonatomic) Item *editItem;
 @property  BOOL isCamera;
 
 

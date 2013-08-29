@@ -11,7 +11,7 @@
 @implementation User
 
 static User *currentUser;
-NSMutableArray *array;
+static NSMutableArray *array;
 +(User *)getCurrentUser {
     return currentUser;
 }

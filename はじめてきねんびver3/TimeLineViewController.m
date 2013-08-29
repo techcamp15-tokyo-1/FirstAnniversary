@@ -80,17 +80,21 @@ User *user;
     NSDate *date;
     
     if ( indexPath.row == 0){
+        NSLog(@"No.%d",indexPath.row);
         item = [user.itemList objectAtIndex:indexPath.item];
         date = item.date;
     
-        [cell setImage:[UIImage imageWithData:user.image]];
+        [cell setImage:[UIImage imageWithContentsOfFile:[[FileManager getInstance] createPathByImageName:item.imageName]]];
         date = user.birthday;
         [cell setDays_str:[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name]];
 
     }
-    else if (indexPath.row == items.count);
+    else if (indexPath.row == user.itemList.count)NSLog(@"No.%d",indexPath.row);
     else{
-        [cell setImage:[items objectAtIndex:indexPath.item]];
+        NSLog(@"No.%d",indexPath.row);
+        item = [user.itemList objectAtIndex:indexPath.item];
+        date = item.date;
+        [cell setImage:[UIImage imageWithContentsOfFile:[[FileManager getInstance] createPathByImageName:item.imageName]]];
     }
     [cell setDate:date];
     //

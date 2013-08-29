@@ -45,6 +45,14 @@ int userId;
 - (IBAction)saveInformation:(id)sender {
     int validation = [self isUserInformationValidate];
     if (validation == SUCCESS) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"確認"
+                              message:@"変更すると全データが消去されますがよろしいですか？"
+                              delegate:nil
+                              cancelButtonTitle:@"cancel"
+                              otherButtonTitles:@"OK", nil
+                             ];
+        [alert show];
         user.name = self.textfield.text;
         user.birthday = self.userBirthday.date;
         //

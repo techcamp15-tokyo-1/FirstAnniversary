@@ -19,7 +19,6 @@ Item *item;
 NSDate *date;
 NSData *imageData;
 
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,11 +31,14 @@ NSData *imageData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    //背景指定
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
 
     user = [User getCurrentUser];
-    Item *item = (Item *)_editItem;
-
+    Item *item = [[Item alloc]init];
+    
+    //deligate
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
     
@@ -44,17 +46,21 @@ NSData *imageData;
     NSDateFormatter *df = [[NSDateFormatter alloc]init];
     df.dateFormat = @"YYYY/MM/dd";
     
+    //placeholder
     self.textFieldTitle.placeholder = TEXT_FIELD_TITLE;
     self.textFieldMessage.placeholder = TEXT_FIELD_MESSAGE;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *dict = [defaults objectForKey:TMP];
-    image = [UIImage imageWithData:[dict objectForKey:TMP_IMAGE]];
-    date = [dict objectForKey:TMP_DATE];
-    NSLog(@"%d",user.userId);
-    
-    if(user.userId);
-    else{
+    //カメラからならユーザデフォルト
+    if( !self.isCamera){
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSMutableDictionary *dict = [defaults objectForKey:TMP];
+        image = [UIImage imageWithData:[dict objectForKey:TMP_IMAGE]];
+        date = [dict objectForKey:TMP_DATE];
+        NSLog(@"%d",user.userId);
+        
+    }else{
+        //ディテールからならセグエから引き継ぎ
+        item = _editItem;
         self.textFieldTitle.text = [NSString stringWithFormat:@"%@",item.title];
         self.textFieldMessage.text = [NSString stringWithFormat:@"%@",item.message];
         NSString *path = [[FileManager getInstance] createPathByImageName:item.imageName];
@@ -66,30 +72,8 @@ NSData *imageData;
     imageData = UIImageJPEGRepresentation(image, 0.8f);
     
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(BOOL)textFieldShouldReturn:(UITextField*)textField{
-    [self.textFieldTitle resignFirstResponder];
-    [self.textFieldMessage resignFirstResponder];
     
-//    switch (textField.tag) {
-//        case 1:
-//            [self.textFieldTitle resignFirstResponder];
-//            break;
-//        case 2:
-//            break;
-//}
-    [self.view endEditing:YES];
-    
-    return YES;
 }
-
 
 - (IBAction)regist:(id)sender {
     
@@ -97,7 +81,14 @@ NSData *imageData;
     BOOL validationOfTitle = NO;
     BOOL validationOfMessage = NO;
     //itemの保存
-    Item *item = [[Item alloc]init];
+    
+    //カメラから
+//    if (!self.isCamera) {
+//        <#statements#>
+//    }
+//    
+    //ディテールから
+    Item *item =[[Item alloc]init];
     if([self.textFieldTitle.text isEqualToString: @""]);
     else{
         item.title = self.textFieldTitle.text;
@@ -146,4 +137,28 @@ NSData *imageData;
         return;
     }
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField*)textField{
+    [self.textFieldTitle resignFirstResponder];
+    [self.textFieldMessage resignFirstResponder];
+    
+    //    switch (textField.tag) {
+    //        case 1:
+    //            [self.textFieldTitle resignFirstResponder];
+    //            break;
+    //        case 2:
+    //            break;
+    //}
+    [self.view endEditing:YES];
+    
+    return YES;
+}
+
+
 @end

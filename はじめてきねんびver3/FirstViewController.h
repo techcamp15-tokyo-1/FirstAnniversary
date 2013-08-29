@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITabBar *userTab;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
+- (IBAction)historyPushd:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uIBarButtonItem;
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
