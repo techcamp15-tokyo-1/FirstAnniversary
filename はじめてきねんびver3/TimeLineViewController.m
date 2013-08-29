@@ -7,10 +7,12 @@
 //  Copyright (c) 2013年 Ueda Junya. All rights reserved.
 //
 
+
 #import "TimeLineViewController.h"
 
 @interface TimeLineViewController ()
 {
+
     NSMutableArray *_objects;
     NSMutableArray *_arrayOfDates;
     NSMutableArray *_arrayOfDays;
