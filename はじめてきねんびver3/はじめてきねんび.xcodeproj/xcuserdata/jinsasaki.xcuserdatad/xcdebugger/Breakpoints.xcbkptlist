@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimeLineViewController.m"
-         timestampString = "399361636.81805"
+         timestampString = "399447547.062378"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "199"
-         endingLineNumber = "199"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
          landmarkName = "-supportedInterfaceOrientations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimeLineViewController.m"
-         timestampString = "399361772.82184"
+         timestampString = "399447547.062378"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "201"
+         endingLineNumber = "201"
          landmarkName = "-shouldAutorotate"
          landmarkType = "5">
       </FileBreakpoint>

@@ -48,6 +48,14 @@
         NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
         [array addObject:[UIImage imageNamed:filename]];
     }
+    for (int i = 1; i <= 8; i++) {
+        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
+        [array addObject:[UIImage imageNamed:filename]];
+    }
+    for (int i = 1; i <= 8; i++) {
+        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
+        [array addObject:[UIImage imageNamed:filename]];
+    }
 //////////////////////////////
     
     // サンプルデータの読み込み
@@ -72,8 +80,8 @@
     _arrayOfDates = [NSMutableArray array];
     [_arrayOfDates addObject:user.birthday];
     
-    for (int i = 1 ; i <= 7 ; i++){
-        [_arrayOfDates addObject:[NSDate dateWithTimeIntervalSinceNow:-1* (8 - i) *24*60*60]];
+    for (int i = 1 ; i <= 23; i++){
+        [_arrayOfDates addObject:[NSDate dateWithTimeIntervalSinceNow:-1* (24 - i) *24*60*60]];
     }
     [_arrayOfDates addObject:[NSDate date]] ;
 }
