@@ -18,13 +18,15 @@
 
 -(void )saveImageData:(NSData *)imageData
           andDate:(NSDate *)date{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yyyyMMddHHmmss";
+    NSString *dateString = [df stringFromDate:date];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@{TMP_DATE: date, TMP_IMAGE: imageData} forKey:TMP];
-    NSString *dateString =  [self convertDateToString:date];
     
     [self createDirNamedOfUserId];
     
-    NSString *savedPath = [NSString stringWithFormat:@"%@",[[self getCurrentUserDirForPath] stringByAppendingPathComponent: [NSString stringWithFormat:@"/%@",dateString]]];
+    NSString *savedPath = [NSString stringWithFormat:@"%@",[[self getCurrentUserDirForPath] stringByAppendingPathComponent:dateString]];
     [imageData writeToFile:savedPath atomically:YES];
 }
 
@@ -34,7 +36,7 @@
     NSArray *cacheDirArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *userIdAsString = [NSString stringWithFormat:@"%d",user.userId];
     NSString *currentUserPath = [NSString stringWithFormat:@"%@",
-                                 [[cacheDirArray objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", userIdAsString]]];
+                                 [[cacheDirArray objectAtIndex:0] stringByAppendingPathComponent:userIdAsString]];
     NSLog(@"%@",currentUserPath);
     return  currentUserPath;
 }
@@ -45,12 +47,6 @@
                   withIntermediateDirectories:YES
                                    attributes:nil
                                         error:nil];
-}
-- (NSString *)convertDateToString:(NSDate *)date{
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @"yyyyMMddHHmmss";
-    return [df stringFromDate:date];
-    
 }
 
 

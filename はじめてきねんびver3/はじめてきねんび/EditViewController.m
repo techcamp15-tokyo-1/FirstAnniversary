@@ -15,15 +15,8 @@
 @implementation EditViewController
 bool fromCamera = false;
 User *user;
-
+Item *item;
 NSDate *date;
-NSData *imageData;
-
-NSString *title;
-NSString *message;
-NSString *imageName;
-NSDate *date;
-NSString *days;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,27 +32,24 @@ NSString *days;
 {
     [super viewDidLoad];
     user = [User getCurrentUser];
+    item = [Item getCurrentItem];
 
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
     
-    if (user.userId == CAMERA_TAB) {
+    if (!item) {
         self.textFieldTitle.placeholder = TEXT_FIELD_TITLE;
         self.textFieldMessage.placeholder = TEXT_FIELD_MESSAGE;
-    }else{
-        NSMutableDictionary *dict = [user.itemList objectAtIndex:self.itemIndex];
-        self.textFieldTitle = [NSString stringWithFormat:@"%@",[dict objectForKey:ITEM_TITLE]];
-        self.textFieldMessage = [NSString stringWithFormat:@"%@",[dict objectForKey:ITEM_MESSAGE]];
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        imageData =[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE];
-        UIImage *tmp = [[UIImage alloc]initWithData:imageData];
-        self.imageEdit.image = tmp;
-        date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
-        NSDateFormatter *df = [[NSDateFormatter alloc]init];
-        df.dateFormat = @"YYYY/MM/dd";
-        self.takenDate.text = [df stringFromDate:date];
     }
+    self.textFieldTitle = [NSString stringWithFormat:@"%@",item.title];
+    self.textFieldMessage = [NSString stringWithFormat:@"%@",item.message];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    UIImage *tmp = [[UIImage alloc]initWithData:[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE]];
+    self.imageEdit.image = tmp;
+    date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    df.dateFormat = @"YYYY/MM/dd";
+    self.takenDate.text = [df stringFromDate:date];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,33 +62,26 @@ NSString *days;
     [self.textFieldTitle resignFirstResponder];
     [self.textFieldMessage resignFirstResponder];
     
+//    switch (textField.tag) {
+//        case 1:
+//            [self.textFieldTitle resignFirstResponder];
+//            break;
+//        case 2:
+//            break;
+//}
     return YES;
 }
 
 
-- (IBAction)regist:(id)sender {
-    //アイテムの保存
-    title = self.textFieldTitle.text;
-    message = self.textFieldMessage.text;
-    date = date;
-    imageName = [[FileManager getInstance] convertDateToString:date];
-    days = [self calcDaysAsString:user.birthday :date];
-    NSMutableDictionary *item = [user itemFactory:title addMessage:message addDate:date addImageName:imageName addDays:days];
-    [user insertItem:item];
+- (IBAction)register:(id)sender {
     
-    
-    //画像をキャッシュに保存
-    FileManager *fm = [FileManager getInstance];
-    [fm saveImageData:imageData andDate:date];
-    
-    //アラートの表示
+    [user addItemToCurrent: date];
     UIAlertView *alert = [[UIAlertView alloc]init];
     alert.title = @"登録が完了しました";
     alert.message = nil;
     [alert addButtonWithTitle:@"OK"];
     [alert show];
     
-    //画面遷移先指定
     if (user.userId == CAMERA_TAB){
         //return to home
         [self.navigationController popToRootViewControllerAnimated:YES];
@@ -106,12 +89,5 @@ NSString *days;
         [self.navigationController popViewControllerAnimated:YES];
         
     }
-    
 }
-- (NSString *)calcDaysAsString :(NSDate *)date :(NSDate *)birthday{
-    NSTimeInterval days = [date timeIntervalSinceDate:birthday] / 24 / 60 / 60;
-    NSLog(@"%.0f日",days);
-    return [NSString stringWithFormat:@"%.0f日",days];
-}
-
 @end
