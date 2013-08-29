@@ -34,12 +34,26 @@
     df.dateFormat = @"yyyy/MM/dd";
     [labelDate setText: [df stringFromDate:date]];
 }
-- (void)setDays:(NSString *)days
+- (void)setDays:(NSDate *)date addBirthday:(NSDate *)birthday
 {
-    df =  [[NSDateFormatter alloc]init];
-    df.dateFormat = @"yyyy/MM/dd";
-    [labelDays setText: [NSString stringWithFormat:@"%@",days]];
+    NSString *days = [self calcDaysAsString:date :birthday];
+    [labelDays setText: days];
 }
+-(void)setDays_str:(NSString *)str{
+    [labelDays setText:str];
+}
+
+//-(void)setLabels:(NSDate *)date addBirhday:(NSDate *)birhday{
+//    [self setDays:date:birhday];
+//    [self setDate:date];
+//}
+
+- (NSString *)calcDaysAsString :(NSDate *)date :(NSDate *)birthday{
+    NSTimeInterval days = [date timeIntervalSinceDate:birthday] / 24 / 60 / 60;
+    NSLog(@"%.0f日",days);
+    return [NSString stringWithFormat:@"%.0f日",days];
+}
+
 
 /*
 - (void)setImage:(UIImage *)image

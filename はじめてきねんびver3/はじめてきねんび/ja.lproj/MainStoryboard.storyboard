@@ -899,6 +899,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="regist:" destination="21" eventType="touchUpInside" id="iGc-gs-ccQ"/>
                                     <action selector="register:" destination="21" eventType="touchUpInside" id="BcZ-bg-tbU"/>
                                 </connections>
                             </button>

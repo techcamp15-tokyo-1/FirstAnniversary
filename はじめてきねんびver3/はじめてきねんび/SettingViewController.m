@@ -47,10 +47,16 @@ int userId;
     if (validation == SUCCESS) {
         user.name = self.textfield.text;
         user.birthday = self.userBirthday.date;
+        //
+        Item *item = [[Item alloc]init];
+        item.date = self.userBirthday.date;
+        [user.itemList addObject:item];
+        
+        
     } else {
         [self errorMessage:validation];
-        
     }
+    
 }
 
 - (IBAction)openCamera:(id)sender {
@@ -108,6 +114,7 @@ int userId;
     }
 }
 
+
 //撮影後
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -115,11 +122,8 @@ int userId;
 	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
 	// 編集画像
 	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
-    UIImage *saveImage;
-    NSData *imageData ;
-	if(editedImage) saveImage = editedImage ;
-	else            saveImage = originalImage;
-    imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(saveImage, 0.8f)];
+    editedImage = editedImage ? editedImage : originalImage;
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
     user.image = imageData;
     
 	[self dismissViewControllerAnimated:YES completion:nil];
@@ -129,6 +133,7 @@ int userId;
 //    [self.userImage sizeToFit];
     
 }
+
 
 
 //閉じたときキーボードをしまう
@@ -147,12 +152,6 @@ int userId;
     self.userBirthday.datePickerMode = UIDatePickerModeDate;
     self.userBirthday.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
     
-//    //誕生日を表示
-//    if ([[self.defaults stringForKey:@"birthday"] length] == 0 ){
-//        [labelBirthday setText:@"Pleas input the birthday"];
-//    }else{
-//        [labelBirthday setText:[self.defaults stringForKey:@"birthday"]];
-//    }
     
     defaults = [NSUserDefaults standardUserDefaults];
     

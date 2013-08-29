@@ -17,6 +17,7 @@ bool fromCamera = false;
 User *user;
 Item *item;
 NSDate *date;
+NSData *imageData;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -32,7 +33,6 @@ NSDate *date;
 {
     [super viewDidLoad];
     user = [User getCurrentUser];
-    item = [Item getCurrentItem];
 
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
@@ -43,13 +43,18 @@ NSDate *date;
     }
     self.textFieldTitle = [NSString stringWithFormat:@"%@",item.title];
     self.textFieldMessage = [NSString stringWithFormat:@"%@",item.message];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    UIImage *tmp = [[UIImage alloc]initWithData:[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE]];
-    self.imageEdit.image = tmp;
-    date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
-    NSDateFormatter *df = [[NSDateFormatter alloc]init];
-    df.dateFormat = @"YYYY/MM/dd";
-    self.takenDate.text = [df stringFromDate:date];
+    if (user.userId == CAMERA_TAB) {
+        
+    }else{
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        imageData =[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE];
+        UIImage *tmp = [[UIImage alloc]initWithData:imageData];
+        self.imageEdit.image = tmp;
+        date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
+        NSDateFormatter *df = [[NSDateFormatter alloc]init];
+        df.dateFormat = @"YYYY/MM/dd";
+        self.takenDate.text = [df stringFromDate:date];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,9 +78,17 @@ NSDate *date;
 }
 
 
-- (IBAction)register:(id)sender {
+- (IBAction)regist:(id)sender {
     
-    [user addItemToCurrent: date];
+    Item *item = [[Item alloc]init];
+    item.title = self.textFieldTitle.text;
+    item.message = self.textFieldMessage.text;
+    item.date = date;
+    item.imageName = [[FileManager getInstance] convertDateToString:date];
+    FileManager *fm = [FileManager getInstance];
+    [fm saveImageData:imageData andDate:date];
+    [user insertItem:item];
+    
     UIAlertView *alert = [[UIAlertView alloc]init];
     alert.title = @"登録が完了しました";
     alert.message = nil;

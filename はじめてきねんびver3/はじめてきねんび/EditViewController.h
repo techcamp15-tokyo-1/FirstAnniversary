@@ -21,6 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldTitle;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldMessage;
 
-- (IBAction)register:(id)sender;
+- (IBAction)regist:(id)sender;
 
 @end

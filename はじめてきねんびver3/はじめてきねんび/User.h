@@ -16,11 +16,13 @@
 @property (readonly) int userId;
 @property (strong) NSDate *birthday;
 @property (strong) NSData *image;
-@property (strong) NSMutableArray *itemArray;
+@property (strong) NSMutableArray *itemList;
 +(User *)getCurrentUser;
 +(User *)loadUser:(int)targetUserId;
 -(void)addItemToCurrent:(NSDate *)date;
 -(Item *)loadItemFromCurrent:(NSDate *)date;
+-(void)insertItem:(Item *)item;
+
 @end
 
 #ifndef User_h
