@@ -57,6 +57,9 @@ static User *currentUser;
 -(NSString *)birthday {
     return [super dataWithKeyId:USER_KEY_BIRTHDAY];
 }
+-(void)initItemList{
+    
+}
 
 //はじめての画像
 -(void)setImage:(NSData *)image{
@@ -67,7 +70,12 @@ static User *currentUser;
 }
 //itemList
 -(void)setItemList:(NSMutableArray *)itemList{
+    if(!itemList){
+        itemList = [NSMutableArray array];
+    }
     [super saveData:itemList WithKeyId:USER_KEY_ITEMLIST];
+
+//    self.itemList = itemList;
 }
 -(NSMutableArray *)itemList {
     return [super dataWithKeyId:USER_KEY_ITEMLIST];
@@ -92,7 +100,8 @@ static User *currentUser;
 
 // アイテムリストにアイテムを挿入
 -(void)insertItem:(NSMutableDictionary *)item{
-    NSMutableArray *items = self.itemList;
+    NSMutableArray *items;
+    items = self.itemList;
     [items addObject:item];
     //[items insertObject:item atIndex:[self index]];
     [self setItemList:items];
@@ -105,7 +114,7 @@ static User *currentUser;
                         addImageName:(NSString *)imageName
                              addDays:(NSString *)days{
     
-    NSMutableDictionary *dict;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:title forKey:ITEM_TITLE];
     [dict setObject:message forKey:ITEM_MESSAGE];
     [dict setObject:date forKey:ITEM_DATE];
