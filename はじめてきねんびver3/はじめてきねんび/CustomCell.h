@@ -15,9 +15,9 @@
     __weak IBOutlet UIButton *imageButton;
 }
 - (void)setImage:(UIImage *)image;
-- (void)setDate:(NSDate *)date;
-- (void)setDays:(NSDate *)date addBirrhday:(NSDate *)birhday;
+- (void)setDate:(UILabel *)label;
+- (void)setDays:(UILabel *)label;
 - (UIButton *) button;
-- (void)setDays_str:(NSString *)str;
+
 
 @end

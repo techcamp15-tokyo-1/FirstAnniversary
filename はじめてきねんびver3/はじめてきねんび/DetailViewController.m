@@ -44,13 +44,6 @@
     }
 }
 
-//詳細表示にセグエ
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    DetailViewController *nextVC = [segue destinationViewController];
-    nextVC.itemIndex = self.itemIndex  ;
-
-}
 
 
 - (void)didReceiveMemoryWarning
