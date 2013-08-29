@@ -10,9 +10,9 @@
 
 @interface TimeLineViewController ()
 {
-    NSMutableArray *_objects;
-    NSMutableArray *_arrayOfDates;
-    NSMutableArray *_arrayOfDays;
+    NSMutableDictionary *objects;
+    NSMutableArray *arrayOfDates;
+    NSMutableArray *arrayOfDays;
     User *user;
 }
 @property (nonatomic, strong)NSArray *photos;
@@ -20,6 +20,8 @@
 @end
 
 @implementation TimeLineViewController
+NSMutableArray *items;
+User *user;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,75 +38,44 @@
     self.collectionView .backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
     //ユーザ情報の取得
     user = [User getCurrentUser];
-    //画像データを配列に
-    NSMutableArray *array = [NSMutableArray array];
-//    [array addObject:user.image];
+//    //画像データを配列に
+//    Item *item = [[Item alloc]init];
+//    item.date = user.birthday;
+//    //[items addObject:[UIImage imageWithData:user.image]];
+//    items = [self loadItems];
+
     
 
- //   for ()
     
 /////////////////////////////
-    for (int i = 1; i <= 8; i++) {
-        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
-        [array addObject:[UIImage imageNamed:filename]];
-    }
-    for (int i = 1; i <= 8; i++) {
-        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
-        [array addObject:[UIImage imageNamed:filename]];
-    }
-    for (int i = 1; i <= 8; i++) {
-        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
-        [array addObject:[UIImage imageNamed:filename]];
-    }
+//    for (int i = 1; i <= 8; i++) {
+//        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
+//        [array addObject:[UIImage imageNamed:filename]];
+//    }
 //////////////////////////////
     
     // サンプルデータの読み込み
-    [self loadImageData:array];
-    [self loadlabelDate];
-    [self loadlabelDays];
 }
-
 
 //データ読み込みメソッド
-- (void)loadImageData: (NSMutableArray *)array
-{
-    //画像名を読み込む
-    _objects = array;
+-(NSMutableArray *)loadItems{
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSMutableDictionary *item in user.itemList){
+        [array addObject:item];
+    }
+    return array;
 }
 
-- (void)loadlabelDate
-{
-    //日付を読み込む
-    NSDateFormatter *df = [[NSDateFormatter alloc]init];
-    df.dateFormat = @"yyyy/MM/dd";
-    _arrayOfDates = [NSMutableArray array];
-    [_arrayOfDates addObject:user.birthday];
-    
-    for (int i = 1 ; i <= 23; i++){
-        [_arrayOfDates addObject:[NSDate dateWithTimeIntervalSinceNow:-1* (24 - i) *24*60*60]];
-    }
-    [_arrayOfDates addObject:[NSDate date]] ;
-}
+//-(NSMutableArray *)loadArrayOfDate (NSMutableArray *)arrayOfDate addItem:(Item *)item{
+//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+//    df.dateFormat = @"yyyy/MM/dd";
+//    [arrayOfDates addObject:[df stringFromDate:item.date]];
+//}
 
-         
-- (void)loadlabelDays
-{
-    //経過日数を設定読み込む
-    _arrayOfDays = [NSMutableArray array];
-    NSString *firstGreeting =[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name];
-    [_arrayOfDays addObject:firstGreeting];
-    for ( int i = 1 ; i<= [_arrayOfDates count]-1 ;i++){
-        [_arrayOfDays addObject:[self calcDaysAsString: _arrayOfDates[i]:user.birthday]];
-    }
-//    _arrayOfDays=[[NSMutableArray alloc]initWithObjects:firstGreeting,@"4days",@"5days",@"6days",@"7days",@"8days",@"9days",@"9days",@"9days", nil];
-}
+
+
 
 //経過日数を計算し、文字列で返す
-- (NSString *)calcDaysAsString :(NSDate *)date :(NSDate *)birthday{
-    NSTimeInterval days = [date timeIntervalSinceDate:birthday] / 24 / 60 / 60;
-    NSLog(@"%.0f日",days);
-    return [NSString stringWithFormat:@"%.0f日",days];
-}
 
 //CollectionViewControllerに関するメソッド
 //セクションの数　今回は１つ
@@ -115,7 +86,7 @@
 //セルの個数を設定　+1　は最後のRightCellの分
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _objects.count + 1;
+    return user.itemList.count + 1;
 }
 
 //セル関連
@@ -129,19 +100,27 @@
 }
 //セルのオブジェクトにセット
 - (void)setInformationWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
-    if (indexPath.row == _objects.count);
+
+    NSMutableDictionary *item = [user.itemList objectAtIndex:indexPath.row];
+//    Item *item = [user.itemList objectAtIndex:indexPath.item];
+    NSDate *date = [item objectForKey:ITEM_DATE];
+    
+    if (indexPath.row == user.itemList.count);
     else{
-        [cell setImage:[_objects objectAtIndex:indexPath.item]];
+        FileManager *fm = [FileManager getInstance];
+        UIImage *image = [UIImage imageWithContentsOfFile:[[fm getCurrentUserDirForPath] stringByAppendingString:[NSString stringWithFormat:@"/%@",[item objectForKey:ITEM_IMAGE_NAME]]]];
+        [cell setImage:image];
     }
-    [cell setDate:[_arrayOfDates objectAtIndex:indexPath.item]];
-    [cell setDays:[_arrayOfDays objectAtIndex:indexPath.item]];
+    [cell setDate:date];
+//    NSLog(@"imageName = %@ ,title = %@ ,message = %@ ,days = %@",item.imageName,item.title,item.message,item.days);
 }
+
 
 // identifier の分岐
 - (NSString *)identifierWithIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0)
         return @"LeftCell";
-    else if (indexPath.row == _objects.count)
+    else if (indexPath.row == items.count)
         return @"RightCell";
     else if(indexPath.row % 2 == 0)
         return @"DownCell";
@@ -154,8 +133,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        UIImage *img = _objects[((UIButton *)sender).tag];
-        [[segue destinationViewController] setDetailItem:img];
+        UIImage *img = items[((UIButton *)sender).tag];
+        DetailViewController *nextVC = [segue destinationViewController];
+        nextVC.detailItem = img;
+        nextVC.itemIndex = ((UIButton *)sender).tag;
+        NSLog(@"@%d",((UIButton *)sender).tag);
     }
 }
 

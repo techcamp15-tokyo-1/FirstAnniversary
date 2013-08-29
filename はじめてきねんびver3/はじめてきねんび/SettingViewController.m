@@ -14,6 +14,12 @@
 NSUserDefaults *defaults;
 User *user;
 int userId;
+NSString *title;
+NSString *message;
+NSDate *date;
+NSString *days;
+NSString *imageName;
+
 
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -47,10 +53,26 @@ int userId;
     if (validation == SUCCESS) {
         user.name = self.textfield.text;
         user.birthday = self.userBirthday.date;
+        
+        title = @"はじめての写真";
+        message = @"はじめまして\n%@\nさん";
+        date = user.birthday;
+        imageName = [[FileManager getInstance] convertDateToString:user.birthday];
+        days = message;
+        
+        
+        NSMutableDictionary *item = [user itemFactory:title
+                                           addMessage: message
+                                              addDate:user.birthday
+                                         addImageName:imageName
+                                              addDays:days];
+        [user insertItem:item];
+        NSLog(@"%d",user.itemList.count);
+        
     } else {
         [self errorMessage:validation];
-        
     }
+    
 }
 
 - (IBAction)openCamera:(id)sender {
@@ -108,6 +130,7 @@ int userId;
     }
 }
 
+
 //撮影後
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -115,20 +138,27 @@ int userId;
 	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
 	// 編集画像
 	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
-    UIImage *saveImage;
-    NSData *imageData ;
-	if(editedImage) saveImage = editedImage ;
-	else            saveImage = originalImage;
-    imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(saveImage, 0.8f)];
+    editedImage = editedImage ? editedImage : originalImage;
+    NSDate *date =[NSDate date];
+    //JPEGに保存
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
     user.image = imageData;
+    FileManager *fm = [FileManager getInstance];
+    //画像をキャッシュに保存
+    [fm saveImageData:imageData andDate:date];
     
+    //カメラを閉じる
 	[self dismissViewControllerAnimated:YES completion:nil];
-//    self.userImage.contentMode = UIViewContentModeScaleAspectFit;
-    self.userImage.image  = [[UIImage alloc] initWithData:user.image] ;
-//    self.userImage.clipsToBounds = YES;
-//    [self.userImage sizeToFit];
     
+    //画像を表示する
+    NSString *imageName = [fm convertDateToString:date];
+    NSString *path =[fm getCurrentUserDirForPath];
+    NSLog(@"%@",path);
+    self.userImage.image = [[UIImage alloc] initWithContentsOfFile:[path stringByAppendingString:[NSString stringWithFormat:@"/%@",imageName]]];
+//    self.userImage.image  = [[UIImage alloc] initWithData:user.image] ;
+
 }
+
 
 
 //閉じたときキーボードをしまう
@@ -147,12 +177,6 @@ int userId;
     self.userBirthday.datePickerMode = UIDatePickerModeDate;
     self.userBirthday.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
     
-//    //誕生日を表示
-//    if ([[self.defaults stringForKey:@"birthday"] length] == 0 ){
-//        [labelBirthday setText:@"Pleas input the birthday"];
-//    }else{
-//        [labelBirthday setText:[self.defaults stringForKey:@"birthday"]];
-//    }
     
     defaults = [NSUserDefaults standardUserDefaults];
     

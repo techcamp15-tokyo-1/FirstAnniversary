@@ -20,6 +20,7 @@ static User *currentUser;
 	User *user = (User *)[self dataWithId:targetUserId];
 	user.name = USER_NO_NAME;
 	user.userId = targetUserId;
+//    user.itemList = [NSMutableArray array];
 	
 	return user;
 }
@@ -64,24 +65,61 @@ static User *currentUser;
 -(NSData *)image {
     return [super dataWithKeyId:USER_KEY_IMAGE];
 }
-
-// dateでItemに保存
--(void)addItemToCurrent:(NSDate *)date{
-    [currentUser addItem:date];
+//itemList
+-(void)setItemList:(NSMutableArray *)itemList{
+    [super saveData:itemList WithKeyId:USER_KEY_ITEMLIST];
 }
--(void)addItem:(NSDate *)date{
-    [Item itemWithId:[date timeIntervalSince1970]];
-}
-// dateでItemから呼び出し
--(Item *)loadItemFromCurrent:(NSDate *)date{
-    return [currentUser loadItem:date];
+-(NSMutableArray *)itemList {
+    return [super dataWithKeyId:USER_KEY_ITEMLIST];
 }
 
--(Item *)loadItem:(NSDate *)date{
-    return [Item loadItem:[date timeIntervalSince1970]];
+//// dateでItemに保存
+//-(void)addItemToCurrent:(NSDate *)date{
+//    [currentUser addItem:date];
+//}
+//-(void)addItem:(NSDate *)date{
+//    [Item itemWithId:[date timeIntervalSince1970]];
+//}
+//// dateでItemから呼び出し
+//-(Item *)loadItemFromCurrent:(NSDate *)date{
+//    return [currentUser loadItem:date];
+//}
+//
+//-(Item *)loadItem:(NSDate *)date{
+//    return [Item loadItem:[date timeIntervalSince1970]];
+//}
+//--------------------------------------------------------------------------------
+
+// アイテムリストにアイテムを挿入
+-(void)insertItem:(NSMutableDictionary *)item{
+    NSMutableArray *items = self.itemList;
+    [items addObject:item];
+    //[items insertObject:item atIndex:[self index]];
+    [self setItemList:items];
 }
-// dateだけ別のarrayに保存
-//-(void)saveDateToItemArray:
+
+//辞書に保存してアイテムリストに辞書を挿入
+-(NSMutableDictionary *) itemFactory:(NSString *)title
+                          addMessage:(NSString *)message
+                             addDate:(NSDate *)date
+                        addImageName:(NSString *)imageName
+                             addDays:(NSString *)days{
+    
+    NSMutableDictionary *dict;
+    [dict setObject:title forKey:ITEM_TITLE];
+    [dict setObject:message forKey:ITEM_MESSAGE];
+    [dict setObject:date forKey:ITEM_DATE];
+    [dict setObject:imageName forKey:ITEM_IMAGE_NAME];
+    [dict setObject:days forKey:ITEM_DAYS];
+    [self insertItem:dict];
+    return dict;
+}
+
+//挿入位置を返す
+-(int)index{
+    return self.itemList.count+1;
+}
+
 
 
 // アイテムのソート

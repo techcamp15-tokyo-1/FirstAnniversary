@@ -9,25 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "DataModel.h"
 
-@interface Item : DataModel{
+@interface Item : NSMutableDictionary{
 }
 
-@property NSString *title;
-@property NSString *message;
-@property NSString *imageName;
-@property NSDate *date;
+//@property NSString *title;
+//@property NSString *message;
+//@property NSString *imageName;
+//@property NSDate *date;
+//@property NSString *days;
 
 
-@property (readonly) int itemId;
-
-+(Item *)getCurrentItem;
-+(Item *)loadItem:(int)targetItemId;
--(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
-+(Item *)itemWithId:(int)targetItemId;
+//
+//@property (readonly) int itemId;
+//
+//+(Item *)getCurrentItem;
+//+(Item *)loadItem:(int)targetItemId;
+//-(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
+//+(Item *)itemWithId:(int)targetItemId;
 
 
 @end
-
+//
 #ifndef Item_h
 #define Item_h
 
@@ -38,7 +40,8 @@ enum ITEM_KEY {
 	ITEM_KEY_MESSAGE,
 	ITEM_KEY_IMAGE_NAME,
 	ITEM_KEY_ITEMID,
-    ITEM_KEY_DATE
+    ITEM_KEY_DATE,
+    ITEM_KEY_DAYS
     
 };
 

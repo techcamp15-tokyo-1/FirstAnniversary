@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
-#import "Item.h"
+//#import "Item.h"
 #import "FirstViewController.h"
 #define TEXT_FIELD_TITLE @"タイトル"
 #define TEXT_FIELD_MESSAGE @"メッセージ"
@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageEdit;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldTitle;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldMessage;
+@property int itemIndex;
 
-- (IBAction)register:(id)sender;
+- (IBAction)regist:(id)sender;
 
 @end
