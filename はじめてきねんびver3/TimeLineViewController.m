@@ -22,6 +22,7 @@
 @implementation TimeLineViewController
 NSMutableArray *items;
 User *user;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,11 +38,11 @@ User *user;
     self.collectionView .backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
     //ユーザ情報の取得
     user = [User getCurrentUser];
-    //画像データを配列に
-    items = [NSMutableArray array];
-    Item *item = [[Item alloc]init];
-    item.date = user.birthday;
-    [items addObject:[UIImage imageWithData:user.image]];
+//    //画像データを配列に
+//    Item *item = [[Item alloc]init];
+//    item.date = user.birthday;
+//    //[items addObject:[UIImage imageWithData:user.image]];
+//    items = [self loadItems];
 
     
 
@@ -54,13 +55,12 @@ User *user;
 //////////////////////////////
     
     // サンプルデータの読み込み
-    items = [self loadItems];
 }
 
 //データ読み込みメソッド
 -(NSMutableArray *)loadItems{
     NSMutableArray *array = [NSMutableArray array];
-    for (Item * item in user.itemList){
+    for (NSMutableDictionary *item in user.itemList){
         [array addObject:item];
     }
     return array;
@@ -86,7 +86,7 @@ User *user;
 //セルの個数を設定　+1　は最後のRightCellの分
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return items.count + 1;
+    return user.itemList.count + 1;
 }
 
 //セル関連
@@ -100,21 +100,21 @@ User *user;
 }
 //セルのオブジェクトにセット
 - (void)setInformationWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
-    Item *item = [items objectAtIndex:indexPath.item];
-    NSDate *date = item.date;;
+
+    NSMutableDictionary *item = [user.itemList objectAtIndex:indexPath.row];
+//    Item *item = [user.itemList objectAtIndex:indexPath.item];
+    NSDate *date = [item objectForKey:ITEM_DATE];
     
-    if ( indexPath.row == 0){
-        [cell setImage:[UIImage imageWithData:user.image]];
-        date = user.birthday;
-        [cell setDays_str:[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name]];
-    }
-    else if (indexPath.row == items.count);
+    if (indexPath.row == user.itemList.count);
     else{
-        [cell setImage:[items objectAtIndex:indexPath.item]];
+        FileManager *fm = [FileManager getInstance];
+        UIImage *image = [UIImage imageWithContentsOfFile:[[fm getCurrentUserDirForPath] stringByAppendingString:[NSString stringWithFormat:@"/%@",[item objectForKey:ITEM_IMAGE_NAME]]]];
+        [cell setImage:image];
     }
     [cell setDate:date];
-    [cell setDays:date addBirrhday:user.birthday];
+//    NSLog(@"imageName = %@ ,title = %@ ,message = %@ ,days = %@",item.imageName,item.title,item.message,item.days);
 }
+
 
 // identifier の分岐
 - (NSString *)identifierWithIndexPath:(NSIndexPath *)indexPath {
@@ -136,6 +136,8 @@ User *user;
         UIImage *img = items[((UIButton *)sender).tag];
         DetailViewController *nextVC = [segue destinationViewController];
         nextVC.detailItem = img;
+        nextVC.itemIndex = ((UIButton *)sender).tag;
+        NSLog(@"@%d",((UIButton *)sender).tag);
     }
 }
 
