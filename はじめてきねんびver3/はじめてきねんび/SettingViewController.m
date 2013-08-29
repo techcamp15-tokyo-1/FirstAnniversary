@@ -54,20 +54,20 @@ NSString *imageName;
         user.name = self.textfield.text;
         user.birthday = self.userBirthday.date;
         
-    
         title = @"はじめての写真";
-        message = [NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name];
+        message = @"はじめまして\n%@\nさん";
         date = user.birthday;
         imageName = [[FileManager getInstance] convertDateToString:user.birthday];
         days = message;
         
-        [user itemFactory:title
-               addMessage: message
-                  addDate:user.birthday
-             addImageName:imageName
-                  addDays:days];
-
-        NSLog(@"itemList.count = %d",user.itemList.count);
+        
+        NSMutableDictionary *item = [user itemFactory:title
+                                           addMessage: message
+                                              addDate:user.birthday
+                                         addImageName:imageName
+                                              addDays:days];
+        [user insertItem:item];
+        NSLog(@"%d",user.itemList.count);
         
     } else {
         [self errorMessage:validation];

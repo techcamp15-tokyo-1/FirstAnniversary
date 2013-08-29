@@ -38,7 +38,23 @@ User *user;
     self.collectionView .backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
     //ユーザ情報の取得
     user = [User getCurrentUser];
+//    //画像データを配列に
+//    Item *item = [[Item alloc]init];
+//    item.date = user.birthday;
+//    //[items addObject:[UIImage imageWithData:user.image]];
+//    items = [self loadItems];
 
+    
+
+    
+/////////////////////////////
+//    for (int i = 1; i <= 8; i++) {
+//        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
+//        [array addObject:[UIImage imageNamed:filename]];
+//    }
+//////////////////////////////
+    
+    // サンプルデータの読み込み
 }
 
 //データ読み込みメソッド
@@ -82,57 +98,20 @@ User *user;
     [cell button].tag = indexPath.row;
     return cell;
 }
-
 //セルのオブジェクトにセット
 - (void)setInformationWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
 
-    NSMutableDictionary *item;
-    NSDate *date ;
-    FileManager *fm = [FileManager getInstance];
-
-    if(indexPath.row == 0){
-        NSLog(@"Start!");
-        item = [user.itemList objectAtIndex:indexPath.row];
-        date = [item objectForKey:ITEM_DATE];
-        [cell setDate:date];
+    NSMutableDictionary *item = [user.itemList objectAtIndex:indexPath.row];
+//    Item *item = [user.itemList objectAtIndex:indexPath.item];
+    NSDate *date = [item objectForKey:ITEM_DATE];
+    
+    if (indexPath.row == user.itemList.count);
+    else{
+        FileManager *fm = [FileManager getInstance];
         UIImage *image = [UIImage imageWithContentsOfFile:[[fm getCurrentUserDirForPath] stringByAppendingString:[NSString stringWithFormat:@"/%@",[item objectForKey:ITEM_IMAGE_NAME]]]];
         [cell setImage:image];
-
- //       [cell setDays_str:[item objectForKey:ITEM_DAYS]];
-    }else if(indexPath.row == user.itemList.count){
-        NSLog(@"Last!");
-        date = [NSDate date];
-        [cell setDate:date];
- //       [cell setDays:date addBirrhday:user.birthday];
-    }else{
-        NSLog(@"No.%d",indexPath.row);
-        item = [user.itemList objectAtIndex:indexPath.row];
-        date = [item objectForKey:ITEM_DATE];
-        [cell setDate:date];
-        UIImage *image = [UIImage imageWithContentsOfFile:[[fm getCurrentUserDirForPath] stringByAppendingString:[NSString stringWithFormat:@"/%@",[item objectForKey:ITEM_IMAGE_NAME]]]];
-        [cell setImage:image];
- //       [cell setDays:date addBirrhday:user.birthday];
     }
-//    
-//    
-//    if (indexPath.row == user.itemList.count){
-//        NSLog(@"さいご！");
-//        date = [NSDate date];
-//        [cell setDays:[item objectForKey:ITEM_DATE] addBirrhday:user.birthday];
-//    }
-//    
-//    else{
-//        item = [user.itemList objectAtIndex:indexPath.item];
-//        date = [item objectForKey:ITEM_DATE];
-//        FileManager *fm = [FileManager getInstance];
-//        if ( indexPath.row == 0){
-//            [cell setDays_str:[item objectForKey:ITEM_DAYS]];
-//        }else{
-//            [cell setDays:[item objectForKey:ITEM_DATE] addBirrhday:user.birthday];
-//        }
-//
-//    }
-//    [cell setDays:date addBirrhday:user.birthday];
+    [cell setDate:date];
 //    NSLog(@"imageName = %@ ,title = %@ ,message = %@ ,days = %@",item.imageName,item.title,item.message,item.days);
 }
 
@@ -141,7 +120,7 @@ User *user;
 - (NSString *)identifierWithIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0)
         return @"LeftCell";
-    else if (indexPath.row == user.itemList.count)
+    else if (indexPath.row == items.count)
         return @"RightCell";
     else if(indexPath.row % 2 == 0)
         return @"DownCell";
