@@ -115,6 +115,9 @@ static User *currentUser;
     return dict;
 }
 
+
+
+
 //挿入位置を返す
 -(int)index{
     return self.itemList.count+1;
