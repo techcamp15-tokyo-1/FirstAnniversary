@@ -34,11 +34,11 @@
     df.dateFormat = @"yyyy/MM/dd";
     [labelDate setText: [df stringFromDate:date]];
 }
-- (void)setDays:(NSDate *)date addBirthday:(NSDate *)birthday
-{
-    NSString *days = [self calcDaysAsString:date :birthday];
-    [labelDays setText: days];
-}
+//- (void)setDays:(NSDate *)date addBirthday:(NSDate *)birthday
+//{
+//    NSString *days = [self calcDaysAsString:date :birthday];
+//    [labelDays setText: days];
+//}
 -(void)setDays_str:(NSString *)str{
     [labelDays setText:str];
 }

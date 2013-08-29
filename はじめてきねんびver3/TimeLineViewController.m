@@ -37,45 +37,21 @@ User *user;
     self.collectionView .backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
     //ユーザ情報の取得
     user = [User getCurrentUser];
-    //画像データを配列に
-//    items = [NSMutableArray array];
-//    Item *item = [[Item alloc]init];
-//    item.date = user.birthday;
-//    [items addObject:[UIImage imageWithData:user.image]];
-
     
 
-    
-/////////////////////////////
+//--------------------------------------------------------------------------------
+
 //    for (int i = 1; i <= 8; i++) {
 //        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
 //        [array addObject:[UIImage imageNamed:filename]];
 //    }
-//////////////////////////////
-    
+//--------------------------------------------------------------------------------
+
     // サンプルデータの読み込み
 //    items = [self loadItems];
 }
 //
-////データ読み込みメソッド
-//-(NSMutableArray *)loadItems{
-//    NSMutableArray *array = [NSMutableArray array];
-//    for (Item * item in user.itemList){
-//        [array addObject:item];
-//    }
-//    return array;
-//}
 
-//-(NSMutableArray *)loadArrayOfDate (NSMutableArray *)arrayOfDate addItem:(Item *)item{
-//    NSDateFormatter *df = [[NSDateFormatter alloc]init];
-//    df.dateFormat = @"yyyy/MM/dd";
-//    [arrayOfDates addObject:[df stringFromDate:item.date]];
-//}
-
-
-
-
-//経過日数を計算し、文字列で返す
 
 //CollectionViewControllerに関するメソッド
 //セクションの数　今回は１つ
@@ -100,27 +76,32 @@ User *user;
 }
 //セルのオブジェクトにセット
 - (void)setInformationWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
-    Item *item = [items objectAtIndex:indexPath.item];
-    NSDate *date = item.date;;
+    Item *item;
+    NSDate *date;
     
     if ( indexPath.row == 0){
+        item = [user.itemList objectAtIndex:indexPath.item];
+        date = item.date;
+    
         [cell setImage:[UIImage imageWithData:user.image]];
         date = user.birthday;
         [cell setDays_str:[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name]];
+
     }
     else if (indexPath.row == items.count);
     else{
         [cell setImage:[items objectAtIndex:indexPath.item]];
     }
     [cell setDate:date];
-    [cell setDays:date addBirrhday:user.birthday];
+    //
+//   [cell setDays:date addBirrhday:user.birthday];
 }
 
 // identifier の分岐
 - (NSString *)identifierWithIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0)
         return @"LeftCell";
-    else if (indexPath.row == items.count)
+    else if (indexPath.row == user.itemList.count)
         return @"RightCell";
     else if(indexPath.row % 2 == 0)
         return @"DownCell";
@@ -133,9 +114,9 @@ User *user;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        UIImage *img = items[((UIButton *)sender).tag];
+        Item *item = user.itemList[((UIButton *)sender).tag];
         DetailViewController *nextVC = [segue destinationViewController];
-        nextVC.detailItem = img;
+        nextVC.detailItem = item;
     }
 }
 

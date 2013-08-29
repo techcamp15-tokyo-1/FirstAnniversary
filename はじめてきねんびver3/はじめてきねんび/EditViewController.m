@@ -32,29 +32,40 @@ NSData *imageData;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
+
     user = [User getCurrentUser];
+    Item *item = (Item *)_editItem;
 
     self.textFieldTitle.delegate = self;
     self.textFieldMessage.delegate = self;
     
-    if (!item) {
-        self.textFieldTitle.placeholder = TEXT_FIELD_TITLE;
-        self.textFieldMessage.placeholder = TEXT_FIELD_MESSAGE;
+    UIImage *image;
+    NSDateFormatter *df = [[NSDateFormatter alloc]init];
+    df.dateFormat = @"YYYY/MM/dd";
+    
+    self.textFieldTitle.placeholder = TEXT_FIELD_TITLE;
+    self.textFieldMessage.placeholder = TEXT_FIELD_MESSAGE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *dict = [defaults objectForKey:TMP];
+    image = [UIImage imageWithData:[dict objectForKey:TMP_IMAGE]];
+    date = [dict objectForKey:TMP_DATE];
+    NSLog(@"%d",user.userId);
+    
+    if(user.userId);
+    else{
+        self.textFieldTitle.text = [NSString stringWithFormat:@"%@",item.title];
+        self.textFieldMessage.text = [NSString stringWithFormat:@"%@",item.message];
+        NSString *path = [[FileManager getInstance] createPathByImageName:item.imageName];
+        image = [UIImage imageWithContentsOfFile:path];
+        date = item.date;
     }
-    self.textFieldTitle = [NSString stringWithFormat:@"%@",item.title];
-    self.textFieldMessage = [NSString stringWithFormat:@"%@",item.message];
-    if (user.userId == CAMERA_TAB) {
-        
-    }else{
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        imageData =[[defaults dictionaryForKey:TMP] objectForKey:TMP_IMAGE];
-        UIImage *tmp = [[UIImage alloc]initWithData:imageData];
-        self.imageEdit.image = tmp;
-        date =[[defaults dictionaryForKey:TMP] objectForKey:TMP_DATE];
-        NSDateFormatter *df = [[NSDateFormatter alloc]init];
-        df.dateFormat = @"YYYY/MM/dd";
-        self.takenDate.text = [df stringFromDate:date];
-    }
+    self.takenDate.text = [df stringFromDate:date];
+    self.imageEdit.image = image;
+    imageData = UIImageJPEGRepresentation(image, 0.8f);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,35 +85,65 @@ NSData *imageData;
 //        case 2:
 //            break;
 //}
+    [self.view endEditing:YES];
+    
     return YES;
 }
 
 
 - (IBAction)regist:(id)sender {
     
+    //入力判断
+    BOOL validationOfTitle = NO;
+    BOOL validationOfMessage = NO;
+    //itemの保存
     Item *item = [[Item alloc]init];
-    if(!self.textFieldTitle.text)
+    if([self.textFieldTitle.text isEqualToString: @""]);
+    else{
         item.title = self.textFieldTitle.text;
-    if(!self.textFieldMessage.text)
+        validationOfTitle = YES;
+    }
+    if([self.textFieldMessage.text isEqualToString: @""]);
+    else{
         item.message = self.textFieldMessage.text;
-    item.date = date;
-    item.imageName = [[FileManager getInstance] convertDateToString:date];
-    FileManager *fm = [FileManager getInstance];
-    [fm saveImageData:imageData andDate:date];
-    [user insertItem:item];
-    
+        validationOfMessage = YES;
+    }
     UIAlertView *alert = [[UIAlertView alloc]init];
-    alert.title = @"登録が完了しました";
-    alert.message = nil;
-    [alert addButtonWithTitle:@"OK"];
-    [alert show];
-    
-    if (user.userId == CAMERA_TAB){
-        //return to home
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }else{
-        [self.navigationController popViewControllerAnimated:YES];
+    if (validationOfTitle) {
+        if (validationOfMessage) {
+            item.date = date;
+            item.imageName = [[FileManager getInstance] convertDateToString:date];
+            [user insertItem:item];
+            //画像の保存
+            FileManager *fm = [FileManager getInstance];
+            [fm saveImageData:imageData andDate:date];
+            
+            alert.title = @"登録が完了しました";
+            alert.message = nil;
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            
+            if (user.userId == CAMERA_TAB){
+                //return to home
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }else{
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }
+        }else{
+            alert.title = @"メッセージが入力されていません。";
+            alert.message = nil;
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            return;
+        }
         
+    }else{
+        alert.title = @"タイトルが入力されていません。";
+        alert.message = nil;
+        [alert addButtonWithTitle:@"OK"];
+        [alert show];
+        return;
     }
 }
 @end

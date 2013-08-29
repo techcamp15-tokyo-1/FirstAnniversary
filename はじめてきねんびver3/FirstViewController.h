@@ -10,6 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SettingViewController.h"
 #import "FileManager.h"
+#import "EditViewController.h"
 
 #ifndef CAMERA_TAB
 #define CAMERA_TAB 3

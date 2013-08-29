@@ -53,6 +53,11 @@
     
 }
 
+- (NSString *)createPathByImageName :(NSString *)imageName  {
+    return [NSString stringWithFormat:@"%@/%@",[self getCurrentUserDirForPath],imageName];
+    
+}
+
 
 @end
 

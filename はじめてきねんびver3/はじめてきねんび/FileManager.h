@@ -17,6 +17,8 @@
 -(void )saveImageData:(NSData *)imageData
           andDate:(NSDate *)date;
 - (NSString *)convertDateToString:(NSDate *)date;
+- (NSString *)getCurrentUserDirForPath;
+- (NSString *)createPathByImageName :(NSString *)imageName;
 
 
 

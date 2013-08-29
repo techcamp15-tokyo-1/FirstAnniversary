@@ -49,8 +49,12 @@ int userId;
         user.birthday = self.userBirthday.date;
         //
         Item *item = [[Item alloc]init];
-        item.date = self.userBirthday.date;
-        [user.itemList addObject:item];
+        item.title = @"hello";
+        item.message = @"world";
+        item.date = user.birthday;
+        item.imageName = [[FileManager getInstance] convertDateToString:user.birthday];
+        [user insertItem:item];
+        
         
         
     } else {
@@ -125,7 +129,7 @@ int userId;
     editedImage = editedImage ? editedImage : originalImage;
     NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
     user.image = imageData;
-    
+    [[FileManager getInstance] saveImageData:imageData andDate: user.birthday];
 	[self dismissViewControllerAnimated:YES completion:nil];
 //    self.userImage.contentMode = UIViewContentModeScaleAspectFit;
     self.userImage.image  = [[UIImage alloc] initWithData:user.image] ;
@@ -147,6 +151,7 @@ int userId;
     [super viewDidLoad];
     
     self.textfield.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
 
     // 言語は日本語(iOSの設定の書式に該当)
     self.userBirthday.datePickerMode = UIDatePickerModeDate;

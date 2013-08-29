@@ -16,7 +16,7 @@
 }
 - (void)setImage:(UIImage *)image;
 - (void)setDate:(NSDate *)date;
-- (void)setDays:(NSDate *)date addBirrhday:(NSDate *)birhday;
+//- (void)setDays:(NSDate *)date addBirrhday:(NSDate *)birhday;
 - (UIButton *) button;
 - (void)setDays_str:(NSString *)str;
 

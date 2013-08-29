@@ -9,6 +9,73 @@
 #import "Item.h"
 
 @implementation Item
+
+
+
+//---------NSCoding-----------------------------------------------------------------------
+
+static NSString *filePath;
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    if (self) {
+        _title = [decoder decodeObjectForKey:@"title"];
+        _message = [decoder decodeObjectForKey:@"message"];
+        _date = [decoder decodeObjectForKey:@"date"];
+        _imageName = [decoder decodeObjectForKey:@"imageName"];
+    }
+    return self;
+}
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:_title forKey:@"title"];
+    [encoder encodeObject:_message forKey:@"message"];
+    [encoder encodeObject:_date forKey:@"date"];
+    [encoder encodeObject:_imageName forKey:@"imageName"];
+}
+- (void)dealloc
+{
+    self.title = nil;
+    self.message = nil;
+    self.date = nil;
+    self.imageName = nil;
+    
+}
+//
+//-(void)setItem:(Item *)item{
+//    NSString *directory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+//    filePath = [directory stringByAppendingPathComponent:@"data.dat"];
+//
+//    NSArray *array = @[item.title,item.message,item.date,item.imageName];
+//    BOOL success = [NSKeyedArchiver archiveRootObject:array toFile:filePath];
+//    if(success){
+//        NSLog(@"succeed");
+//    }
+//}
+//-(Item *)item{
+//    NSArray *array = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+//    if (array) {
+//        for (Item *item in array) {
+//            NSLog(@"%@", item.title);
+//            NSLog(@"%@", item.message);
+//            NSLog(@"%@", item.date);
+//            NSLog(@"%@", item.imageName);
+//        }
+//    } else {
+//        NSLog(@"%@", @"データが存在しません。");
+//    }
+//}
+//
+//
+////--------------------------------------------------------------------------------
+
+
+
+
+
+
+
 static Item *currentItem;
 
 -(void )saveItem:(NSString *)title

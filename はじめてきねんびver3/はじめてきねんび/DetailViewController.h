@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
+#import "FileManager.h"
 
 @interface DetailViewController : UIViewController
 

@@ -10,9 +10,8 @@
 
 @implementation User
 
-
 static User *currentUser;
-
+NSMutableArray *array;
 +(User *)getCurrentUser {
     return currentUser;
 }
@@ -64,28 +63,54 @@ static User *currentUser;
 -(NSData *)image {
     return [super dataWithKeyId:USER_KEY_IMAGE];
 }
-
-// dateでItemに保存
--(void)addItemToCurrent:(NSDate *)date{
-    [currentUser addItem:date];
-}
--(void)addItem:(NSDate *)date{
-    [Item itemWithId:[date timeIntervalSince1970]];
-}
-// dateでItemから呼び出し
--(Item *)loadItemFromCurrent:(NSDate *)date{
-    return [currentUser loadItem:date];
+//ItemList
+-(void)setItemList:(NSMutableArray *)itemList{
+    if(!itemList)
+        return;
+    array = itemList;
+    [self saveItemList];
 }
 
--(Item *)loadItem:(NSDate *)date{
-    return [Item loadItem:[date timeIntervalSince1970]];
+-(NSMutableArray *)itemList {
+    NSMutableArray *dataArray = [super dataWithKeyId:USER_KEY_ITEM_LIST];
+    NSMutableArray *items = [NSMutableArray array];
+    for (NSData *data in dataArray){
+        [items addObject: [NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    }
+    return items;
 }
+
+-(void)saveItemList{
+    NSMutableArray *dataArray = [NSMutableArray array];
+    for ( Item *item in array){
+        [dataArray addObject:[NSKeyedArchiver archivedDataWithRootObject:item]];
+    }
+    [super saveData:dataArray WithKeyId:USER_KEY_ITEM_LIST];
+}
+
+//// dateでItemに保存
+//-(void)addItemToCurrent:(NSDate *)date{
+//    [currentUser addItem:date];
+//}
+//-(void)addItem:(NSDate *)date{
+//    [Item itemWithId:[date timeIntervalSince1970]];
+//}
+//// dateでItemから呼び出し
+//-(Item *)loadItemFromCurrent:(NSDate *)date{
+//    return [currentUser loadItem:date];
+//}
+//
+//-(Item *)loadItem:(NSDate *)date{
+//    return [Item loadItem:[date timeIntervalSince1970]];
+//}
 //--------------------------------------------------------------------------------
 
 // アイテムリストにアイテムを挿入
 -(void)insertItem:(Item *)item{
-    [self.itemList addObject:item];
-//    [self.itemList insertObject:item atIndex:[self index]];
+    if (!array)
+        array = [NSMutableArray array];
+    [array addObject:item];
+    [self saveItemList];
 }
 
 //挿入位置を返す
@@ -93,7 +118,7 @@ static User *currentUser;
     return self.itemList.count;
 }
 
-
+//--------------------------------------------------------------------------------
 
 // アイテムのソート
 // ソートされたアイテムの操作

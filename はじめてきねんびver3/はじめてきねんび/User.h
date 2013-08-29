@@ -16,7 +16,8 @@
 @property (readonly) int userId;
 @property (strong) NSDate *birthday;
 @property (strong) NSData *image;
-@property (strong) NSMutableArray *itemList;
+@property (strong ) NSMutableArray *itemList;
+
 +(User *)getCurrentUser;
 +(User *)loadUser:(int)targetUserId;
 -(void)addItemToCurrent:(NSDate *)date;
@@ -34,7 +35,8 @@ enum USER_KEY {
 	USER_KEY_USERID = 0,
 	USER_KEY_NAME,
 	USER_KEY_BIRTHDAY,
-	USER_KEY_IMAGE
+	USER_KEY_IMAGE,
+	USER_KEY_ITEM_LIST
 };
 
 #endif

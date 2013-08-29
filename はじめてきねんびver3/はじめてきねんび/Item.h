@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DataModel.h"
 
-@interface Item : DataModel　{
+@interface Item : DataModel<NSCoding>{
 }
 
 @property NSString *title;
@@ -20,10 +20,16 @@
 
 @property (readonly) int itemId;
 
+//--------------------------------------------------------------------------------
+@property (nonatomic, strong) NSString *name;
+
+//--------------------------------------------------------------------------------
+
 +(Item *)getCurrentItem;
 +(Item *)loadItem:(int)targetItemId;
 -(void )saveItem:(NSString *)title andMessage:(NSString *)message andName:(NSString *)imageName;
 +(Item *)itemWithId:(int)targetItemId;
+
 
 
 @end
