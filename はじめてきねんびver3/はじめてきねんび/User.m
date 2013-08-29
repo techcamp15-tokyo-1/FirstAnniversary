@@ -85,7 +85,7 @@ static User *currentUser;
 // アイテムリストにアイテムを挿入
 -(void)insertItem:(Item *)item{
     [self.itemList addObject:item];
-    [self.itemList insertObject:item atIndex:[self index]];
+//    [self.itemList insertObject:item atIndex:[self index]];
 }
 
 //挿入位置を返す

@@ -81,8 +81,10 @@ NSData *imageData;
 - (IBAction)regist:(id)sender {
     
     Item *item = [[Item alloc]init];
-    item.title = self.textFieldTitle.text;
-    item.message = self.textFieldMessage.text;
+    if(!self.textFieldTitle.text)
+        item.title = self.textFieldTitle.text;
+    if(!self.textFieldMessage.text)
+        item.message = self.textFieldMessage.text;
     item.date = date;
     item.imageName = [[FileManager getInstance] convertDateToString:date];
     FileManager *fm = [FileManager getInstance];

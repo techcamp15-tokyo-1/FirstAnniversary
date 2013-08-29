@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DataModel.h"
 
-@interface Item : DataModel{
+@interface Item : DataModel　{
 }
 
 @property NSString *title;

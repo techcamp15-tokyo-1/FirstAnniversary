@@ -38,10 +38,10 @@ User *user;
     //ユーザ情報の取得
     user = [User getCurrentUser];
     //画像データを配列に
-    items = [NSMutableArray array];
-    Item *item = [[Item alloc]init];
-    item.date = user.birthday;
-    [items addObject:[UIImage imageWithData:user.image]];
+//    items = [NSMutableArray array];
+//    Item *item = [[Item alloc]init];
+//    item.date = user.birthday;
+//    [items addObject:[UIImage imageWithData:user.image]];
 
     
 
@@ -54,17 +54,17 @@ User *user;
 //////////////////////////////
     
     // サンプルデータの読み込み
-    items = [self loadItems];
+//    items = [self loadItems];
 }
-
-//データ読み込みメソッド
--(NSMutableArray *)loadItems{
-    NSMutableArray *array = [NSMutableArray array];
-    for (Item * item in user.itemList){
-        [array addObject:item];
-    }
-    return array;
-}
+//
+////データ読み込みメソッド
+//-(NSMutableArray *)loadItems{
+//    NSMutableArray *array = [NSMutableArray array];
+//    for (Item * item in user.itemList){
+//        [array addObject:item];
+//    }
+//    return array;
+//}
 
 //-(NSMutableArray *)loadArrayOfDate (NSMutableArray *)arrayOfDate addItem:(Item *)item{
 //    NSDateFormatter *df = [[NSDateFormatter alloc]init];
@@ -86,7 +86,7 @@ User *user;
 //セルの個数を設定　+1　は最後のRightCellの分
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return items.count + 1;
+    return user.itemList.count + 1;
 }
 
 //セル関連
