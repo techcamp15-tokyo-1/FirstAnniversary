@@ -24,7 +24,7 @@
     
     [self createDirNamedOfUserId];
     
-    NSString *savedPath = [NSString stringWithFormat:@"%@",[[self getCurrentUserDirForPath] stringByAppendingPathComponent: [NSString stringWithFormat:@"/%@",dateString]]];
+    NSString *savedPath = [NSString stringWithFormat:@"%@",[[self getCurrentUserDirForPath] stringByAppendingPathComponent:dateString]];
     [imageData writeToFile:savedPath atomically:YES];
 }
 
@@ -34,7 +34,7 @@
     NSArray *cacheDirArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *userIdAsString = [NSString stringWithFormat:@"%d",user.userId];
     NSString *currentUserPath = [NSString stringWithFormat:@"%@",
-                                 [[cacheDirArray objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@", userIdAsString]]];
+                                 [[cacheDirArray objectAtIndex:0] stringByAppendingPathComponent:userIdAsString]];
     NSLog(@"%@",currentUserPath);
     return  currentUserPath;
 }
