@@ -11,7 +11,7 @@
 @implementation User
 
 static User *currentUser;
-static NSMutableArray *array;
+NSMutableArray *array;
 +(User *)getCurrentUser {
     return currentUser;
 }
@@ -88,28 +88,12 @@ static NSMutableArray *array;
     [super saveData:dataArray WithKeyId:USER_KEY_ITEM_LIST];
 }
 
-//// dateでItemに保存
-//-(void)addItemToCurrent:(NSDate *)date{
-//    [currentUser addItem:date];
-//}
-//-(void)addItem:(NSDate *)date{
-//    [Item itemWithId:[date timeIntervalSince1970]];
-//}
-//// dateでItemから呼び出し
-//-(Item *)loadItemFromCurrent:(NSDate *)date{
-//    return [currentUser loadItem:date];
-//}
-//
-//-(Item *)loadItem:(NSDate *)date{
-//    return [Item loadItem:[date timeIntervalSince1970]];
-//}
-//--------------------------------------------------------------------------------
 
 // アイテムリストにアイテムを挿入
 -(void)insertItem:(Item *)item{
     if (!array)
         array = [NSMutableArray array];
-    [array addObject:item];
+    [array insertObject:item atIndex:[self index]];
     [self saveItemList];
 }
 
@@ -117,6 +101,22 @@ static NSMutableArray *array;
 -(int)index{
     return self.itemList.count;
 }
+
+//0番目に孫入（ユーザ設定で使用）
+
+//ユーザ情報が変更されたらitemListを初期化
+
+
+//itemListの指定インデックスをremove
+
+
+//itemListの指定インデックスをupdate
+-(void)updateItem:(Item *)item atIndex:(int)index{
+    [array insertObject:item atIndex:index];
+    [self saveItemList];
+}
+
+
 
 //--------------------------------------------------------------------------------
 
