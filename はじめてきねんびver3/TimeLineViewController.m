@@ -69,6 +69,8 @@ User *user;
 //セルを生成
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     CustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self identifierWithIndexPath:indexPath] forIndexPath:indexPath];
     [self setInformationWithIndexPath:indexPath :cell];
     [cell button].tag = indexPath.row;
@@ -78,7 +80,46 @@ User *user;
 - (void)setInformationWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
     Item *item;
     NSDate *date;
+    //-デモ用データ-------------------------------------------------------------------------------
+    NSArray *dates = [NSArray arrayWithObjects:
+                      @"1993/01/06",
+                      @"1993/01/10",
+                      @"1993/01/15",
+                     @"1993/01/26",
+                     @"1993/02/27",
+                     @"1993/03/19",
+                     @"1993/04/02",
+                     @"1993/04/16",
+                     @"1993/04/29",
+                     @"1993/04/30",
+                     @"1993/05/01",
+                     @"1993/05/02",
+                     @"1993/05/03",
+                     @"1993/05/04",
+                     @"1993/05/05",
+                     @"1993/05/06",
+                     @"1993/07/08",
+                     nil] ;
+    NSArray *days = [NSArray arrayWithObjects:
+                     [NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name],
+                     @"4日",
+                     @"9日",
+                     @"20日",
+                     @"55日",
+                     @"75日",
+                     @"89日",
+                     @"103日",
+                     @"116日",
+                     @"117日",
+                     @"118日",
+                     @"119日",
+                     @"120日",
+                     @"121日",
+                     nil];
     
+    
+    //--------------------------------------------------------------------------------
+
     if ( indexPath.row == 0){
         NSLog(@"No.%d",indexPath.row);
         item = [user.itemList objectAtIndex:indexPath.item];
@@ -96,9 +137,13 @@ User *user;
         date = item.date;
         [cell setImage:[UIImage imageWithContentsOfFile:[[FileManager getInstance] createPathByImageName:item.imageName]]];
     }
-    [cell setDate:date];
-    //
-//   [cell setDays:date addBirrhday:user.birthday];
+    //デモ用
+    [cell setDays_str:[days objectAtIndex:indexPath.row]];
+    [cell setDate_str:[dates objectAtIndex:indexPath.row]];
+    
+//    [cell setDate:date];
+//    [cell setDays:date addBirrhday:user.birthday];
+    
 }
 
 // identifier の分岐

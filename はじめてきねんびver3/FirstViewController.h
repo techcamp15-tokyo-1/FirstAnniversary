@@ -11,6 +11,7 @@
 #import "SettingViewController.h"
 #import "FileManager.h"
 #import "EditViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #ifndef CAMERA_TAB
 #define CAMERA_TAB 3
@@ -36,6 +37,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;
 
+@property (weak, nonatomic) IBOutlet UIButton *timeline;
+@property (weak, nonatomic) IBOutlet UIButton *films;
 
 @property NSString *personName;//Taro
 @property NSString *createdPersonDirPath;//TaroのPath

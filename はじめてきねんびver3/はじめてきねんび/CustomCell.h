@@ -19,5 +19,6 @@
 //- (void)setDays:(NSDate *)date addBirrhday:(NSDate *)birhday;
 - (UIButton *) button;
 - (void)setDays_str:(NSString *)str;
+-(void)setDate_str:(NSString *)str;
 
 @end

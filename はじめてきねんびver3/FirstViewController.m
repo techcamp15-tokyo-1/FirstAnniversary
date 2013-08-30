@@ -33,6 +33,11 @@
         int currentId = [defaults integerForKey:@"currentId"];
         user = [User loadUser:currentId];
     }
+    // 枠線の色
+    [[self.timeline layer] setBorderColor:[[UIColor blackColor] CGColor]];
+    // 枠線の太さ
+    [[self.timeline layer] setBorderWidth:3.0];
+
     
 	//ナビゲーションバーの色を変える
 //    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
