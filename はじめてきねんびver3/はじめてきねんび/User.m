@@ -10,64 +10,118 @@
 
 @implementation User
 
-
 static User *currentUser;
-
+NSMutableArray *array;
 +(User *)getCurrentUser {
     return currentUser;
 }
++(User *)userWithId:(int)targetUserId {
+	User *user = (User *)[self dataWithId:targetUserId];
+	user.name = USER_NO_NAME;
+	user.userId = targetUserId;
+	
+	return user;
+}
++(User *)loadUser:(int)targetUserId {
+	User *user = (User *)[super loadData:targetUserId];
+	if (!user) user = [User userWithId:targetUserId];
+	currentUser = user;
+	
+	return user;
+}
 
-+(User *)loadUser:(int) targetUserId {
-    User *user = [[User alloc] init];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary *dict = [defaults objectForKey:[NSString stringWithFormat:@"%d", targetUserId]];
-    
-    if (dict) {
-        [user setDictionary:dict];
-    } else {
-        [user initializeWithUserID:targetUserId];
-    }
-    currentUser = user;
-    return user;
-}
--(void)initializeWithUserID:(int)userId{
-    _dict = [[NSMutableDictionary alloc] init];
-    [self setUserId:userId];
-    self.name = NO_NAME;
-}
+//ユーザーID
 -(void)setUserId:(int)userId {
-    [_dict setValue:[NSString stringWithFormat:@"%d", userId] forKey:@"userId"];
-    [self saveData];
+	NSString *userId_str = [NSString stringWithFormat:@"%d", userId];
+    [super saveData:userId_str WithKeyId:USER_KEY_USERID];
 }
 -(int)userId {
-    NSString *userID_str = [_dict valueForKey:@"userId"];
-    return userID_str.intValue;
-}
--(void)setName:(NSString *)name{
-    [_dict setObject:name forKey:@"name"];
-    [self saveData];
-}
--(NSString *)name {
-    return [_dict valueForKey: @"name"];
-}
--(void)setBirthday:(NSString *)birthday{
-    [_dict setObject:birthday forKey:@"birthday"];
-    [self saveData];
-}
--(NSString *)birthday {
-    return [_dict valueForKey: @"birthday"];
-}
--(void)setDictionary:(NSMutableDictionary *)dict{
-    _dict = [NSMutableDictionary dictionaryWithDictionary:dict];
+	NSString *userId_str = [super dataWithKeyId:USER_KEY_USERID];
+    return userId_str.intValue;
 }
 
--(void) saveData {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    //selfをまるごとdefaultに保存
-    NSString *key = [NSString stringWithFormat:@"%d", self.userId];
-    NSLog(@"SAVE: userID = %d", self.userId);
-    [defaults setObject:_dict forKey:key];
+//名前
+-(void)setName:(NSString *)name{
+    [super saveData:name WithKeyId:USER_KEY_NAME];
 }
+-(NSString *)name {
+    return [super dataWithKeyId:USER_KEY_NAME];
+}
+
+//誕生日
+-(void)setBirthday:(NSString *)birthday{
+    [super saveData:birthday WithKeyId:USER_KEY_BIRTHDAY];
+}
+-(NSString *)birthday {
+    return [super dataWithKeyId:USER_KEY_BIRTHDAY];
+}
+
+//はじめての画像
+-(void)setImage:(NSData *)image{
+    [super saveData:image WithKeyId:USER_KEY_IMAGE];
+}
+-(NSData *)image {
+    return [super dataWithKeyId:USER_KEY_IMAGE];
+}
+//ItemList
+-(void)setItemList:(NSMutableArray *)itemList{
+    if(!itemList)
+        return;
+    array = itemList;
+    [self saveItemList];
+}
+
+-(NSMutableArray *)itemList {
+    NSMutableArray *dataArray = [super dataWithKeyId:USER_KEY_ITEM_LIST];
+    NSMutableArray *items = [NSMutableArray array];
+    for (NSData *data in dataArray){
+        [items addObject: [NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    }
+    return items;
+}
+
+-(void)saveItemList{
+    NSMutableArray *dataArray = [NSMutableArray array];
+    for ( Item *item in array){
+        [dataArray addObject:[NSKeyedArchiver archivedDataWithRootObject:item]];
+    }
+    [super saveData:dataArray WithKeyId:USER_KEY_ITEM_LIST];
+}
+
+
+// アイテムリストにアイテムを挿入
+-(void)insertItem:(Item *)item{
+    if (!array)
+        array = [NSMutableArray array];
+    [array insertObject:item atIndex:[self index]];
+    [self saveItemList];
+}
+
+//挿入位置を返す
+-(int)index{
+    return self.itemList.count;
+}
+
+//0番目に孫入（ユーザ設定で使用）
+
+//ユーザ情報が変更されたらitemListを初期化
+
+
+//itemListの指定インデックスをremove
+
+
+//itemListの指定インデックスをupdate
+-(void)updateItem:(Item *)item atIndex:(int)index{
+    [array insertObject:item atIndex:index];
+    [self saveItemList];
+}
+
+
+
+//--------------------------------------------------------------------------------
+
+// アイテムのソート
+// ソートされたアイテムの操作
+
+
 @end

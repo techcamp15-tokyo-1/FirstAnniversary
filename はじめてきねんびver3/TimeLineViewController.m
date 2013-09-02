@@ -7,43 +7,21 @@
 //
 
 #import "TimeLineViewController.h"
-#import "CustomCell.h"
-#import "DetailViewController.h"
 
 @interface TimeLineViewController ()
 {
-    NSMutableArray *_objects;
-    NSArray *arrayOfDates;
-    NSArray *arrayOfDays;
-    
+    NSMutableDictionary *objects;
+    NSMutableArray *arrayOfDates;
+    NSMutableArray *arrayOfDays;
+    User *user;
 }
 @property (nonatomic, strong)NSArray *photos;
 
 @end
 
 @implementation TimeLineViewController
-- (void)loadImageData
-{
-    NSMutableArray *samplePhotos = [NSMutableArray array];
-    for (int i = 1; i <= 8; i++) {
-        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
-        [samplePhotos addObject:[UIImage imageNamed:filename]];
-    }
-    self.photos = @[samplePhotos];
-    _objects = samplePhotos;
-}
-- (void)loadlabelDate
-{
-    //日付を読み込む
-    arrayOfDates=[[NSArray alloc]initWithObjects:@"2013/8/13",@"2013/8/14",@"2013/8/15",@"2013/8/16",@"2013/8/17",@"2013/8/17",@"2013/8/17",@"2013/8/17", nil];
-    
-}
-- (void)loadlabelDays
-{
-    //日数を設定読み込むor計算する
-    arrayOfDays=[[NSArray alloc]initWithObjects:@"3days",@"4days",@"5days",@"6days",@"7days",@"8days",@"9days", nil];
-    
-}
+NSMutableArray *items;
+User *user;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,76 +30,82 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // サンプルデータの読み込み
-    [self loadImageData];
-    //[self loadlabelDate];
-    //[self loadlabelDays];
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    self.collectionView .backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
+    //ユーザ情報の取得
+    user = [User getCurrentUser];
     
 
-    
+//--------------------------------------------------------------------------------
+
+//    for (int i = 1; i <= 8; i++) {
+//        NSString *filename = [NSString stringWithFormat:@"p%d.jpg", i];
+//        [array addObject:[UIImage imageNamed:filename]];
+//    }
+//--------------------------------------------------------------------------------
+
+    // サンプルデータの読み込み
+//    items = [self loadItems];
 }
+//
+
+
+//CollectionViewControllerに関するメソッド
+//セクションの数　今回は１つ
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
-
+//セルの個数を設定　+1　は最後のRightCellの分
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _objects.count+1;
+    return user.itemList.count + 1;
 }
 
+//セル関連
+//セルを生成
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self identifierWithIndexPath:indexPath] forIndexPath:indexPath];
-    [self setImageWithIndexPath:indexPath :cell];
+    [self setInformationWithIndexPath:indexPath :cell];
     [cell button].tag = indexPath.row;
-   // [cell setDate:?:[_objects objectAtIndex:indexPath.item]];
-   // [cell setImage:[_objects objectAtIndex:indexPath.item]];
     return cell;
 }
+//セルのオブジェクトにセット
+- (void)setInformationWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
+    Item *item;
+    NSDate *date;
+    
+    if ( indexPath.row == 0){
+        NSLog(@"No.%d",indexPath.row);
+        item = [user.itemList objectAtIndex:indexPath.item];
+        date = item.date;
+    
+        [cell setImage:[UIImage imageWithContentsOfFile:[[FileManager getInstance] createPathByImageName:item.imageName]]];
+        date = user.birthday;
+        [cell setDays_str:[NSString stringWithFormat:@"はじめまして\n%@\nさん",user.name]];
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // 横方向のみ回転を許可する
-    if ((interfaceOrientation == UIInterfaceOrientationLandscapeRight) ||
-        (interfaceOrientation == UIInterfaceOrientationLandscapeLeft)) {
-        return YES;
-    } else {
-        return NO;
     }
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-   // NSLog(@"%d",((CustomCell *)[sender parentViewController]).tag);
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        UIImage *img = _objects[((UIButton *)sender).tag];
-        [[segue destinationViewController] setDetailItem:img];
-        
+    else if (indexPath.row == user.itemList.count)NSLog(@"No.%d",indexPath.row);
+    else{
+        NSLog(@"No.%d",indexPath.row);
+        item = [user.itemList objectAtIndex:indexPath.item];
+        date = item.date;
+        [cell setImage:[UIImage imageWithContentsOfFile:[[FileManager getInstance] createPathByImageName:item.imageName]]];
     }
+    [cell setDate:date];
+    //
+//   [cell setDays:date addBirrhday:user.birthday];
 }
 
 // identifier の分岐
 - (NSString *)identifierWithIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0)
         return @"LeftCell";
-    else if (indexPath.row == _objects.count)
+    else if (indexPath.row == user.itemList.count)
         return @"RightCell";
     else if(indexPath.row % 2 == 0)
         return @"DownCell";
@@ -129,18 +113,63 @@
         return @"UpCell";
     return nil;
 }
-- (void)setImageWithIndexPath:(NSIndexPath *)indexPath : (CustomCell *) cell {
-    if (indexPath.row == _objects.count){
-        
-    }else{
-        [cell setImage:[_objects objectAtIndex:indexPath.item]];
-        
+
+//詳細表示にセグエ
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        Item *item = user.itemList[((UIButton *)sender).tag];
+        DetailViewController *nextVC = [segue destinationViewController];
+        nextVC.detailItem = item;
     }
-            
 }
 
+
+//？？？？？？？
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 - (IBAction)imageButton:(id)sender {
-    
+}
+
+// フォトライブラリー起動
+- (IBAction)libraryButtonTapped:(id)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+	{
+		UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+		[imagePickerController setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+		[imagePickerController setAllowsEditing:YES];
+		[imagePickerController setDelegate:self];
+		
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+        
+	}
+	else
+	{
+		NSLog(@"Photo library invalid.");
+	}
     
 }
+
+//回転処理が存在するかどうかを返す
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+//回転する方向を指定
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
 @end

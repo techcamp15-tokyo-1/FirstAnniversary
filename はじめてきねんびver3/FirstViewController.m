@@ -7,10 +7,13 @@
 //
 
 #import "FirstViewController.h"
-#import <MobileCoreServices/MobileCoreServices.h>
-#import "SettingViewController.h"
 
 @implementation FirstViewController
+@synthesize pictureImage;
+@synthesize personName;
+@synthesize createdPersonDirPath;
+@synthesize dateString;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,15 +23,10 @@
     }
     return self;
 }
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    User *user = [User loadUser:item.tag];
-    self.userName.text = user.name;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     User *user = [User getCurrentUser];
     if (!user) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -37,26 +35,99 @@
     }
     
 	//ナビゲーションバーの色を変える
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    
+//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.25f green:0.15f blue:0.0f alpha:0.8f];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
+
     //ユーザー切り替えをハンドリングする
     int i = 0;
-    for (UITabBar *tab in self.userTab.items) tab.tag=i++;
+    for (UITabBar *tab in self.userTab.items) {
+        tab.tag=i++;
+    }
     self.userTab.selectedItem = self.userTab.items[user.userId];
     self.userTab.delegate = self;
     
     //ナビゲーション切り替えをハンドリングする
     self.uIBarButtonItem.target = self;
     self.uIBarButtonItem.action = @selector(barButtonTap);
+    //    [self paintBackgroundColor: user.userId];
+    
     
     //ユーザの名前を出す
     if ([user.name length] == 0 )
         self.userName.text = @"未設定";
     else
         self.userName.text = user.name;
+    self.userImage.image = [[UIImage alloc]initWithData:user.image];
+    UITabBarItem *tbi;
+    int tmp = user.userId;
+    for (int i = 0 ; i < 3 ; i++){
+        tbi = [self.userTab.items objectAtIndex:i];
+        tbi.title = [User loadUser:i].name;
+    }
+    user = [User loadUser:tmp];
     
-    NSLog(@" %@",user.name);
+}
+// 写真を撮影した後
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    User *user = [User getCurrentUser];
+	// オリジナル画像
+	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+	// 編集画像
+	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+	editedImage = editedImage ? editedImage : originalImage;
     
+    FileManager *fm = [FileManager getInstance];
+    NSLog([fm createDirNamedOfUserId] ? @"SUCCESS" : @"ERR");
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
+    NSDate *now =[NSDate date];
+    [fm saveImageData:imageData andDate:[NSDate date]];
+    
+	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+        
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //nsuserdefaultでデータをもちいて送信
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *dict =[NSMutableDictionary dictionary];
+    NSData *data = UIImageJPEGRepresentation(editedImage, 0.8f);
+    [dict setObject:data forKey:TMP_IMAGE];
+    [dict setObject:now forKey:TMP_DATE];
+    [defaults setObject:dict forKey:TMP];
+    
+    
+    
+    //画面遷移
+    [self performSegueWithIdentifier:@"toEditView" sender:nil];
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    if ( item.tag == CAMERA_TAB ){
+        self.userTab.selectedItem = self.userTab.items[[User getCurrentUser].userId];
+ //       [self openCam:item];
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+            // カメラかライブラリからの読込指定。カメラを指定。
+            [imagePickerController setSourceType:UIImagePickerControllerSourceTypeCamera];
+            // トリミングなどを行うか否か
+            [imagePickerController setAllowsEditing:YES];
+            // Delegate
+            [imagePickerController setDelegate:self];
+            
+            // アニメーションをしてカメラUIを起動
+            [self presentViewController:imagePickerController animated:YES completion:nil];
+        }
+        else
+        {
+            NSLog(@"Camera invalid.");
+        }
+    
+    }else{
+        User *user = [User loadUser:item.tag];
+        self.userName.text = user.name;
+        self.userImage.image = [[UIImage alloc]initWithData:user.image];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,25 +136,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)openCam:(id)sender {
-    UIImagePickerController *controller = [[UIImagePickerController alloc]init];
-    controller.delegate = self;
-    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
-    controller.mediaTypes = @[(__bridge NSString *)kUTTypeImage];
-    
-    //UI表示
-    [self presentViewController:controller animated:YES completion:^{}];
-    
-}
-
-//UIImagePickerControllerでの撮影が終わった後に呼び出される
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//回転処理が存在するかどうかを返す
+- (BOOL)shouldAutorotate
 {
-    //撮影UIを画面から取り除く
-    [picker dismissViewControllerAnimated:YES completion:^{}];
-    
+    return YES;
 }
 
+//回転する方向を指定
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (IBAction)historyPushd:(id)sender{
+        User *user = [User getCurrentUser];
+        if ([user.name isEqualToString:USER_NO_NAME]){
+            UIAlertView *alert = [[UIAlertView alloc]init];
+            alert.title = @"設定からユーザを登録してください";
+            alert.message = nil;
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            return;
+        }
+    [self performSegueWithIdentifier:@"toTimeLine" sender:nil];
+        
+    
+    
+}
 
 @end

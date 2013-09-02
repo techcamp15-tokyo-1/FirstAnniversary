@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
+#import "FileManager.h"
 
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

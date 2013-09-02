@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCell.h"
+#import "DetailViewController.h"
+#import "User.h"
+#import "FileManager.h"
 
-@interface TimeLineViewController : UICollectionViewController
+
+
+@interface TimeLineViewController : UICollectionViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 - (IBAction)imageButton:(id)sender;
-
+- (IBAction)libraryButtonTapped:(id)sender;
 @end
