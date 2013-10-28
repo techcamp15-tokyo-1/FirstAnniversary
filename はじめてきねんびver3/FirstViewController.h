@@ -10,6 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SettingViewController.h"
 #import "FileManager.h"
+#import "EditViewController.h"
 
 #ifndef CAMERA_TAB
 #define CAMERA_TAB 3
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITabBar *userTab;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 
+- (IBAction)historyPushd:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *uIBarButtonItem;
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImage;

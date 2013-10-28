@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     User *user = [User getCurrentUser];
     if (!user) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -34,8 +35,10 @@
     }
     
 	//ナビゲーションバーの色を変える
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    
+//    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.25f green:0.15f blue:0.0f alpha:0.8f];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
+
     //ユーザー切り替えをハンドリングする
     int i = 0;
     for (UITabBar *tab in self.userTab.items) {
@@ -68,6 +71,7 @@
 // 写真を撮影した後
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    User *user = [User getCurrentUser];
 	// オリジナル画像
 	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
 	// 編集画像
@@ -77,15 +81,24 @@
     FileManager *fm = [FileManager getInstance];
     NSLog([fm createDirNamedOfUserId] ? @"SUCCESS" : @"ERR");
     NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
+    NSDate *now =[NSDate date];
     [fm saveImageData:imageData andDate:[NSDate date]];
     
 	if(picker.sourceType == UIImagePickerControllerSourceTypeCamera)
         
     [self dismissViewControllerAnimated:YES completion:nil];
+    //nsuserdefaultでデータをもちいて送信
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *dict =[NSMutableDictionary dictionary];
+    NSData *data = UIImageJPEGRepresentation(editedImage, 0.8f);
+    [dict setObject:data forKey:TMP_IMAGE];
+    [dict setObject:now forKey:TMP_DATE];
+    [defaults setObject:dict forKey:TMP];
+    
+    
+    
     //画面遷移
     [self performSegueWithIdentifier:@"toEditView" sender:nil];
-    
-    
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -133,6 +146,22 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (IBAction)historyPushd:(id)sender{
+        User *user = [User getCurrentUser];
+        if ([user.name isEqualToString:USER_NO_NAME]){
+            UIAlertView *alert = [[UIAlertView alloc]init];
+            alert.title = @"設定からユーザを登録してください";
+            alert.message = nil;
+            [alert addButtonWithTitle:@"OK"];
+            [alert show];
+            return;
+        }
+    [self performSegueWithIdentifier:@"toTimeLine" sender:nil];
+        
+    
+    
 }
 
 @end

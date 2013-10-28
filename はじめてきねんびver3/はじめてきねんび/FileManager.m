@@ -18,11 +18,9 @@
 
 -(void )saveImageData:(NSData *)imageData
           andDate:(NSDate *)date{
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @"yyyyMMddHHmmss";
-    NSString *dateString = [df stringFromDate:date];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:@{TMP_DATE: date, TMP_IMAGE: imageData} forKey:TMP];
+    NSString *dateString =  [self convertDateToString:date];
     
     [self createDirNamedOfUserId];
     
@@ -47,6 +45,17 @@
                   withIntermediateDirectories:YES
                                    attributes:nil
                                         error:nil];
+}
+- (NSString *)convertDateToString:(NSDate *)date{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yyyyMMddHHmmss";
+    return [df stringFromDate:date];
+    
+}
+
+- (NSString *)createPathByImageName :(NSString *)imageName  {
+    return [NSString stringWithFormat:@"%@/%@",[self getCurrentUserDirForPath],imageName];
+    
 }
 
 

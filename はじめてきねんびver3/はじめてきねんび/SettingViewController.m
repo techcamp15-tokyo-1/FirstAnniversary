@@ -45,12 +45,30 @@ int userId;
 - (IBAction)saveInformation:(id)sender {
     int validation = [self isUserInformationValidate];
     if (validation == SUCCESS) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"確認"
+                              message:@"変更すると全データが消去されますがよろしいですか？"
+                              delegate:nil
+                              cancelButtonTitle:@"cancel"
+                              otherButtonTitles:@"OK", nil
+                             ];
+        [alert show];
         user.name = self.textfield.text;
         user.birthday = self.userBirthday.date;
+        //
+        Item *item = [[Item alloc]init];
+        item.title = @"hello";
+        item.message = @"world";
+        item.date = user.birthday;
+        item.imageName = [[FileManager getInstance] convertDateToString:user.birthday];
+        [user insertItem:item];
+        
+        
+        
     } else {
         [self errorMessage:validation];
-        
     }
+    
 }
 
 - (IBAction)openCamera:(id)sender {
@@ -108,6 +126,7 @@ int userId;
     }
 }
 
+
 //撮影後
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -115,13 +134,10 @@ int userId;
 	UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
 	// 編集画像
 	UIImage *editedImage = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
-    UIImage *saveImage;
-    NSData *imageData ;
-	if(editedImage) saveImage = editedImage ;
-	else            saveImage = originalImage;
-    imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(saveImage, 0.8f)];
+    editedImage = editedImage ? editedImage : originalImage;
+    NSData *imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(editedImage, 0.8f)];
     user.image = imageData;
-    
+    [[FileManager getInstance] saveImageData:imageData andDate: user.birthday];
 	[self dismissViewControllerAnimated:YES completion:nil];
 //    self.userImage.contentMode = UIViewContentModeScaleAspectFit;
     self.userImage.image  = [[UIImage alloc] initWithData:user.image] ;
@@ -129,6 +145,7 @@ int userId;
 //    [self.userImage sizeToFit];
     
 }
+
 
 
 //閉じたときキーボードをしまう
@@ -142,17 +159,12 @@ int userId;
     [super viewDidLoad];
     
     self.textfield.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"corkboard.jpg"]];
 
     // 言語は日本語(iOSの設定の書式に該当)
     self.userBirthday.datePickerMode = UIDatePickerModeDate;
     self.userBirthday.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja_JP"];
     
-//    //誕生日を表示
-//    if ([[self.defaults stringForKey:@"birthday"] length] == 0 ){
-//        [labelBirthday setText:@"Pleas input the birthday"];
-//    }else{
-//        [labelBirthday setText:[self.defaults stringForKey:@"birthday"]];
-//    }
     
     defaults = [NSUserDefaults standardUserDefaults];
     

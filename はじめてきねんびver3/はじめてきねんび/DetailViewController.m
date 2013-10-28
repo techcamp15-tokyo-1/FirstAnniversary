@@ -13,7 +13,6 @@
 @end
 
 @implementation DetailViewController
-
 #pragma mark - Managing the detail item
 
 - (void)viewDidLoad
@@ -31,7 +30,7 @@
         _detailItem = newDetailItem;
         
         // Update the view.
-        [self configureView];
+//        [self configureView];
     }
 }
 
@@ -40,10 +39,22 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailImageView.image = (UIImage*)_detailItem;
+        Item *item = (Item *)_detailItem;
+        NSString *path = [[FileManager getInstance] createPathByImageName:item.imageName];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        self.detailImageView.image = image;
+        self.navigationItem.title = item.title;
     }
 }
 
+//編集表示にセグエ
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    EditViewController *nextVC = [segue destinationViewController];
+    nextVC.editItem = self.detailItem;
+    nextVC.isCamera = NO;
+
+}
 
 
 - (void)didReceiveMemoryWarning
