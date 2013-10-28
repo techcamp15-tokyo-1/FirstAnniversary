@@ -1,0 +1,21 @@
+//
+// Prefix header for all source files of the 'はじめてきねんび' target in the 'はじめてきねんび' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+///* ここから追加 */
+//#ifdef __cplusplus
+//#import <opencv2/opencv.hpp>
+//#endif
+///* ここまで追加 */
+
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
