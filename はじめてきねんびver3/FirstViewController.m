@@ -33,6 +33,11 @@
         int currentId = [defaults integerForKey:@"currentId"];
         user = [User loadUser:currentId];
     }
+    // 枠線の色
+    [[self.timeline layer] setBorderColor:[[UIColor blackColor] CGColor]];
+    // 枠線の太さ
+    [[self.timeline layer] setBorderWidth:3.0];
+
     
 	//ナビゲーションバーの色を変える
 //    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
@@ -94,9 +99,15 @@
     [dict setObject:data forKey:TMP_IMAGE];
     [dict setObject:now forKey:TMP_DATE];
     [defaults setObject:dict forKey:TMP];
+<<<<<<< HEAD
     
     
     
+=======
+    
+    
+    
+>>>>>>> c790d9e6035e54d720f2190c24558fc269bf64db
     //画面遷移
     [self performSegueWithIdentifier:@"toEditView" sender:nil];
 }
